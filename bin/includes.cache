@@ -1,0 +1,47 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/variants/feather_m0"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/test.ino.cpp",
+    "Include": "Adafruit_BNO055.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/Adafruit_BNO055"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/test.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Wire"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/test.ino.cpp",
+    "Include": "Adafruit_Sensor.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/Adafruit_Unified_Sensor"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/test.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/Adafruit_BNO055/Adafruit_BNO055.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Wire/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
