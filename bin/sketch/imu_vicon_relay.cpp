@@ -1,71 +1,35 @@
-#include "imu_vicon_relay.hpp"
-
-// For the IMU
-#include <Wire.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BNO055.h>
-// For the LoRa
-#include <SPI.h>
-#include <LoRa.h>
+#line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_relay.cpp"
 #include <math.h>
+#include "imu_vicon_relay.hpp"
+#include <LoRa.h>
 
-#include "pose.hpp"
 
-// Size of lora buffer
-constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
-
-struct LoRaViconReceiver
+ImuViconRelay::ImuViconRelay(int32_t imu_sensor_id /* = SENSOR_ID */,
+                             uint8_t imu_address /* = IMU_ADDRESS */,
+                             TwoWire *imu_wire /* = &Wire */,
+                             double lora_freq /* = RF95_FREQ */,
+                             uint8_t lora_cs /* = RFM95_CS */,
+                             uint8_t lora_rst /* = RFM95_RST */,
+                             uint8_t lora_int /* = RFM95_INT */)
 {
-    uint8_t lora_buffer[POSE_MSG_SIZE];
-
-    rexlab::Pose<int16_t> vicon_int16;
-    rexlab::Pose<float> vicon_float;
-
-    bool new_msg;
-};
-
-struct ImuVicon
-{
-    // IMU data
-    sensors_event_t imu_event;
-    Adafruit_BNO055 imu;
-    // Vicon Data
-    LoRaViconReceiver vicon;
-};
-
-// Global Variables
-ImuVicon global_receiver;
-
-
-bool initializeImuViconReceiver()
-{
-    rexlab::Pose<float> vicon_float;
-    rexlab::Pose<int16_t> vicon_int16;
-
-    // Initialize global variable
-    global_receiver.vicon.vicon_float = vicon_float;
-    global_receiver.vicon.vicon_int16 = vicon_int16;
-    global_receiver.vicon.msg_size = msg_size;
-    global_receiver.vicon.buf = buf;
-    global_receiver.vicon.new_msg = false;
+    this->_new_imu = false;
+    this->_new_vicon = false;
 
     // Setup LoRa Communications
-    LoRa.setPins(RFM95_CS, RFM95_RST, RFM95_INT);
+    LoRa.setPins(lora_cs, lora_rst, lora_int);
     if (!LoRa.begin(915E6))
     {
         Serial.println("Starting LoRa failed!");
-        while (1){}
+        while (true) {};
     }
 
     // Optimal speed settings
     LoRa.setSpreadingFactor(6);
     LoRa.setSignalBandwidth(500E3);
 
-    LoRa.onReceive(onLoRaReceive);
-    LoRa.receive(global_receiver.vicon.msg_size);
+    LoRa.onReceive(this->onLoRaReceive);
+    LoRa.receive(POSE_MSG_SIZE);
     LoRa.enableCrc();
-
-    return true;
 }
 
 void ConvertPoseToVicon(const rexlab::Pose<float> &pose, IMU_VICON *imu_vicon)
@@ -80,37 +44,39 @@ void ConvertPoseToVicon(const rexlab::Pose<float> &pose, IMU_VICON *imu_vicon)
     imu_vicon->time = static_cast<double>(pose.time_us) / 1e6;
 }
 
-void updateVicon(IMU_VICON &imu_vicon)
-{
-    ConvertPoseIntToFloat(global_receiver.vicon_int16, &global_receiver.vicon_float);
-    ConvertPoseToVicon(global_receiver.vicon_float, &imu_vicon);
-    global_receiver.new_msg = false;
-}
+// void updateVicon(IMU_VICON &imu_vicon)
+// {
+//     ConvertPoseIntToFloat(global_receiver.vicon.vicon_int16, &global_receiver.vicon.vicon_float);
+//     ConvertPoseToVicon(global_receiver.vicon.vicon_float, &imu_vicon);
+//     global_receiver.vicon.new_msg = false;
+// }
 
-void onLoRaReceive(int packetSize)
+void ImuViconRelay::onLoRaReceive(int packetSize)
 {
     if (packetSize)
     {
-        LoRa.readBytes(global_receiver.buf, global_receiver.msg_size);
-        // Serial.write(global_receiver.buf, global_receiver.msg_size);
-        global_receiver.vicon_int16 = *((rexlab::Pose<int16_t> *)global_receiver.buf);
-
-        global_receiver.new_msg = true;
+        LoRa.readBytes(this->_lora_buffer, POSE_MSG_SIZE);
+        this->_vicon_int16 = * ((rexlab::Pose<int16_t> *) this->_lora_buffer);
+        this->_new_vicon = true;
     }
 }
 
-bool hasLoRaReceived()
+bool ImuViconRelay::hasLoRaReceived()
 {
-    return global_receiver.new_msg;
+    return this->_new_vicon;
 }
 
-
-void updateIMU(Adafruit_BNO055 &bno, IMU_VICON &imu_vicon)
+bool ImuViconRelay::hasImuReceived()
 {
-    bno.getEvent(&imu_event);
+    return this->_new_imu;
+}
 
-    imu::Vector<3> gyr = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
-    imu::Vector<3> acc = bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
+void ImuViconRelay::updateIMU(IMU_VICON &imu_vicon)
+{
+    this->_bno.getEvent(&(this->_imu_event));
+
+    imu::Vector<3> gyr = this->_bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
+    imu::Vector<3> acc = this->_bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
     // Populate translational acceleration
     imu_vicon.acc_x = acc.x();
     imu_vicon.acc_y = acc.y();
@@ -145,21 +111,20 @@ void displaySensorReading(Adafruit_BNO055 &bno)
     Serial.println("\n----------------------------------------");
 }
 
-bool calibrateIMU(Adafruit_BNO055 &bno)
+bool ImuViconRelay::calibrateIMU()
 {
-    bno.setExtCrystalUse(true);
-    sensors_event_t event;
+    this->_bno.setExtCrystalUse(true);
 
     adafruit_bno055_offsets_t calibrationData = {15293, 0, 615, 50, 0, 0, 8192, 512, 0, 0, 512};
-    bno.setSensorOffsets(calibrationData);
+    this->_bno.setSensorOffsets(calibrationData);
     Serial.println("Calibration data loaded into BNO055");
     delay(1000);
 
     Serial.println("Checking Sensor Calibration: ");
-    while (!bno.isFullyCalibrated())
+    while (!this->_bno.isFullyCalibrated())
     {
-        bno.getEvent(&event);
-        displayCalStatus(bno);
+        this->_bno.getEvent(&(this->_imu_event));
+        displayCalStatus(this->_bno);
         delay(100);
     }
     Serial.printf("Calibration status: %d", bno.isFullyCalibrated());
@@ -167,7 +132,7 @@ bool calibrateIMU(Adafruit_BNO055 &bno)
     return true;
 }
 
-void displayImuVicon(IMU_VICON &imu_vicon)
+void ImuViconRelay::displayImuVicon(IMU_VICON &imu_vicon)
 {
     /* Display the individual values */
     Serial.println("\n-------------Sensor Reading-------------");

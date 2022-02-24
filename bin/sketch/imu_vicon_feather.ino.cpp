@@ -1,4 +1,4 @@
-# 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 /**
  * @file IMU.ino
  * @author Alexander Bouman (alex.bouman@gmail.com)
@@ -14,17 +14,17 @@
  *
  */
 
-# 17 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+#include <Arduino.h>
 // #include <Wire.h>
 // #include <Adafruit_Sensor.h>
 // #include <Adafruit_BNO055.h>
 
-# 22 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-# 23 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-# 24 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-# 25 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+#include "imu_vicon_relay.hpp"
+#include "crc8.h"
+#include "matrix.h"
+#include "linalg.h"
 
-
+#define LED_PIN     13
 
 // IMU
 // Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &Wire);
@@ -42,9 +42,14 @@ IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
 
 // Initialize packet serial ports
 void sendJetsonMessage(IMU_VICON &imu_vicon);
-CRC8_PARAMS crc8_params = { 0xD5, 0x00, 0x00, false, false };
+CRC8_PARAMS crc8_params = DEFAULT_CRC8_PARAMS;
 
 // Startup
+#line 47 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+void setup();
+#line 78 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+void loop();
+#line 47 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup()
 {
     initializeImuVicon();
@@ -112,3 +117,4 @@ void loop()
 //     // Write IMU_VICON value along with crc8 value
 //     Serial.write(imu_vicon_buffer, IMU_VICON_MSG_SIZE);
 // }
+

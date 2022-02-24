@@ -1,3 +1,4 @@
+#line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_relay.hpp"
 #ifndef imu_vicon_relay_hpp
 #define imu_vicon_relay_hpp
 
@@ -8,10 +9,14 @@
 #include <Adafruit_BNO055.h>
 #include "pose.hpp"
 
-#define RF95_FREQ 915.0
-#define RFM95_CS 8
-#define RFM95_RST 4
-#define RFM95_INT 3
+#define SENSOR_ID   -1
+#define IMU_ADDRESS 0x28
+
+#define RF95_FREQ   915.0
+#define RFM95_CS    8
+#define RFM95_RST   4
+#define RFM95_INT   3
+
 
 typedef struct _IMU_VICON
 {

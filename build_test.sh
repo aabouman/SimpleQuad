@@ -9,16 +9,21 @@
 # arduino-cli compile  --fqbn adafruit:samd:adafruit_feather_m0  --warnings all  --build-path bin  src/test
 
 # Build the IMU Sketch
-board_name=adafruit:samd:adafruit_feather_m0
 # library=src/Adafruit_BNO055,src/Adafruit_Unified_Sensor,src/arduino-LoRa-Master,src/slap,src/crc8,src/vicon_packet
 # library=src/Adafruit_BNO055,src/Adafruit_Unified_Sensor,src/arduino-LoRa-Master,src/slap,src/crc8,src/vicon_packet
 # libraries=src/crc8
 # library=src/crc8
-library=src
-libraries=src
-build_target=src/test
 
-arduino-cli compile  --fqbn $board_name  --warnings all  --build-path bin   --library $library  --libraries $libraries  $build_target
+build_path=bin
+board_name=adafruit:samd:adafruit_feather_m0
+libraries=src/utility
+build_target=src/imu_vicon_feather
+# compile_command="arduino-cli compile  --fqbn $board_name  --warnings all  --build-path bin  --libraries $libraries  $build_target"
 
-#  --library $library
-#   --libraries $libraries
+# echo $compile_command
+# $compile_command
+arduino-cli compile  --fqbn $board_name  --warnings all  --build-path bin  --libraries $libraries  $build_target
+
+# port=/dev/tty.usbmodem14101
+
+# arduino-cli upload  --port $port  --input-dir

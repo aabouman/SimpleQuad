@@ -1,3 +1,4 @@
+#line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 /**
  * @file IMU.ino
  * @author Alexander Bouman (alex.bouman@gmail.com)
@@ -14,26 +15,27 @@
  */
 
 #include <Arduino.h>
-#include <Wire.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BNO055.h>
+// #include <Wire.h>
+// #include <Adafruit_Sensor.h>
+// #include <Adafruit_BNO055.h>
 
 #include "imu_vicon_relay.hpp"
+#include "crc8.h"
 #include "matrix.h"
 #include "linalg.h"
 
 #define LED_PIN     13
 
 // IMU
-Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &Wire);
+// Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &Wire);
 
 // Vicon
-constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
-uint8_t lora_buffer[POSE_MSG_SIZE];
+// constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
+// uint8_t lora_buffer[POSE_MSG_SIZE];
 
 // Build buffers and message types
-constexpr int IMU_VICON_MSG_SIZE = sizeof(IMU_VICON) + 1;
-uint8_t imu_vicon_buffer[IMU_VICON_MSG_SIZE];
+// constexpr int IMU_VICON_MSG_SIZE = sizeof(IMU_VICON) + 1;
+// uint8_t imu_vicon_buffer[IMU_VICON_MSG_SIZE];
 
 // Message type
 IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
@@ -108,3 +110,4 @@ void sendJetsonMessage(IMU_VICON &imu_vicon)
     // Write IMU_VICON value along with crc8 value
     Serial.write(imu_vicon_buffer, IMU_VICON_MSG_SIZE);
 }
+
