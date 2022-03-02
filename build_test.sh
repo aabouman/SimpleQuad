@@ -1,29 +1,73 @@
 #!/bin/bash
 
-# --libraries src/slap src/crc8 src/vicon_packet
-# --build-path bin
-# --port string
-# --warnings all
+helpmenu()
+{
+cat << EOF
+usage: $0 PARAM [-o|--option OPTION] [-f|--force] [-h|--help]
 
-# Build the Test Sketch
-# arduino-cli compile  --fqbn adafruit:samd:adafruit_feather_m0  --warnings all  --build-path bin  src/test
+Compiles, and uploads arduino sketch to feather.
 
-# Build the IMU Sketch
-# library=src/Adafruit_BNO055,src/Adafruit_Unified_Sensor,src/arduino-LoRa-Master,src/slap,src/crc8,src/vicon_packet
-# library=src/Adafruit_BNO055,src/Adafruit_Unified_Sensor,src/arduino-LoRa-Master,src/slap,src/crc8,src/vicon_packet
-# libraries=src/crc8
-# library=src/crc8
+OPTIONS:
+   PARAM            The param
+   -h|--help        Show this message
+   -m|--monitor     Opens serial monitor with Arduino
+EOF
+}
 
-build_path=bin
-board_name=adafruit:samd:adafruit_feather_m0
-libraries=src/utility
-build_target=src/imu_vicon_feather
-# compile_command="arduino-cli compile  --fqbn $board_name  --warnings all  --build-path bin  --libraries $libraries  $build_target"
+# Text Colors
+GREEN='\033[00;32m'
+RED='\033[00;31m'
+YELLOW='\033[00;33m'
+NOCOLOR='\033[0m'
 
-# echo $compile_command
-# $compile_command
-arduino-cli compile  --fqbn $board_name  --warnings all  --build-path bin  --libraries $libraries  $build_target
+# Sketch files
+BUILD_PATH=bin
+BOARD_NAME=adafruit:samd:adafruit_feather_m0
+LIBRARIES=src/utility
+BULID_TARGET=src/imu_vicon_feather
 
-# port=/dev/tty.usbmodem14101
+# compile $BOARD_NAME $BUILD_PATH $LIBRARIES $BULID_TARGET
+compile() # Board Name, Build Path, Libraries, Build Target
+{
+    arduino-cli compile --warnings all  --fqbn $BOARD_NAME  --build-path $BUILD_PATH  --libraries $LIBRARIES  $BULID_TARGET
+}
 
-# arduino-cli upload  --port $port  --input-dir
+
+# Compile Commands
+
+# Upload Commands
+BOARD_PORT_INFO=$(arduino-cli board list | grep "adafruit:samd:adafruit_feather_m0")
+if [ "$BOARD_PORT_INFO" = "" ];
+then
+    echo -e "${RED}Feather not found, skipping upload."
+else
+    IFS=' ' read -r -a array <<< "$BOARD_PORT_INFO"
+    BOARD_PORT="${array[0]}"
+    BOARD_TYPE="${array[5]} ${array[6]} ${array[7]}"
+
+    echo -e "Found ${GREEN}${BOARD_TYPE}${NOCOLOR} at port ${GREEN}${BOARD_PORT}${NOCOLOR}"
+    echo -e "${YELLOW}Uploading..."
+    arduino-cli upload --port ${BOARD_PORT} --fqbn ${BOARD_NAME} --input-dir ${BUILD_PATH} --verify ${BULID_TARGET}
+    echo -e "${NOCOLOR}"
+
+
+    while [ ! $# -eq 0 ]
+    do
+        case "$1" in
+            --help | -h)
+                helpmenu
+                exit
+                ;;
+            --monitor | -m)
+                echo -e "${GREEN}Opening monitor${NOCOLOR}"
+                arduino-cli monitor --port ${BOARD_PORT}
+                exit
+                ;;
+            *)
+                helpmenu
+                exit
+                ;;
+        esac
+        shift
+    done
+fi

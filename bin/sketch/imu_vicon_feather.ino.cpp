@@ -40,60 +40,50 @@
 // Message type
 IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
 
+ImuViconRelay relay;
+
 // Initialize packet serial ports
 void sendJetsonMessage(IMU_VICON &imu_vicon);
 CRC8_PARAMS crc8_params = DEFAULT_CRC8_PARAMS;
 
 // Startup
-#line 47 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 49 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup();
-#line 78 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 62 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void loop();
-#line 47 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 49 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup()
 {
-    initializeImuVicon();
+    pinMode(LED_PIN, OUTPUT);
+    // Setup PacketSerial to handle communicating from Serial
+    Serial.begin(9600);
+    while (!Serial)
+    {
+        delay(10);
+    }
 
-    // pinMode(LED_PIN, OUTPUT);
-    // // Setup PacketSerial to handle communicating from Serial
-    // Serial.begin(9600);
-    // while (!Serial)
-    // {
-    //     delay(10);
-    // }
-
-    // // Start up the lora radio
-    // if (!initialize_LoRaViconReceiver(lora_buffer, POSE_MSG_SIZE))
-    // {
-    //     Serial.println("Failed to properly setup LoRaViconReceiver!!");
-    //     while(true)
-    //     {
-    //     }
-    // }
-
-    // // Start up SPI IMU and initialize
-    // if (!bno.begin())
-    // {
-    //     Serial.print("\nOoops, no BNO055 detected ... Check your wiring or I2C ADDR!\n");
-    //     while (true)
-    //     {
-    //     }
-    // }
+    relay = ImuViconRelay();
 }
 
 void loop()
 {
+    delay(100);
+
     // // Limit to 10 Hz
     // // delay(100);
 
-    // // Read in VICON measurement
-    // if (hasLoRaReceived())
-    // {
-    //     updateVicon(imu_vicon);
-    // }
+    // If LoRa has received update vicon entry
+    if (relay.hasReceived())
+    {
+        relay.updateVicon(imu_vicon);
+    }
+    // Update imu entry
+    relay.updateImu(imu_vicon);
 
-    // // Read in IMU measurement
-    // updateIMU(bno, imu_vicon);
+    if (Serial)
+    {
+        relay.displayImuVicon(imu_vicon);
+    }
 
     // Serial.println(POSE_MSG_SIZE);
     // // Send IMU/Vicon Message

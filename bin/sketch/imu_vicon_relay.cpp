@@ -3,17 +3,21 @@
 #include "imu_vicon_relay.hpp"
 #include <LoRa.h>
 
-
 ImuViconRelay::ImuViconRelay(int32_t imu_sensor_id /* = SENSOR_ID */,
                              uint8_t imu_address /* = IMU_ADDRESS */,
                              TwoWire *imu_wire /* = &Wire */,
-                             double lora_freq /* = RF95_FREQ */,
                              uint8_t lora_cs /* = RFM95_CS */,
                              uint8_t lora_rst /* = RFM95_RST */,
                              uint8_t lora_int /* = RFM95_INT */)
 {
-    this->_new_imu = false;
-    this->_new_vicon = false;
+    this->_bno = Adafruit_BNO055(imu_sensor_id, imu_address, imu_wire);
+    if (!(this->_bno.begin()))
+    {
+        Serial.print("\nOoops, no BNO055 detected ... Check your wiring or I2C ADDR!\n");
+        while (true)
+        {
+        }
+    }
 
     // Setup LoRa Communications
     LoRa.setPins(lora_cs, lora_rst, lora_int);
@@ -27,12 +31,15 @@ ImuViconRelay::ImuViconRelay(int32_t imu_sensor_id /* = SENSOR_ID */,
     LoRa.setSpreadingFactor(6);
     LoRa.setSignalBandwidth(500E3);
 
-    LoRa.onReceive(this->onLoRaReceive);
-    LoRa.receive(POSE_MSG_SIZE);
     LoRa.enableCrc();
+    this->_new_vicon = false;
 }
 
-void ConvertPoseToVicon(const rexlab::Pose<float> &pose, IMU_VICON *imu_vicon)
+ImuViconRelay::~ImuViconRelay()
+{
+}
+
+static void ConvertPoseToVicon(const rexlab::Pose<float> &pose, IMU_VICON *imu_vicon)
 {
     imu_vicon->pos_x = pose.position_x;
     imu_vicon->pos_y = pose.position_y;
@@ -44,34 +51,26 @@ void ConvertPoseToVicon(const rexlab::Pose<float> &pose, IMU_VICON *imu_vicon)
     imu_vicon->time = static_cast<double>(pose.time_us) / 1e6;
 }
 
-// void updateVicon(IMU_VICON &imu_vicon)
-// {
-//     ConvertPoseIntToFloat(global_receiver.vicon.vicon_int16, &global_receiver.vicon.vicon_float);
-//     ConvertPoseToVicon(global_receiver.vicon.vicon_float, &imu_vicon);
-//     global_receiver.vicon.new_msg = false;
-// }
-
-void ImuViconRelay::onLoRaReceive(int packetSize)
+bool ImuViconRelay::hasReceived()
 {
-    if (packetSize)
+    int packetSize = LoRa.parsePacket(POSE_MSG_SIZE);
+    if (packetSize == POSE_MSG_SIZE)
     {
-        LoRa.readBytes(this->_lora_buffer, POSE_MSG_SIZE);
-        this->_vicon_int16 = * ((rexlab::Pose<int16_t> *) this->_lora_buffer);
         this->_new_vicon = true;
+        LoRa.readBytes(this->_lora_buffer, POSE_MSG_SIZE);
+        this->_vicon_int16 = *((rexlab::Pose<int16_t> *) this->_lora_buffer);
     }
+    return (this->_new_vicon);
 }
 
-bool ImuViconRelay::hasLoRaReceived()
+void ImuViconRelay::updateVicon(IMU_VICON &imu_vicon)
 {
-    return this->_new_vicon;
+    ConvertPoseIntToFloat(this->_vicon_int16, &this->_vicon_float);
+    ConvertPoseToVicon(this->_vicon_float, &imu_vicon);
+    this->_new_vicon = false;
 }
 
-bool ImuViconRelay::hasImuReceived()
-{
-    return this->_new_imu;
-}
-
-void ImuViconRelay::updateIMU(IMU_VICON &imu_vicon)
+void ImuViconRelay::updateImu(IMU_VICON &imu_vicon)
 {
     this->_bno.getEvent(&(this->_imu_event));
 
@@ -87,7 +86,7 @@ void ImuViconRelay::updateIMU(IMU_VICON &imu_vicon)
     imu_vicon.gyr_z = gyr.z();
 }
 
-void displayCalStatus(Adafruit_BNO055 &bno)
+static void displayCalStatus(Adafruit_BNO055 &bno)
 {
     uint8_t system, gyro, accel, mag = 0;
     bno.getCalibration(&system, &gyro, &accel, &mag);
@@ -111,7 +110,7 @@ void displaySensorReading(Adafruit_BNO055 &bno)
     Serial.println("\n----------------------------------------");
 }
 
-bool ImuViconRelay::calibrateIMU()
+bool ImuViconRelay::calibrateImu()
 {
     this->_bno.setExtCrystalUse(true);
 
@@ -127,7 +126,7 @@ bool ImuViconRelay::calibrateIMU()
         displayCalStatus(this->_bno);
         delay(100);
     }
-    Serial.printf("Calibration status: %d", bno.isFullyCalibrated());
+    Serial.printf("Calibration status: %d", this->_bno.isFullyCalibrated());
 
     return true;
 }
@@ -143,16 +142,17 @@ void ImuViconRelay::displayImuVicon(IMU_VICON &imu_vicon)
     Serial.println("\n----------------------------------------");
 }
 
-void constraintCheck(IMU_VICON &imu_vicon)
+bool constraintCheck(IMU_VICON &imu_vicon)
 {
     double quat_norm = sqrt(pow(imu_vicon.quat_w, 2) +
                             pow(imu_vicon.quat_x, 2) +
                             pow(imu_vicon.quat_y, 2) +
                             pow(imu_vicon.quat_z, 2));
-
     if (abs(quat_norm - 1) > .001)
     {
-        Serial.println("Quaternion Constraint Violation!!!");
-        Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", imu_vicon.quat_w, imu_vicon.quat_x, imu_vicon.quat_y, imu_vicon.quat_z);
+        // Serial.println("Quaternion Constraint Violation!!!");
+        // Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", imu_vicon.quat_w, imu_vicon.quat_x, imu_vicon.quat_y, imu_vicon.quat_z);
+        return false;
     }
+    return true;
 }
