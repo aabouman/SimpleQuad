@@ -3,7 +3,7 @@
 helpmenu()
 {
 cat << EOF
-usage: $0 PARAM [-o|--option OPTION] [-f|--force] [-h|--help]
+usage: $0 [-f|--monitor] [-h|--help]
 
 Compiles, and uploads arduino sketch to feather.
 
@@ -23,51 +23,67 @@ NOCOLOR='\033[0m'
 # Sketch files
 BUILD_PATH=bin
 BOARD_NAME=adafruit:samd:adafruit_feather_m0
-LIBRARIES=src/utility
+LIBRARIES=deps
 BULID_TARGET=src/imu_vicon_feather
 
+# Find board port and name
+BOARD_PORT_INFO=$(arduino-cli board list | grep "${BOARD_NAME}")
+IFS=' ' read -r -a array <<< "$BOARD_PORT_INFO"
+BOARD_PORT="${array[0]}"
+BOARD_TYPE="${array[5]} ${array[6]} ${array[7]}"
+
+
 # compile $BOARD_NAME $BUILD_PATH $LIBRARIES $BULID_TARGET
-compile() # Board Name, Build Path, Libraries, Build Target
+compile()
 {
-    arduino-cli compile --warnings all  --fqbn $BOARD_NAME  --build-path $BUILD_PATH  --libraries $LIBRARIES  $BULID_TARGET
+    echo -e "${GREEN}Compiling Sketch.${NOCOLOR}"
+    arduino-cli compile --warnings all  --fqbn $1  --build-path $2  --libraries $3  $4
 }
 
+# upload $BOARD_PORT $BOARD_NAME $BUILD_PATH $BULID_TARGET
+upload()
+{
+    if [ "$1" = "" ];
+    then
+        echo -e "${RED}Feather not found, skipping upload.${NOCOLOR}"
+    else
+        arduino-cli upload --port $1 --fqbn $2 --input-dir $3  $4
+    fi
+}
 
-# Compile Commands
+# monitor $BOARD_PORT
+monitor()
+{
+    if [ "$1" = "" ];
+    then
+        echo -e "${RED}Feather not found, skipping upload.${NOCOLOR}"
+    else
+        echo -e "${GREEN}Opening monitor${NOCOLOR}"
+        arduino-cli monitor --port $1
+    fi
+}
 
-# Upload Commands
-BOARD_PORT_INFO=$(arduino-cli board list | grep "adafruit:samd:adafruit_feather_m0")
-if [ "$BOARD_PORT_INFO" = "" ];
-then
-    echo -e "${RED}Feather not found, skipping upload."
-else
-    IFS=' ' read -r -a array <<< "$BOARD_PORT_INFO"
-    BOARD_PORT="${array[0]}"
-    BOARD_TYPE="${array[5]} ${array[6]} ${array[7]}"
-
-    echo -e "Found ${GREEN}${BOARD_TYPE}${NOCOLOR} at port ${GREEN}${BOARD_PORT}${NOCOLOR}"
-    echo -e "${YELLOW}Uploading..."
-    arduino-cli upload --port ${BOARD_PORT} --fqbn ${BOARD_NAME} --input-dir ${BUILD_PATH} --verify ${BULID_TARGET}
-    echo -e "${NOCOLOR}"
-
-
-    while [ ! $# -eq 0 ]
-    do
-        case "$1" in
-            --help | -h)
-                helpmenu
-                exit
-                ;;
-            --monitor | -m)
-                echo -e "${GREEN}Opening monitor${NOCOLOR}"
-                arduino-cli monitor --port ${BOARD_PORT}
-                exit
-                ;;
-            *)
-                helpmenu
-                exit
-                ;;
-        esac
-        shift
-    done
-fi
+# Param parser and function running
+while [ ! $# -eq 0 ]
+do
+    case "$1" in
+        --help | -h)
+            helpmenu
+            exit
+            ;;
+        --compile | -c)
+            compile $BOARD_NAME $BUILD_PATH $LIBRARIES $BULID_TARGET
+            ;;
+        --upload | -u)
+            upload $BOARD_PORT $BOARD_NAME $BUILD_PATH $BULID_TARGET
+            ;;
+        --monitor | -m)
+            monitor $BOARD_PORT
+            ;;
+        *)
+            helpmenu
+            exit
+            ;;
+    esac
+    shift
+done

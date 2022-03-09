@@ -1,6 +1,6 @@
 /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/libraries/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp.o: \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/Adafruit_Unified_Sensor/Adafruit_Sensor.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor/Adafruit_Sensor.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/Arduino.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/avr/pgmspace.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/avr/interrupt.h \

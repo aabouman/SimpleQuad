@@ -15,19 +15,16 @@
  */
 
 # 17 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-// #include <Wire.h>
-// #include <Adafruit_Sensor.h>
-// #include <Adafruit_BNO055.h>
+# 18 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+# 19 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
 
-# 22 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-# 23 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-# 24 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-# 25 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+// #include "crc8.h"
+// #include "matrix.h"
+// #include "linalg.h"
 
 
 
-// IMU
-// Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &Wire);
+using namespace Eigen;
 
 // Vicon
 // constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
@@ -38,13 +35,15 @@
 // uint8_t imu_vicon_buffer[IMU_VICON_MSG_SIZE];
 
 // Message type
-IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
-
-ImuViconRelay relay;
+// IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
+// ImuViconRelay *relay;
 
 // Initialize packet serial ports
-void sendJetsonMessage(IMU_VICON &imu_vicon);
-CRC8_PARAMS crc8_params = { 0xD5, 0x00, 0x00, false, false };
+// void sendJetsonMessage(IMU_VICON &imu_vicon);
+// CRC8_PARAMS crc8_params = DEFAULT_CRC8_PARAMS;
+
+// DiagonalMatrix<float, EKF_NUM_ERR_STATES> Q_cov;
+// DiagonalMatrix<float, EKF_NUM_ERR_MEASURES> R_cov;
 
 // Startup
 void setup()
@@ -57,34 +56,44 @@ void setup()
         delay(10);
     }
 
-    relay = ImuViconRelay();
+    // float dt = 0.01;
+    EKF ekf = EKF();
+
+    // State curr_state(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0);
+    // Input curr_input(0,0,0,0,0,0);
+
+    // ekf.process(curr_state, curr_input, dt);
+
+    // Initialize IMU VICON Relay and point to it with global
+    // ImuViconRelay tmp = ImuViconRelay();
+    // relay = &tmp;
 }
 
 void loop()
 {
     delay(100);
-
+    // Serial.println("Test");
     // // Limit to 10 Hz
     // // delay(100);
 
     // If LoRa has received update vicon entry
-    if (relay.hasReceived())
-    {
-        relay.updateVicon(imu_vicon);
-    }
-    // Update imu entry
-    relay.updateImu(imu_vicon);
+    // bool flag = (*relay).hasReceived();
+    // Serial.printf("Are we going into loop?: %d\n", flag);
 
-    if (Serial)
-    {
-        relay.displayImuVicon(imu_vicon);
-    }
+    // if ((*relay).hasReceived())
+    // {
+    //     Serial.println("going to update Vicon");
+
+    //     (*relay).updateVicon(imu_vicon);
+    // }
+    // // Update imu entry
+    // (*relay).updateImu(imu_vicon);
+    // displayImuVicon(imu_vicon);
 
     // Serial.println(POSE_MSG_SIZE);
     // // Send IMU/Vicon Message
     // // Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", imu_vicon.quat_w, imu_vicon.quat_x, imu_vicon.quat_y, imu_vicon.quat_z);
     // sendJetsonMessage(imu_vicon);
-    // // displayImuVicon(imu_vicon);
     // // constraintCheck(imu_vicon);
 }
 

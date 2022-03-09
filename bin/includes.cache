@@ -11,13 +11,18 @@
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
+    "Include": "ArduinoEigenDense.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
     "Include": "Adafruit_Sensor.h",
-    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/Adafruit_Unified_Sensor"
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor"
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
     "Include": "Adafruit_BNO055.h",
-    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/Adafruit_BNO055"
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055"
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
@@ -36,36 +41,31 @@
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
-    "Include": "crc8.h",
-    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/crc8"
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
-    "Include": "matrix.h",
-    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/slap"
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_relay.cpp",
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp",
     "Include": "LoRa.h",
-    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/arduino-LoRa-master/src"
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src"
   },
   {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_relay.cpp",
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp",
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/Adafruit_BNO055/Adafruit_BNO055.cpp",
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/Adafruit_BNO055.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -85,22 +85,7 @@
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/crc8/crc8.c",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/slap/linalg.c",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/slap/matrix.c",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/utility/arduino-LoRa-master/src/LoRa.cpp",
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src/LoRa.cpp",
     "Include": "",
     "Includepath": null
   }
