@@ -16,12 +16,10 @@
  */
 
 #include <ArduinoEigenDense.h>
+#include <CRC8.h>
+
 #include "src/imu_vicon/imu_vicon.hpp"
 #include "src/kalman/kalman.hpp"
-
-// #include "crc8.h"
-// #include "matrix.h"
-// #include "linalg.h"
 
 #define LED_PIN     13
 
@@ -36,8 +34,9 @@ using namespace Eigen;
 // uint8_t imu_vicon_buffer[IMU_VICON_MSG_SIZE];
 
 // Message type
-// IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
-// ImuViconRelay *relay;
+IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
+ImuViconRelay *relay;
+// ImuViconRelay relay;
 
 // Initialize packet serial ports
 // void sendJetsonMessage(IMU_VICON &imu_vicon);
@@ -47,9 +46,11 @@ using namespace Eigen;
 // DiagonalMatrix<float, EKF_NUM_ERR_MEASURES> R_cov;
 
 // Startup
-#line 71 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 47 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+void setup();
+#line 70 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void loop();
-#line 48 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 47 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup()
 {
     pinMode(LED_PIN, OUTPUT);
@@ -59,39 +60,34 @@ void setup()
     {
         delay(10);
     }
+    Serial.println(POSE_MSG_SIZE);
 
     // float dt = 0.01;
-    EKF ekf = EKF();
-
+    // EKF ekf = EKF();
     // State curr_state(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0);
     // Input curr_input(0,0,0,0,0,0);
-
     // ekf.process(curr_state, curr_input, dt);
 
     // Initialize IMU VICON Relay and point to it with global
-    // ImuViconRelay tmp = ImuViconRelay();
-    // relay = &tmp;
+    ImuViconRelay tmp = ImuViconRelay(SENSOR_ID, IMU_ADDRESS, &Wire,
+                                      RFM95_CS, RFM95_RST, RFM95_INT);
+    relay = &tmp;
 }
 
 void loop()
 {
+    // Limit to 10 Hz
     delay(100);
-    // Serial.println("Test");
-    // // Limit to 10 Hz
-    // // delay(100);
 
     // If LoRa has received update vicon entry
-    // bool flag = (*relay).hasReceived();
-    // Serial.printf("Are we going into loop?: %d\n", flag);
-
-    // if ((*relay).hasReceived())
-    // {
-    //     Serial.println("going to update Vicon");
-
-    //     (*relay).updateVicon(imu_vicon);
-    // }
-    // // Update imu entry
-    // (*relay).updateImu(imu_vicon);
+    bool new_vicon = (*relay).hasReceived();
+    if (new_vicon)
+    {
+        Serial.println("going to update Vicon");
+        (*relay).updateVicon(&imu_vicon);
+    }
+    // Update imu entry
+    // relay.updateImu(imu_vicon);
     // displayImuVicon(imu_vicon);
 
     // Serial.println(POSE_MSG_SIZE);

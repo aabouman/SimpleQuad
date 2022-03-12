@@ -298,6 +298,8 @@
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/./RealQZ.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenExtension.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC/CRC8.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC/CRC_polynomes.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.hpp \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor/Adafruit_Sensor.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/Print.h \

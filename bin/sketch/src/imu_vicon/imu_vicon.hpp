@@ -11,7 +11,7 @@
 #define SENSOR_ID -1
 #define IMU_ADDRESS 0x28
 
-#define RF95_FREQ 915.0
+#define RF95_FREQ 915E6
 #define RFM95_CS 8
 #define RFM95_RST 4
 #define RFM95_INT 3
@@ -56,21 +56,20 @@ private:
     // New message flags
     bool _new_vicon;
 
-    void onLoRaReceive(int packetSize);
+    // void onLoRaReceive(int packetSize);
 
 public:
-    ImuViconRelay(int32_t imu_sensor_id = SENSOR_ID,
-                  uint8_t imu_address = IMU_ADDRESS,
-                  TwoWire *imu_wire = &Wire,
-                  uint8_t lora_cs = RFM95_CS,
-                  uint8_t lora_rst = RFM95_RST,
-                  uint8_t lora_int = RFM95_INT
-                  );
+    ImuViconRelay(int32_t imu_sensor_id,
+                  uint8_t imu_address,
+                  TwoWire *imu_wire,
+                  uint8_t lora_cs,
+                  uint8_t lora_rst,
+                  uint8_t lora_int);
     ~ImuViconRelay();
 
     bool hasReceived();
 
-    void updateVicon(IMU_VICON &imu_vicon);
+    void updateVicon(IMU_VICON * imu_vicon);
     void updateImu(IMU_VICON &imu_vicon);
 
     bool calibrateImu();

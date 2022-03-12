@@ -4,14 +4,18 @@
 #include <LoRa.h>
 #include "imu_vicon.hpp"
 
+rexlab::Pose<int16_t> msg_global;
+rexlab::Pose<float> pose_global;
+uint8_t *buf = reinterpret_cast<uint8_t *>(&msg_global);
 
-ImuViconRelay::ImuViconRelay(int32_t imu_sensor_id /* = SENSOR_ID */,
-                             uint8_t imu_address /* = IMU_ADDRESS */,
-                             TwoWire *imu_wire /* = &Wire */,
-                             uint8_t lora_cs /* = RFM95_CS */,
-                             uint8_t lora_rst /* = RFM95_RST */,
-                             uint8_t lora_int /* = RFM95_INT */
-                             )
+// ImuViconRelay::ImuViconRelay(){}
+
+ImuViconRelay::ImuViconRelay(int32_t imu_sensor_id,
+                             uint8_t imu_address,
+                             TwoWire *imu_wire,
+                             uint8_t lora_cs,
+                             uint8_t lora_rst,
+                             uint8_t lora_int)
 {
     this->_bno = Adafruit_BNO055(imu_sensor_id, imu_address, imu_wire);
     if (!(this->_bno.begin()))
@@ -24,18 +28,22 @@ ImuViconRelay::ImuViconRelay(int32_t imu_sensor_id /* = SENSOR_ID */,
 
     // Setup LoRa Communications
     LoRa.setPins(lora_cs, lora_rst, lora_int);
-    if (!LoRa.begin(915E6))
+    if (!LoRa.begin(RF95_FREQ))
     {
         Serial.println("Starting LoRa failed!");
-        while (true) {};
+        while (true);
     }
+    Serial.println("LoRa initialized");
 
     // Optimal speed settings
     LoRa.setSpreadingFactor(6);
     LoRa.setSignalBandwidth(500E3);
-
     LoRa.enableCrc();
+
     this->_new_vicon = false;
+
+    // LoRa.onReceive(this->onLoRaReceive);
+    LoRa.receive(POSE_MSG_SIZE);
 }
 
 ImuViconRelay::~ImuViconRelay()
@@ -56,27 +64,27 @@ static void ConvertPoseToVicon(const rexlab::Pose<float> &pose, IMU_VICON *imu_v
 
 bool ImuViconRelay::hasReceived()
 {
-    Serial.println("hasReceived");
-
     int packetSize = LoRa.parsePacket(POSE_MSG_SIZE);
+    Serial.printf("Size of message: %d bytes, Expected: %d bytes\n",
+                  packetSize, POSE_MSG_SIZE);
 
     if (packetSize == POSE_MSG_SIZE)
     {
-        Serial.println("Receiving");
-
-        this->_new_vicon = true;
         LoRa.readBytes(this->_lora_buffer, POSE_MSG_SIZE);
         this->_vicon_int16 = *((rexlab::Pose<int16_t> *) this->_lora_buffer);
+        this->_new_vicon = true;
     }
 
     return (this->_new_vicon);
 }
 
-void ImuViconRelay::updateVicon(IMU_VICON &imu_vicon)
+void ImuViconRelay::updateVicon(IMU_VICON * imu_vicon)
 {
     ConvertPoseIntToFloat(this->_vicon_int16, &this->_vicon_float);
-    ConvertPoseToVicon(this->_vicon_float, &imu_vicon);
+    ConvertPoseToVicon(this->_vicon_float, imu_vicon);
     this->_new_vicon = false;
+
+    // displayImuVicon(imu_vicon);
 }
 
 void ImuViconRelay::updateImu(IMU_VICON &imu_vicon)
@@ -94,6 +102,7 @@ void ImuViconRelay::updateImu(IMU_VICON &imu_vicon)
     imu_vicon.gyr_x = gyr.x();
     imu_vicon.gyr_y = gyr.y();
     imu_vicon.gyr_z = gyr.z();
+    return;
 }
 
 static void displayCalStatus(Adafruit_BNO055 &bno)
