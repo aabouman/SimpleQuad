@@ -11,11 +11,6 @@
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
-    "Include": "CRC8.h",
-    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC"
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/imu_vicon_feather.ino.cpp",
     "Include": "ArduinoEigenDense.h",
     "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen"
   },
@@ -61,31 +56,6 @@
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC/CRC12.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC/CRC16.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC/CRC32.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC/CRC64.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/CRC/CRC8.cpp",
     "Include": "",
     "Includepath": null
   },

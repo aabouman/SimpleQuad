@@ -24,8 +24,9 @@ EKF::~EKF() {}
 State dynamics(const Ref<State> curr_state, const Ref<Input> curr_input)
 {
     // Extracting components of the state
-    Vector3f pos = curr_state.segment(0, 3);
-    Quaternionf quat(curr_state.segment(3, 4));
+    // Vector3f pos = curr_state.segment(0, 3);
+    // Quaternionf quat(curr_state.segment(3, 4));
+    Quaternionf quat(curr_state(3), curr_state(4), curr_state(5), curr_state(6));
     Vector3f vel = curr_state.segment(7, 3);
     Vector3f alpha = curr_state.segment(10, 3);
     Vector3f beta = curr_state.segment(13, 3);
@@ -41,7 +42,8 @@ State dynamics(const Ref<State> curr_state, const Ref<Input> curr_input)
     // Derivative of quaternion
     Quaternionf omegaQuat(0.0, omega(0) - beta(0), omega(1) - beta(1), omega(2) - beta(2));
     Quaternionf kin = quat * omegaQuat;
-    ret..segment(3, 4) = 1 / 2 * kin;
+    Vector4f kin_vec(kin.w(), kin.x(), kin.y(), kin.z());
+    ret.segment(3, 4) = 1 / 2 * kin_vec;
 
     // Derivative of linear velocity
     Vector3f gravity(0, 0, 9.81);
@@ -76,14 +78,14 @@ Measurement EKF::measure(Ref<State> curr_state)
     return measurement1;
 }
 
-void EKF::error_process_jacobian(Matrix<double, EKF_NUM_ERR_STATES, EKF_NUM_STATES> jac,
-                                 const Ref<State> curr_state,
-                                 const Ref<Input> curr_input,
-                                 float dt)
-{
+// void EKF::error_process_jacobian(Matrix<double, EKF_NUM_ERR_STATES, EKF_NUM_STATES> jac,
+//                                  const Ref<State> curr_state,
+//                                  const Ref<Input> curr_input,
+//                                  float dt)
+// {
+//     jac.block()
 
-
-}
+// }
 
 // void EKF::error_measure_jacobian(const Matrix<float, state_dim, 1> &curr_state)
 // {
@@ -107,3 +109,4 @@ void EKF::error_process_jacobian(Matrix<double, EKF_NUM_ERR_STATES, EKF_NUM_STAT
 // {
 
 // }
+

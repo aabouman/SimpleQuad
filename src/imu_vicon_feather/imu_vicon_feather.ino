@@ -1,17 +1,25 @@
-#include <CRC8.h>
-
+// #include <CRC8.h>
 #include <ArduinoEigenDense.h>
+#include <ArduinoEigen/unsupported/Eigen/AutoDiff>
+// #include <autodiff/autodiff/forward/dual.hpp>
+// #include <autodiff.h>
 
-#include "src/imu_vicon/imu_vicon.hpp"
+// #include "src/imu_vicon/imu_vicon.hpp"
+#include "src/kalman/kalman.hpp"
+#include "src/kalman/forward_diff.hpp"
 // #include "src/kalman/kalman.hpp"
-#include "src/kalman/quat_math.h"
+// #include "src/kalman/quat_math.h"
 
 #define LED_PIN     13
 
-// using namespace Eigen;
+using namespace Eigen;
+
+// Matrix<float, 3, 1> in;
+// Matrix<float, 2, 1> out;
+// AutoDiffJacobian<adFunctor<float>> adjac;
 
 // Message type
-imu_vicon data = imu_vicon_init_zero;
+// imu_vicon data = imu_vicon_init_zero;
 
 // Initialize packet serial ports
 // void sendJetsonMessage(IMU_VICON &imu_vicon);
@@ -31,7 +39,7 @@ void setup()
         delay(10);
     }
     // Initialize IMU VICON Relay and point to it with global
-    init_imuViconRelay();
+    // init_imuViconRelay();
 
     // float dt = 0.01;
     // EKF ekf = EKF();
@@ -39,6 +47,9 @@ void setup()
     // Input curr_input(0,0,0,0,0,0);
     // ekf.process(curr_state, curr_input, dt);
 
+    // in << 1, 2, 3;
+
+    test_autodiff_jacobian();
 }
 
 void loop()
@@ -46,14 +57,20 @@ void loop()
     // Limit to 10 Hz
     delay(100);
 
+    // Matrix<float, 2, 3> jac;
+    // adjac<float, float>(in, &out);
+    // adjac(in, &out);
+
+    // Serial.println(jac);
+
     // If LoRa has received update vicon entry
-    if (hasLoRaReceived())
-    {
-        updateVicon(&data);
-    }
-    // Update imu entry
-    updateIMU(&data);
-    displayImuVicon(&data);
+    // if (hasLoRaReceived())
+    // {
+    //     updateVicon(&data);
+    // }
+    // // Update imu entry
+    // updateIMU(&data);
+    // displayImuVicon(&data);
 
     // Serial.println(POSE_MSG_SIZE);
     // // Send IMU/Vicon Message

@@ -81,12 +81,6 @@ void quaternion_differential(Ref<Matrix<float, 4, 3>> quat_map, const Ref<const 
                  w, -z,  y,
                  z,  w, -x,
                 -y,  x,  w;
-    // quat_map.block(0, 0, 0, 2) << -x, -y, -z;
-    // quat_map.block(1, 0, 1, 2) << w, -z, y;
-    // quat_map.block(2, 0, 2, 2) << z, w, -x;
-    // quat_map.block(3, 0, 3, 2) << -y, x, w;
 }
-
-// void
 
 #endif

@@ -1,18 +1,26 @@
 # 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
-# 2 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
-
+// #include <CRC8.h>
+# 3 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
 # 4 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+// #include <autodiff/autodiff/forward/dual.hpp>
+// #include <autodiff.h>
 
-# 6 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+// #include "src/imu_vicon/imu_vicon.hpp"
+# 9 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+# 10 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
 // #include "src/kalman/kalman.hpp"
-# 8 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+// #include "src/kalman/quat_math.h"
 
 
 
-// using namespace Eigen;
+using namespace Eigen;
+
+// Matrix<float, 3, 1> in;
+// Matrix<float, 2, 1> out;
+// AutoDiffJacobian<adFunctor<float>> adjac;
 
 // Message type
-imu_vicon data = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 };
+// imu_vicon data = imu_vicon_init_zero;
 
 // Initialize packet serial ports
 // void sendJetsonMessage(IMU_VICON &imu_vicon);
@@ -32,7 +40,7 @@ void setup()
         delay(10);
     }
     // Initialize IMU VICON Relay and point to it with global
-    init_imuViconRelay();
+    // init_imuViconRelay();
 
     // float dt = 0.01;
     // EKF ekf = EKF();
@@ -40,6 +48,9 @@ void setup()
     // Input curr_input(0,0,0,0,0,0);
     // ekf.process(curr_state, curr_input, dt);
 
+    // in << 1, 2, 3;
+
+    test_autodiff_jacobian();
 }
 
 void loop()
@@ -47,14 +58,20 @@ void loop()
     // Limit to 10 Hz
     delay(100);
 
+    // Matrix<float, 2, 3> jac;
+    // adjac<float, float>(in, &out);
+    // adjac(in, &out);
+
+    // Serial.println(jac);
+
     // If LoRa has received update vicon entry
-    if (hasLoRaReceived())
-    {
-        updateVicon(&data);
-    }
-    // Update imu entry
-    updateIMU(&data);
-    displayImuVicon(&data);
+    // if (hasLoRaReceived())
+    // {
+    //     updateVicon(&data);
+    // }
+    // // Update imu entry
+    // updateIMU(&data);
+    // displayImuVicon(&data);
 
     // Serial.println(POSE_MSG_SIZE);
     // // Send IMU/Vicon Message
