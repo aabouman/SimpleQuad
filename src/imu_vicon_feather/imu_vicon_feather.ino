@@ -1,40 +1,17 @@
-/**
- * @file IMU.ino
- * @author Alexander Bouman (alex.bouman@gmail.com)
- * @brief This script takes input from onboard LoRA and IMU over SPI and
- *        publishes the message over serial to a connected computer
- *
- * Board: LoRa Feather M0 by Adafruit
- *
- * @version 0.1
- * @date 2021-11-22
- *
- * @copyright Copyright (c) 2021
- *
- */
-
-#include <ArduinoEigenDense.h>
 #include <CRC8.h>
 
+#include <ArduinoEigenDense.h>
+
 #include "src/imu_vicon/imu_vicon.hpp"
-#include "src/kalman/kalman.hpp"
+// #include "src/kalman/kalman.hpp"
+#include "src/kalman/quat_math.h"
 
 #define LED_PIN     13
 
-using namespace Eigen;
-
-// Vicon
-// constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
-// uint8_t lora_buffer[POSE_MSG_SIZE];
-
-// Build buffers and message types
-// constexpr int IMU_VICON_MSG_SIZE = sizeof(IMU_VICON) + 1;
-// uint8_t imu_vicon_buffer[IMU_VICON_MSG_SIZE];
+// using namespace Eigen;
 
 // Message type
-IMU_VICON imu_vicon = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
-ImuViconRelay *relay;
-// ImuViconRelay relay;
+imu_vicon data = imu_vicon_init_zero;
 
 // Initialize packet serial ports
 // void sendJetsonMessage(IMU_VICON &imu_vicon);
@@ -53,7 +30,8 @@ void setup()
     {
         delay(10);
     }
-    Serial.println(POSE_MSG_SIZE);
+    // Initialize IMU VICON Relay and point to it with global
+    init_imuViconRelay();
 
     // float dt = 0.01;
     // EKF ekf = EKF();
@@ -61,10 +39,6 @@ void setup()
     // Input curr_input(0,0,0,0,0,0);
     // ekf.process(curr_state, curr_input, dt);
 
-    // Initialize IMU VICON Relay and point to it with global
-    ImuViconRelay tmp = ImuViconRelay(SENSOR_ID, IMU_ADDRESS, &Wire,
-                                      RFM95_CS, RFM95_RST, RFM95_INT);
-    relay = &tmp;
 }
 
 void loop()
@@ -73,15 +47,13 @@ void loop()
     delay(100);
 
     // If LoRa has received update vicon entry
-    bool new_vicon = (*relay).hasReceived();
-    if (new_vicon)
+    if (hasLoRaReceived())
     {
-        Serial.println("going to update Vicon");
-        (*relay).updateVicon(&imu_vicon);
+        updateVicon(&data);
     }
     // Update imu entry
-    // relay.updateImu(imu_vicon);
-    // displayImuVicon(imu_vicon);
+    updateIMU(&data);
+    displayImuVicon(&data);
 
     // Serial.println(POSE_MSG_SIZE);
     // // Send IMU/Vicon Message

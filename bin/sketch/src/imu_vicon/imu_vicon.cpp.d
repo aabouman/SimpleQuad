@@ -1,5 +1,8 @@
 /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp.o: \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/pose.hpp \
+ /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/SPI/SPI.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/Arduino.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/avr/pgmspace.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/avr/interrupt.h \
@@ -103,17 +106,14 @@
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/USB/SAMD21_USBDevice.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/USB/USB_host.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/USB/samd21_host.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src/LoRa.h \
- /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/SPI/SPI.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Adafruit_ZeroDMA/Adafruit_ZeroDMA.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Adafruit_ZeroDMA/utility/dma.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.hpp \
+ /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Wire/Wire.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src/LoRa.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor/Adafruit_Sensor.h \
  /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino/Print.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/Adafruit_BNO055.h \
- /Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Wire/Wire.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/utility/imumaths.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/utility/matrix.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/utility/vector.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/utility/quaternion.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/pose.hpp
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/utility/quaternion.h

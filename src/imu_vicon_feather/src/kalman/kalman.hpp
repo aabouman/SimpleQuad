@@ -34,18 +34,16 @@ private:
     DiagonalMatrix<float, EKF_NUM_ERR_STATES> _Q_cov;
     DiagonalMatrix<float, EKF_NUM_ERR_MEASURES> _R_cov;
 
-    // Model process function (dynamics)
-    // State process(State &curr_state, Input &curr_input, float dt);
     // Model measure function (sensing model)
-    Measurement measure(State &curr_state);
+    Measurement measure(Ref<State> curr_state);
     // Jacobian mapping state into next "error" state
-    Matrix<float, EKF_NUM_ERR_STATES, EKF_NUM_STATES> error_process_jacobian(State &curr_state, Input &curr_input, float dt);
+    Matrix<float, EKF_NUM_ERR_STATES, EKF_NUM_STATES> error_process_jacobian(Ref<State> curr_state, Ref<Input> curr_input, float dt);
     // Jacobian mapping measurement into "error" measurement
-    Matrix<float, EKF_NUM_ERR_MEASURES, EKF_NUM_MEASURES> error_measure_jacobian(State &curr_state);
+    Matrix<float, EKF_NUM_ERR_MEASURES, EKF_NUM_MEASURES> error_measure_jacobian(Ref<State> curr_state);
     // function adding states and "error" state
-    State state_composition(State &state, ErrState &err_state);
+    State state_composition(Ref<State> state, Ref<ErrState>err_state);
     // function taking the difference between two measurements as error measurement
-    ErrMeasurement measurement_error(Measurement &measurement1, Measurement &measurement2);
+    ErrMeasurement measurement_error(Ref<Measurement> measurement1, Ref<Measurement> measurement2);
     // Compute the innovation
     // innovation(Matrix<double, _num_states, 1> &state_k2_k1,
     //            Matrix<double, _num_err_states, _num_err_states> &cov_k2_k1, );
@@ -56,10 +54,10 @@ public:
     //     const DiagonalMatrix<float, EKF_NUM_ERR_MEASURES, EKF_NUM_ERR_MEASURES> &R);
     ~EKF();
     // Model process function (dynamics)
-    State process(State &curr_state, Input &curr_input, float dt);
+    State process(Ref<State> curr_state, Ref<Input> curr_input, float dt);
 
-    void prediction(Input &input);
-    void update(Measurement &measurement);
+    void prediction(Ref<Input> input);
+    void update(Ref<Measurement> measurement);
 };
 
 #endif

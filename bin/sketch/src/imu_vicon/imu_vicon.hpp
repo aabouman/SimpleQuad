@@ -1,22 +1,21 @@
 #line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/imu_vicon/imu_vicon.hpp"
-#ifndef IMU_VICON_RELAY_HPP
-#define IMU_VICON_RELAY_HPP
+#ifndef imu_vicon_relay_hpp
+#define imu_vicon_relay_hpp
 
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BNO055.h>
+#include <cstdint>
 #include "pose.hpp"
-#include <Wire.h>
-#include <SPI.h>
 
 #define SENSOR_ID -1
 #define IMU_ADDRESS 0x28
 
-#define RF95_FREQ 915E6
+#define RF95_FREQ 915.0
 #define RFM95_CS 8
 #define RFM95_RST 4
 #define RFM95_INT 3
 
-typedef struct tmp_IMU_VICON
+constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
+
+typedef struct _IMU_VICON
 {
     float acc_x;
     float acc_y;
@@ -34,48 +33,29 @@ typedef struct tmp_IMU_VICON
     float quat_z;
 
     uint32_t time;
-} IMU_VICON;
+} imu_vicon;
 
-#define IMU_VICON_init_zero                      \
+#define imu_vicon_init_zero                      \
     {                                            \
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 \
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 \
     }
 
-constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
+void init_imuViconRelay();
 
-class ImuViconRelay
-{
-private:
-    // IMU support attributes
-    sensors_event_t _imu_event;
-    Adafruit_BNO055 _bno;
-    // Vicon/LoRa support attributes
-    uint8_t _lora_buffer[POSE_MSG_SIZE];
-    rexlab::Pose<int16_t> _vicon_int16;
-    rexlab::Pose<float> _vicon_float;
-    // New message flags
-    bool _new_vicon;
+bool hasLoRaReceived();
 
-    // void onLoRaReceive(int packetSize);
+void updateVicon(imu_vicon *data);
 
-public:
-    ImuViconRelay(int32_t imu_sensor_id,
-                  uint8_t imu_address,
-                  TwoWire *imu_wire,
-                  uint8_t lora_cs,
-                  uint8_t lora_rst,
-                  uint8_t lora_int);
-    ~ImuViconRelay();
+void updateIMU(imu_vicon *data);
 
-    bool hasReceived();
+void displayCalStatus();
 
-    void updateVicon(IMU_VICON * imu_vicon);
-    void updateImu(IMU_VICON &imu_vicon);
+void displaySensorReading();
 
-    bool calibrateImu();
-};
+bool calibrateIMU();
 
-bool constraintCheck(IMU_VICON &imu_vicon);
-void displayImuVicon(IMU_VICON &imu_vicon);
+void displayImuVicon(imu_vicon *data);
+
+void constraintCheck(imu_vicon *data);
 
 #endif

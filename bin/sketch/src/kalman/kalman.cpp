@@ -8,15 +8,21 @@
 using namespace std;
 using namespace Eigen;
 
+typedef Vector4f quat_vec;
+typedef Vector3f err_quat_vec;
+
 EKF::EKF()
 {
+    float rho = 0.1;
     _Q_cov.diagonal() << 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1;
     _R_cov.diagonal() << 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1;
+    _Q_cov = _Q_cov * rho;
+    _R_cov = _R_cov * rho;
 }
 
 EKF::~EKF() {}
 
-State dynamics(State curr_state, Input curr_input)
+State dynamics(Ref<State> curr_state, Ref<Input> curr_input)
 {
     // Extracting components of the state
     // Vector3f pos = curr_state({0, 1, 2});
@@ -50,13 +56,17 @@ State dynamics(State curr_state, Input curr_input)
     return ret;
 }
 
-State EKF::process(State &curr_state, Input &curr_input, float dt)
+State EKF::process(Ref<State> curr_state, Ref<Input> curr_input, float dt)
 {
     // RK4 Integrator
+    State tmp;
     State k1 = dynamics(curr_state, curr_input);
-    State k2 = dynamics(curr_state + 0.5 * dt * k1, curr_input);
-    State k3 = dynamics(curr_state + 0.5 * dt * k2, curr_input);
-    State k4 = dynamics(curr_state + dt * k3, curr_input);
+    tmp = curr_state + 0.5 * dt * k1;
+    State k2 = dynamics(tmp, curr_input);
+    tmp = curr_state + 0.5 * dt * k2;
+    State k3 = dynamics(tmp, curr_input);
+    tmp = curr_state + dt * k3;
+    State k4 = dynamics(tmp, curr_input);
     // Set the state to the RK4 integrator output
     State next_state = curr_state + (dt / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
     // Normalize Quaternion
@@ -65,14 +75,21 @@ State EKF::process(State &curr_state, Input &curr_input, float dt)
     return next_state;
 }
 
-Measurement EKF::measure(State &curr_state)
+Measurement EKF::measure(Ref<State> curr_state)
 {
     Measurement measurement1(curr_state.segment(0, 6));
     return measurement1;
 }
 
-// void EKF::error_process_jacobian(State &curr_state,
-//                                  Input &curr_input,
+
+// static err_quat_vec rotation_error(Ref<State> state1, Ref<State> state2)
+// {
+
+// }
+
+
+// void EKF::error_process_jacobian(Ref<State> curr_state,
+//                                  Ref<Input> curr_input,
 //                                  float dt)
 // {
 // }
