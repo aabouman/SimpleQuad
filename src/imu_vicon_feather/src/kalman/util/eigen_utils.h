@@ -9,7 +9,7 @@ using namespace Eigen;
  * Helper function to "pretty" print the matrix X
  */
 template <int num_rows, int num_cols>
-void print_mtxf(const Matrix<float, num_rows, num_cols> &X)
+void print_matrix(const Matrix<float, num_rows, num_cols> &X)
 {
     int i, j;
 
@@ -18,9 +18,9 @@ void print_mtxf(const Matrix<float, num_rows, num_cols> &X)
         Serial.print("| ");
         for (j = 0; j < num_cols - 1; j++)
         {
-            Serial.printf("%6f, ", X(i, j));
+            Serial.printf("%+1.4f, ", X(i, j));
         }
-        Serial.printf("%6f |\n", X(i, j));
+        Serial.printf("%+1.4f |\n", X(i, j));
     }
 }
 

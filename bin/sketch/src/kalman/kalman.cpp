@@ -1,113 +1,67 @@
 #line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/kalman.cpp"
-#include "kalman.hpp"
+// #include "kalman.hpp"
 
-#include <ArduinoEigenDense.h>
-#include <ArduinoEigen/Eigen/Geometry>
-// #include <ArduinoEigen/Eigen/MatrixBase>
+// #include <ArduinoEigenDense.h>
+// // #include <ArduinoEigen/Eigen/Geometry>
 
-using namespace std;
-using namespace Eigen;
+// #include "kalman.hpp"
+// #include "util/quad_model.h"
 
-typedef Vector4f quat_vec;
-typedef Vector3f err_quat_vec;
 
-EKF::EKF()
-{
-    float rho = 0.1;
-    _Q_cov.diagonal() << 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1;
-    _R_cov.diagonal() << 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1;
-    _Q_cov = _Q_cov * rho;
-    _R_cov = _R_cov * rho;
-}
+// using namespace Eigen;
 
-EKF::~EKF() {}
-
-State dynamics(const Ref<State> curr_state, const Ref<Input> curr_input)
-{
-    // Extracting components of the state
-    // Vector3f pos = curr_state.segment(0, 3);
-    // Quaternionf quat(curr_state.segment(3, 4));
-    Quaternionf quat(curr_state(3), curr_state(4), curr_state(5), curr_state(6));
-    Vector3f vel = curr_state.segment(7, 3);
-    Vector3f alpha = curr_state.segment(10, 3);
-    Vector3f beta = curr_state.segment(13, 3);
-
-    // Extracting components of the input
-    Vector3f vel_dot = curr_input.segment(0, 3);
-    Vector3f omega = curr_input.segment(3, 3);
-
-    // Derivative of position
-    State ret;
-    ret.segment(0, 3) = quat * vel;
-
-    // Derivative of quaternion
-    Quaternionf omegaQuat(0.0, omega(0) - beta(0), omega(1) - beta(1), omega(2) - beta(2));
-    Quaternionf kin = quat * omegaQuat;
-    Vector4f kin_vec(kin.w(), kin.x(), kin.y(), kin.z());
-    ret.segment(3, 4) = 1 / 2 * kin_vec;
-
-    // Derivative of linear velocity
-    Vector3f gravity(0, 0, 9.81);
-    ret.segment(7, 3) = vel_dot - alpha - (quat.inverse() * gravity);
-    // Derivative of imu biases
-    ret.segment(10, 6).setZero();
-
-    return ret;
-}
-
-State EKF::process(Ref<State> curr_state, Ref<Input> curr_input, float dt)
-{
-    // RK4 Integrator
-    State tmp;
-    State k1 = dynamics(curr_state, curr_input);
-    tmp = curr_state + 0.5 * dt * k1;
-    State k2 = dynamics(tmp, curr_input);
-    tmp = curr_state + 0.5 * dt * k2;
-    State k3 = dynamics(tmp, curr_input);
-    tmp = curr_state + dt * k3;
-    State k4 = dynamics(tmp, curr_input);
-    // Set the state to the RK4 integrator output
-    State next_state = curr_state + (dt / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
-    // Normalize Quaternion
-    next_state.segment(3, 4).normalize();
-    return next_state;
-}
-
-Measurement EKF::measure(Ref<State> curr_state)
-{
-    Measurement measurement1(curr_state.segment(0, 6));
-    return measurement1;
-}
-
-// void EKF::error_process_jacobian(Matrix<double, EKF_NUM_ERR_STATES, EKF_NUM_STATES> jac,
-//                                  const Ref<State> curr_state,
-//                                  const Ref<Input> curr_input,
-//                                  float dt)
+// EKF::EKF()
 // {
-//     jac.block()
-
+//     float rho = 0.1;
+//     _Q_cov.diagonal() << 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1;
+//     _R_cov.diagonal() << 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1;
+//     _Q_cov = _Q_cov * rho;
+//     _R_cov = _R_cov * rho;
 // }
 
-// void EKF::error_measure_jacobian(const Matrix<float, state_dim, 1> &curr_state)
-// {
+// EKF::~EKF() {}
 
+// void EKF::process_step(state_t<float> &curr_state,
+//                        input_t<float> &curr_input,
+//                        float dt)
+// {
+//     this->_est_state = process(curr_state, curr_input, dt);
 // }
 
-// void EKF::state_composition(const Matrix<float, state_dim, 1> &state,
-//                             const Matrix<float, err_state_dim, 1> &err_state)
+// err_process_jac_t<float> EKF::error_process_jacobian(state_t<float> &curr_state,
+//                                                      input_t<float> &curr_input,
+//                                                      float dt)
 // {
+//     err_state_state_jac_t<float> J1;
+//     process_jac_t<float> A;
+//     err_state_state_jac_t<float> J2;
 
+//     A = process_jacobian(curr_state, curr_input, dt);
+
+//     Quaternion<float> quat1(curr_state(3), curr_state(4), curr_state(5), curr_state(6));
+//     J1 = err_state_state_jacobian(quat1);
+
+//     state_t<float> next_state = process(curr_state, curr_input, dt);
+//     Quaternion<float> quat2(next_state(3), next_state(4), next_state(5), next_state(6));
+//     J2 = err_state_state_jacobian(quat2);
+
+//     return J2 * A * J1.transpose();
 // }
 
-// void EKF::measurement_error(const Matrix<float, _measurement, 1> &state,
-//                             const Matrix<float, _measurement, 1> &state)
+// err_measure_jac_t<float> EKF::error_measure_jacobian(state_t<float> &curr_state)
 // {
+//     err_state_state_jac_t<float> J;
+//     measure_jac_t<float> A;
+//     err_measure_measure_jac_t<float> G;
 
+//     A = measure_jacobian(curr_state);
+
+//     Quaternion<float> quat1(curr_state(3), curr_state(4), curr_state(5), curr_state(6));
+//     J = err_state_state_jacobian(quat1);
+
+//     measurement_t<float> meas = measure(curr_state);
+//     Quaternion<float> quat2(meas(3), meas(4), meas(5), meas(6));
+//     G = err_measure_measure_jacobian(quat2);
+
+//     return G * A * J.transpose();
 // }
-
-// void EKF::innovation(Matrix<double, state_dim, 1> &state_k2_k1,
-//                      Matrix<double, err_state_dim, err_state_dim> &cov_k2_k1)
-// {
-
-// }
-

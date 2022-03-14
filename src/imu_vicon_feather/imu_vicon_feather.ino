@@ -1,22 +1,18 @@
-// #include <CRC8.h>
+#include <Arduino.h>
 #include <ArduinoEigenDense.h>
-#include <ArduinoEigen/unsupported/Eigen/AutoDiff>
-// #include <autodiff/autodiff/forward/dual.hpp>
-// #include <autodiff.h>
+
+// #include <CRC8.h>
 
 // #include "src/imu_vicon/imu_vicon.hpp"
+
 #include "src/kalman/kalman.hpp"
-#include "src/kalman/forward_diff.hpp"
-// #include "src/kalman/kalman.hpp"
 // #include "src/kalman/quat_math.h"
+
+// #include "src/kalman/util/quad_model.h"
 
 #define LED_PIN     13
 
 using namespace Eigen;
-
-// Matrix<float, 3, 1> in;
-// Matrix<float, 2, 1> out;
-// AutoDiffJacobian<adFunctor<float>> adjac;
 
 // Message type
 // imu_vicon data = imu_vicon_init_zero;
@@ -47,9 +43,25 @@ void setup()
     // Input curr_input(0,0,0,0,0,0);
     // ekf.process(curr_state, curr_input, dt);
 
-    // in << 1, 2, 3;
+    Serial.println("Running dynamics and process");
+    state_t<float> x = state_t<float>::Random(EKF_NUM_STATES);
+    input_t<float> u = input_t<float>::Random(EKF_NUM_INPUTS);
+    float dt = 0.1;
+    process(x, u, dt);
+    Serial.println("Ran Dynamics");
+    // print_matrix(x);
 
-    test_autodiff_jacobian();
+    // Compute the Process Jacobian
+    Serial.println("Computing Jacobian");
+    process_jac_t<float> proc_jac;
+    proc_jac = process_jacobian(x, u, dt);
+    print_matrix(proc_jac);
+
+    // Compute the Measure Jacobian
+    Serial.println("Computing Jacobian");
+    measure_jac_t<float> meas_jac;
+    meas_jac = measure_jacobian(x);
+    print_matrix(meas_jac);
 }
 
 void loop()

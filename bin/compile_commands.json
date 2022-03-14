@@ -131,11 +131,11 @@
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp",
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp",
    "-o",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp.o"
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp.o"
   ],
-  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp"
+  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp"
  },
  {
   "directory": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad",
@@ -200,11 +200,11 @@
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp",
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp",
    "-o",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp.o"
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp.o"
   ],
-  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp"
+  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/imu_vicon/imu_vicon.cpp"
  },
  {
   "directory": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad",

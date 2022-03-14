@@ -2,7 +2,7 @@
 #ifndef ARDUINO_EIGEN_DENSE_H
 #define ARDUINO_EIGEN_DENSE_H
 
-#include <Arduino.h>
+// #include <Arduino.h>
 #include "ArduinoEigen/ArduinoEigenCommon.h"
 
 // guarantee that the Eigen code that you are #including is licensed under the MPL2
