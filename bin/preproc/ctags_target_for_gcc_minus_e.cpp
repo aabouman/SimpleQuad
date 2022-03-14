@@ -15,6 +15,10 @@
 
 using namespace Eigen;
 
+float rho_Q = 0.1;
+float rho_R = 0.1;
+EKF ekf = EKF(rho_Q, rho_R);
+
 // Message type
 // imu_vicon data = imu_vicon_init_zero;
 
@@ -22,8 +26,8 @@ using namespace Eigen;
 // void sendJetsonMessage(IMU_VICON &imu_vicon);
 // CRC8_PARAMS crc8_params = DEFAULT_CRC8_PARAMS;
 
-// DiagonalMatrix<float, EKF_NUM_ERR_STATES> Q_cov;
-// DiagonalMatrix<float, EKF_NUM_ERR_MEASURES> R_cov;
+// DiagonalMatrix<float, NUM_ERR_STATES> Q_cov;
+// DiagonalMatrix<float, NUM_ERR_MEASURES> R_cov;
 
 // Startup
 void setup()
@@ -44,10 +48,17 @@ void setup()
     // Input curr_input(0,0,0,0,0,0);
     // ekf.process(curr_state, curr_input, dt);
 
-    Serial.println("Running dynamics and process");
     state_t<float> x = state_t<float>::Random(16);
     input_t<float> u = input_t<float>::Random(6);
+    measurement_t<float> y = measurement_t<float>::Random(7);
+    x(seqN(3, 4)).normalize();
+
+    // Setting the initial state of the quadrotor
+    ekf.set_state(x);
+
     float dt = 0.1;
+
+    Serial.println("Running dynamics and process");
     process(x, u, dt);
     Serial.println("Ran Dynamics");
     // print_matrix(x);
@@ -56,13 +67,21 @@ void setup()
     Serial.println("Computing Jacobian");
     process_jac_t<float> proc_jac;
     proc_jac = process_jacobian(x, u, dt);
-    print_matrix(proc_jac);
+    // print_matrix(proc_jac);
 
     // Compute the Measure Jacobian
     Serial.println("Computing Jacobian");
     measure_jac_t<float> meas_jac;
     meas_jac = measure_jacobian(x);
-    print_matrix(meas_jac);
+    // print_matrix(meas_jac);
+
+    Serial.println("Running Prediction Step");
+    ekf.prediction(u, dt);
+
+    Serial.println("Running Update Step");
+    ekf.update(y);
+
+    Serial.printf("Got to line %d", 83);
 }
 
 void loop()

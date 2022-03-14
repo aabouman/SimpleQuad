@@ -72,8 +72,8 @@ struct ProcessFunc
 {
     enum
     {
-        InputsAtCompileTime = EKF_NUM_STATES,
-        ValuesAtCompileTime = EKF_NUM_STATES
+        InputsAtCompileTime = NUM_STATES,
+        ValuesAtCompileTime = NUM_STATES
     };
     typedef Matrix<float, InputsAtCompileTime, 1> InputType;
     typedef Matrix<float, ValuesAtCompileTime, 1> ValueType;
@@ -104,15 +104,18 @@ process_jac_t<float> process_jacobian(const state_t<float> &curr_state,
                                       const input_t<float> &curr_input,
                                       float dt)
 {
-    const int Nx = EKF_NUM_STATES;
+    const int Nx = NUM_STATES;
+    Serial.printf("Got to line %d\n", __LINE__);
 
     ProcessFunc proc(curr_input, dt);
     ProcessFunc::InputType x1 = curr_state;
     ProcessFunc::ValueType x2 = ProcessFunc::ValueType::Zero(Nx);
     ProcessFunc::JacobianType jac = ProcessFunc::JacobianType::Zero(Nx, Nx);
+    Serial.printf("Got to line %d\n", __LINE__);
 
     AutoDiffJacobian<ProcessFunc> auto_jac(proc);
     auto_jac(x1, &x2, &jac);
+    Serial.printf("Got to line %d\n", __LINE__);
 
     return jac;
 }
@@ -131,8 +134,8 @@ struct MeasureFunc
 {
     enum
     {
-        InputsAtCompileTime = EKF_NUM_STATES,
-        ValuesAtCompileTime = EKF_NUM_MEASURES
+        InputsAtCompileTime = NUM_STATES,
+        ValuesAtCompileTime = NUM_MEASURES
     };
     typedef Matrix<float, InputsAtCompileTime, 1> InputType;
     typedef Matrix<float, ValuesAtCompileTime, 1> ValueType;
@@ -153,8 +156,8 @@ public:
 
 measure_jac_t<float> measure_jacobian(const state_t<float> &curr_state)
 {
-    const int Nx = EKF_NUM_STATES;
-    const int Ny = EKF_NUM_MEASURES;
+    const int Nx = NUM_STATES;
+    const int Ny = NUM_MEASURES;
 
     MeasureFunc meas = MeasureFunc();
     MeasureFunc::InputType x = curr_state;
@@ -222,7 +225,7 @@ err_measurement_t<float> measurement_error(measurement_t<float> m2, measurement_
 // Matrix to map states into error states
 err_state_state_jac_t<float> err_state_state_jacobian(Quaternion<float> quat)
 {
-    Matrix<float, EKF_NUM_STATES, EKF_NUM_ERR_STATES> J;
+    Matrix<float, NUM_STATES, NUM_ERR_STATES> J;
     J.setIdentity();
     J.block(3, 3, 4, 3) = differential_quat(quat);
     return J.transpose();
@@ -231,7 +234,7 @@ err_state_state_jac_t<float> err_state_state_jacobian(Quaternion<float> quat)
 // Matrix to map states into error states
 err_measure_measure_jac_t<float> err_measure_measure_jacobian(Quaternion<float> quat)
 {
-    Matrix<float, EKF_NUM_MEASURES, EKF_NUM_ERR_MEASURES> G;
+    Matrix<float, NUM_MEASURES, NUM_ERR_MEASURES> G;
     G.setIdentity();
     G.block(3, 3, 4, 3) = differential_quat(quat);
     return G.transpose();

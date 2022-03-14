@@ -1,4 +1,4 @@
-add_library(slap
+add_library(crc
     crc8.h
     crc.c
 )

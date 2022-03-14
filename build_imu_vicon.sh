@@ -40,7 +40,7 @@ BOARD_TYPE="${array[5]} ${array[6]} ${array[7]}"
 compile()
 {
     echo -e "${GREEN}Compiling Arduino Sketch${NOCOLOR} ${BULID_TARGET}."
-    arduino-cli compile --warnings all  --fqbn $1  --build-path $2  --libraries $3  $4
+    arduino-cli compile --warnings all  --fqbn $1  --build-path $2  --libraries $3  --build-property "compiler.c.elf.flags=-O3"  $4
 }
 
 # upload $BOARD_PORT $BOARD_NAME $BUILD_PATH $BULID_TARGET
