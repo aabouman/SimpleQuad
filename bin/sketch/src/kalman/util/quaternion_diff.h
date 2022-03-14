@@ -2,9 +2,9 @@
 #ifndef QUAT_MATH_H
 #define QUAT_MATH_H
 
-// The Arduino max and min macros must be undef'ed to get Eigen to compile
-#undef max
-#undef min
+// Make sure everything is statically alloced
+#define EIGEN_RUNTIME_NO_MALLOC
+
 #include <ArduinoEigenDense.h>
 #include <ArduinoEigen/Eigen/Geometry>
 

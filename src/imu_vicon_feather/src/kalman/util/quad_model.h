@@ -1,10 +1,13 @@
 #ifndef QUAD_MODEL_H
 #define QUAD_MODEL_H
 
+// Make sure everything is statically alloced
+#define EIGEN_NO_MALLOC
+
 #include <ArduinoEigenDense.h>
 #include <ArduinoEigen/unsupported/Eigen/AutoDiff>
 
-#include "eigen_utils.h"
+// #include "eigen_utils.h"
 #include "quaternion_diff.h"
 #include "quad_types.h"
 
@@ -104,18 +107,12 @@ process_jac_t<float> process_jacobian(const state_t<float> &curr_state,
                                       const input_t<float> &curr_input,
                                       float dt)
 {
-    const int Nx = NUM_STATES;
-    Serial.printf("Got to line %d\n", __LINE__);
-
     ProcessFunc proc(curr_input, dt);
-    ProcessFunc::InputType x1 = curr_state;
-    ProcessFunc::ValueType x2 = ProcessFunc::ValueType::Zero(Nx);
-    ProcessFunc::JacobianType jac = ProcessFunc::JacobianType::Zero(Nx, Nx);
-    Serial.printf("Got to line %d\n", __LINE__);
+    state_t<float> tmp_state = state_t<float>::Zero();
+    process_jac_t<float> jac = process_jac_t<float>::Zero();
 
     AutoDiffJacobian<ProcessFunc> auto_jac(proc);
-    auto_jac(x1, &x2, &jac);
-    Serial.printf("Got to line %d\n", __LINE__);
+    auto_jac(curr_state, &tmp_state, &jac);
 
     return jac;
 }

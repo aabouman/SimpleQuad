@@ -4,7 +4,7 @@
 # compile CXX with /usr/local/bin/g++-11
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen
+CXX_INCLUDES = -I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/test/ArduinoEigen
 
 CXX_FLAGS =  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
 

@@ -2,11 +2,13 @@
 # 2 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
 # 3 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
 
+
+
 // #include <CRC8.h>
 
 // #include "src/imu_vicon/imu_vicon.hpp"
 
-# 9 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
+# 11 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino" 2
 // #include "src/kalman/quat_math.h"
 
 // #include "src/kalman/util/quad_model.h"
@@ -48,6 +50,8 @@ void setup()
     // Input curr_input(0,0,0,0,0,0);
     // ekf.process(curr_state, curr_input, dt);
 
+    Serial.println(freeMemory());
+
     state_t<float> x = state_t<float>::Random(16);
     input_t<float> u = input_t<float>::Random(6);
     measurement_t<float> y = measurement_t<float>::Random(7);
@@ -56,32 +60,32 @@ void setup()
     // Setting the initial state of the quadrotor
     ekf.set_state(x);
 
+    Serial.printf("File %s, Line %d, Memory %d\n", (strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') ? strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') + 1 : "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"), 62, freeMemory());
+
     float dt = 0.1;
 
-    Serial.println("Running dynamics and process");
-    process(x, u, dt);
-    Serial.println("Ran Dynamics");
-    // print_matrix(x);
+    // Serial.println("Testing Process Jacobian");
+    // process_jacobian(x, u, dt);
+    // Serial.println("Completed Process_Jacobian\n");
 
-    // Compute the Process Jacobian
-    Serial.println("Computing Jacobian");
-    process_jac_t<float> proc_jac;
-    proc_jac = process_jacobian(x, u, dt);
-    // print_matrix(proc_jac);
+    Serial.printf("File %s, Line %d, Memory %d\n", (strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') ? strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') + 1 : "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"), 70, freeMemory());
 
-    // Compute the Measure Jacobian
-    Serial.println("Computing Jacobian");
-    measure_jac_t<float> meas_jac;
-    meas_jac = measure_jacobian(x);
-    // print_matrix(meas_jac);
+    // Serial.println("Testing Err Process Jacobian");
+    // EKF::error_process_jacobian(x, u, dt);
+    // Serial.println("Completed Error_Process_Jacobian\n");
+
+    Serial.printf("File %s, Line %d, Memory %d\n", (strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') ? strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') + 1 : "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"), 76, freeMemory());
 
     Serial.println("Running Prediction Step");
     ekf.prediction(u, dt);
+    Serial.println("Ran Prediction Step\n");
 
-    Serial.println("Running Update Step");
-    ekf.update(y);
+    Serial.printf("File %s, Line %d, Memory %d\n", (strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') ? strrchr("/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino", '/') + 1 : "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"), 82, freeMemory());
 
-    Serial.printf("Got to line %d", 83);
+    // Serial.println("Running Update Step");
+    // ekf.update(y);
+
+    // Serial.printf("Got to line %d", __LINE__);
 }
 
 void loop()

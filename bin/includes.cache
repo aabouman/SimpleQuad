@@ -55,11 +55,6 @@
     "Includepath": null
   },
   {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
     "Sourcefile": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/SPI/SPI.cpp",
     "Include": "",
     "Includepath": null

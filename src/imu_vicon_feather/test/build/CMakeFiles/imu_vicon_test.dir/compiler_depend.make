@@ -200,23 +200,23 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/ostream.tcc \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/istream \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/istream.tcc \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigenDense.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenCommon.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_include.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_libstdcplusplus.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/replace_minmax_macros.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/type_traits.h \
+  ../ArduinoEigen/ArduinoEigenDense.h \
+  ../ArduinoEigen/ArduinoEigen/ArduinoEigenCommon.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_include.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_libstdcplusplus.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/replace_minmax_macros.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/type_traits.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/utility \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_relops.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/limits \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/initializer_list.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/tuple.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/initializer_list.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/tuple.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tuple \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/array \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/uses_allocator.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/invoke.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/functional.h \
+  ../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/functional.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/functional \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/refwrap.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/std_function.h \
@@ -237,10 +237,10 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_heap.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_tempbuf.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/uniform_int_dist.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Dense \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Core \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/DisableStupidWarnings.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Macros.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Dense \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Core \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/DisableStupidWarnings.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Macros.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cmath \
   /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/math.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/specfun.h \
@@ -256,7 +256,7 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/poly_hermite.tcc \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/poly_laguerre.tcc \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/riemann_zeta.tcc \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ConfigureVectorization.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ConfigureVectorization.h \
   /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/mmintrin.h \
   /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/emmintrin.h \
   /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/xmmintrin.h \
@@ -266,7 +266,7 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/complex \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/sstream \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/sstream.tcc \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/MKL_support.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/MKL_support.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cstddef \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cassert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/assert.h \
@@ -285,450 +285,516 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/algorithm \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/pstl/glue_algorithm_defs.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/pstl/execution_defs.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Constants.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Meta.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ForwardDeclarations.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/StaticAssert.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/XprHelper.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Memory.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IntegralConstant.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/SymbolicIndex.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/NumTraits.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctions.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/GenericPacketMath.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctionsImpl.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/ConjHelper.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Half.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/BFloat16.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/TypeCasting.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/PacketMath.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/TypeCasting.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/MathFunctions.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/Complex.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Settings.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/TernaryFunctors.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/BinaryFunctors.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/UnaryFunctors.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/NullaryFunctors.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/StlFunctors.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/AssignmentFunctors.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IndexedViewHelper.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReshapedHelper.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArithmeticSequence.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/IO.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseCoeffsBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseUnaryOps.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/BlockMethods.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/IndexedViewMethods.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/IndexedViewMethods.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ReshapedMethods.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ReshapedMethods.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MatrixBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseBinaryOps.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/EigenBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Product.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreEvaluators.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/AssignEvaluator.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Assign.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseUnaryOps.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseBinaryOps.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/BlasUtil.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseStorage.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/NestByValue.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ReturnByValue.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/NoAlias.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/PlainObjectBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Matrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Array.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseTernaryOp.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseBinaryOp.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryOp.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseNullaryOp.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryView.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfCwiseBinaryOp.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Dot.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/StableNorm.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Stride.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MapBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Map.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Ref.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Block.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorBlock.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/IndexedView.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reshaped.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpose.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Diagonal.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalProduct.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Redux.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Visitor.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Fuzzy.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Swap.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CommaInitializer.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/GeneralProduct.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Solve.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Inverse.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolverBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/PermutationMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpositions.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/TriangularMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfAdjointView.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralBlockPanelKernel.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/Parallelizer.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Constants.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Meta.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ForwardDeclarations.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/StaticAssert.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/XprHelper.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Memory.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IntegralConstant.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/SymbolicIndex.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/NumTraits.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctions.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/GenericPacketMath.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctionsImpl.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/ConjHelper.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Half.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/BFloat16.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/TypeCasting.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/PacketMath.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/TypeCasting.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/MathFunctions.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/Complex.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Settings.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/TernaryFunctors.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/BinaryFunctors.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/UnaryFunctors.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/NullaryFunctors.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/StlFunctors.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/AssignmentFunctors.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IndexedViewHelper.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReshapedHelper.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArithmeticSequence.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/IO.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseCoeffsBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseUnaryOps.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/BlockMethods.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/IndexedViewMethods.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/IndexedViewMethods.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ReshapedMethods.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ReshapedMethods.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MatrixBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseBinaryOps.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/EigenBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Product.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreEvaluators.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/AssignEvaluator.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Assign.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseUnaryOps.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseBinaryOps.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/BlasUtil.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseStorage.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/NestByValue.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ReturnByValue.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/NoAlias.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/PlainObjectBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Matrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Array.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseTernaryOp.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseBinaryOp.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryOp.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseNullaryOp.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryView.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfCwiseBinaryOp.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Dot.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/StableNorm.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Stride.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MapBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Map.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Ref.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Block.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorBlock.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/IndexedView.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reshaped.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpose.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Diagonal.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalProduct.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Redux.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Visitor.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Fuzzy.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Swap.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CommaInitializer.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/GeneralProduct.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Solve.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Inverse.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolverBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/PermutationMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpositions.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/TriangularMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfAdjointView.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralBlockPanelKernel.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/Parallelizer.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/atomic \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/atomic_base.h \
   /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/atomic_lockfree_defines.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ProductEvaluators.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixVector.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolveTriangular.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixVector.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointProduct.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointRank2Update.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixVector.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverVector.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/BandMatrix.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreIterators.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ConditionEstimator.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/BooleanRedux.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Select.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorwiseOp.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/PartialReduxEvaluator.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Random.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Replicate.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reverse.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayWrapper.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/StlIterators.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/GlobalFunctions.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReenableStupidWarnings.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/LU \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/misc/Kernel.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/misc/Image.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/FullPivLU.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/PartialPivLU.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/Determinant.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/InverseImpl.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/arch/InverseSize4.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Cholesky \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Jacobi \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Jacobi/Jacobi.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LLT.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LDLT.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/QR \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Householder \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Householder/Householder.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Householder/HouseholderSequence.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Householder/BlockHouseholder.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/HouseholderQR.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/FullPivHouseholderQR.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/ColPivHouseholderQR.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/CompleteOrthogonalDecomposition.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/SVD \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/misc/RealSvd2x2.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/UpperBidiagonalization.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/SVDBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/JacobiSVD.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/BDCSVD.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Geometry \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/OrthoMethods.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/EulerAngles.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Homogeneous.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/RotationBase.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Rotation2D.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Quaternion.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AngleAxis.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Transform.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Translation.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Scaling.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Hyperplane.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/ParametrizedLine.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AlignedBox.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Umeyama.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/arch/Geometry_SIMD.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Eigenvalues \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/Tridiagonalization.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealSchur.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/HessenbergDecomposition.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/EigenSolver.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealSchur.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/Tridiagonalization.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/HessenbergDecomposition.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexSchur.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexEigenSolver.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexSchur.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealQZ.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealQZ.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenExtension.h \
-  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/quad_model/quad_model.h
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ProductEvaluators.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixVector.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolveTriangular.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixVector.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointProduct.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointRank2Update.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixVector.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverVector.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/BandMatrix.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreIterators.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ConditionEstimator.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/BooleanRedux.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Select.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorwiseOp.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/PartialReduxEvaluator.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Random.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Replicate.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reverse.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayWrapper.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/StlIterators.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/GlobalFunctions.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReenableStupidWarnings.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/LU \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/misc/Kernel.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/misc/Image.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/LU/FullPivLU.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/LU/PartialPivLU.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/LU/Determinant.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/LU/InverseImpl.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/LU/arch/InverseSize4.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Cholesky \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Jacobi \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Jacobi/Jacobi.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LLT.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LDLT.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/QR \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Householder \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Householder/Householder.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Householder/HouseholderSequence.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Householder/BlockHouseholder.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/QR/HouseholderQR.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/QR/FullPivHouseholderQR.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/QR/ColPivHouseholderQR.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/QR/CompleteOrthogonalDecomposition.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/SVD \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/misc/RealSvd2x2.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/UpperBidiagonalization.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/SVDBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/JacobiSVD.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/BDCSVD.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Geometry \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/OrthoMethods.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/EulerAngles.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Homogeneous.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/RotationBase.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Rotation2D.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Quaternion.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AngleAxis.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Transform.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Translation.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Scaling.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Hyperplane.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/ParametrizedLine.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AlignedBox.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Umeyama.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/arch/Geometry_SIMD.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Eigenvalues \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/Tridiagonalization.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealSchur.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/HessenbergDecomposition.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/EigenSolver.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealSchur.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/Tridiagonalization.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/HessenbergDecomposition.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexSchur.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexEigenSolver.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexSchur.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealQZ.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealQZ.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
+  ../ArduinoEigen/ArduinoEigen/ArduinoEigenExtension.h \
+  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/kalman.hpp \
+  ../ArduinoEigen/ArduinoEigen/Eigen/Geometry \
+  ../ArduinoEigen/ArduinoEigen/unsupported/Eigen/AutoDiff \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/DisableStupidWarnings.h \
+  ../ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/AutoDiffScalar.h \
+  ../ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/InternalHeaderCheck.h \
+  ../ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/AutoDiffJacobian.h \
+  ../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReenableStupidWarnings.h \
+  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quad_types.h \
+  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quad_model.h \
+  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quaternion_diff.h \
+  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quad_types.h \
+  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quaternion_diff.h
 
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenExtension.h:
+/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quaternion_diff.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h:
+/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quad_model.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h:
+/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quad_types.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealQZ.h:
+../ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/AutoDiffScalar.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexEigenSolver.h:
+../ArduinoEigen/ArduinoEigen/unsupported/Eigen/AutoDiff:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h:
+/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/kalman.hpp:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/EigenSolver.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexEigenSolver.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealSchur.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexSchur.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/Tridiagonalization.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Eigenvalues:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Umeyama.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealSchur.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AlignedBox.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/Tridiagonalization.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/ParametrizedLine.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AlignedBox.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Scaling.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/ParametrizedLine.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Transform.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Hyperplane.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Quaternion.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AngleAxis.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Rotation2D.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Quaternion.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/RotationBase.h:
+../ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/InternalHeaderCheck.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Homogeneous.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/RotationBase.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/OrthoMethods.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Homogeneous.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/BDCSVD.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/OrthoMethods.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/JacobiSVD.h:
+../ArduinoEigen/ArduinoEigen/Eigen/Geometry:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/CompleteOrthogonalDecomposition.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/BDCSVD.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/ColPivHouseholderQR.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/JacobiSVD.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/FullPivHouseholderQR.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/UpperBidiagonalization.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/QR/HouseholderQR.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/misc/RealSvd2x2.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Householder/BlockHouseholder.h:
+../ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/AutoDiffJacobian.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Householder/Householder.h:
+../ArduinoEigen/ArduinoEigen/Eigen/SVD:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LDLT.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/QR/CompleteOrthogonalDecomposition.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LLT.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/QR/ColPivHouseholderQR.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Jacobi/Jacobi.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/QR/HouseholderQR.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Jacobi:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Householder/BlockHouseholder.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Cholesky:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Householder/HouseholderSequence.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/arch/InverseSize4.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Householder/Householder.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/InverseImpl.h:
+../ArduinoEigen/ArduinoEigen/Eigen/QR:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/misc/Image.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LDLT.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReenableStupidWarnings.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Jacobi/Jacobi.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/GlobalFunctions.h:
+../ArduinoEigen/ArduinoEigen/Eigen/Jacobi:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/StlIterators.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/RealQZ.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayWrapper.h:
+../ArduinoEigen/ArduinoEigen/Eigen/Cholesky:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Random.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/LU/arch/InverseSize4.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/PartialReduxEvaluator.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/LU/InverseImpl.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorwiseOp.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/LU/PartialPivLU.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Select.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/misc/Image.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ConditionEstimator.h:
+../ArduinoEigen/ArduinoEigen/Eigen/LU:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/appleapiopts.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReenableStupidWarnings.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/BandMatrix.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/GlobalFunctions.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixMatrix.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/StlIterators.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/misc/RealSvd2x2.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayWrapper.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixVector.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Random.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointRank2Update.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/PartialReduxEvaluator.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixMatrix.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Select.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixVector.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/BooleanRedux.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ProductEvaluators.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/signal.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreIterators.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/BandMatrix.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverVector.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixMatrix.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixMatrix.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/SVD/SVDBase.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/TriangularMatrix.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolveTriangular.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ProductEvaluators.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/atomic:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/endian.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralBlockPanelKernel.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpositions.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mach_port_t.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/atomic_base.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralBlockPanelKernel.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/PermutationMatrix.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpositions.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/GeneralProduct.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/PermutationMatrix.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/streambuf:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Solve.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Swap.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CommaInitializer.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Fuzzy.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/NestByValue.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Swap.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ConditionEstimator.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Fuzzy.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Visitor.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Visitor.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/HessenbergDecomposition.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpose.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/BlasUtil.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/IndexedView.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Redux.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Ref.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_pair.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Stride.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalMatrix.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_heap.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Transpose.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/StableNorm.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reshaped.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseTernaryOp.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cassert:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Array.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/IndexedView.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Matrix.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/array:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/NoAlias.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Block.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolveTriangular.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Map.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ext/alloc_traits.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MapBase.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseStorage.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/StableNorm.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorBlock.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/exception_defines.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cmath:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseTernaryOp.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseBinaryOps.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Matrix.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Assign.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/PlainObjectBase.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Product.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_algobase.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Dense:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseStorage.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/IndexedViewMethods.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseBinaryOps.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/poly_hermite.tcc:
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseUnaryOps.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseUnaryOps.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/AssignEvaluator.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverMatrix.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreEvaluators.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_ctermid.h:
+../ArduinoEigen/ArduinoEigen/Eigen/Eigenvalues:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/BlasUtil.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/EigenBase.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Map.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Transform.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReshapedHelper.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseBinaryOps.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/basic_ios.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uint32_t.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/_mcontext.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseBinaryOps.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/NullaryFunctors.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/nested_exception.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/UnaryFunctors.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/time.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/TernaryFunctors.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/BlockMethods.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseUnaryOps.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ArrayCwiseUnaryOps.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/signal.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_rsize_t.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/ptr_traits.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/Complex.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/std_abs.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayBase.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseBase.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reverse.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/arch/Geometry_SIMD.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/IO.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverVector.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IndexedViewHelper.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/gthr.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/IndexedViewMethods.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/TypeCasting.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/AssignmentFunctors.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/BFloat16.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IntegralConstant.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/ConjHelper.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/NullaryFunctors.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctionsImpl.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/pthread/sched.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctions.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/UnaryFunctors.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/NumTraits.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_wint_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/Determinant.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Array.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IntegralConstant.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/BinaryFunctors.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/PacketMath.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/TernaryFunctors.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Memory.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Settings.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/types.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/Complex.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/atomic_word.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/PacketMath.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/PlainObjectBase.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorwiseOp.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/XprHelper.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/TypeCasting.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/StaticAssert.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/BFloat16.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Meta.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArrayBase.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Constants.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Half.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/GenericPacketMath.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/SymbolicIndex.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/XprHelper.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/StaticAssert.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ForwardDeclarations.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Meta.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Solve.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/ios_base.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Memory.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Constants.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/pstl/execution_defs.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/QR/FullPivHouseholderQR.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/_limits.h:
 
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/replace_minmax_macros.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/limits.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalProduct.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/misc/Kernel.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/predefined_ops.h:
 
@@ -738,29 +804,33 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/climits:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/string.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArithmeticSequence.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/NumTraits.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cstring:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/atomic:
+/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/xmmintrin.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/MKL_support.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/MKL_support.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Replicate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/limits.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularMatrixVector.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/EigenSolver.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/sstream.tcc:
 
-/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/pmmintrin.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/mmintrin.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/beta_function.tcc:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ConfigureVectorization.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ConfigureVectorization.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/poly_laguerre.tcc:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/MathFunctions.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/poly_hermite.tcc:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/legendre_function.tcc:
 
@@ -770,65 +840,77 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/hypergeometric.tcc:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseCoeffsBase.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ext/string_conversions.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/exp_integral.tcc:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/ell_integral.tcc:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_iterator_base_types.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ReturnByValue.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/beta_function.tcc:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/special_function_util.h:
 
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/vector.tcc:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/string_view.tcc:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseUnaryOps.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/gamma.tcc:
+
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/specfun.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cmath:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Macros.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/math.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cassert:
+/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/AvailabilityInternal.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/errno.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/DisableStupidWarnings.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Core:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_uintptr_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseNullaryOp.h:
+/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/syslimits.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/Dense:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_tempbuf.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/algorithmfwd.h:
 
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/EulerAngles.h:
+
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_bvector.h:
 
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Translation.h:
+
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_vector.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointProduct.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/vector:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/hash_bytes.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reshaped.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/node_handle.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/EigenBase.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_wctype.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/hashtable.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_wctype_t.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/SymbolicIndex.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ext/aligned_buffer.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Settings.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/ostream.tcc:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/unordered_map:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/cdefs.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixVector.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/std_function.h:
 
@@ -838,63 +920,83 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/functional:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/pstl/execution_defs.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/functional.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/Parallelizer.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/invoke.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/LU/FullPivLU.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cstddef:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tuple:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/tuple.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/gamma.tcc:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/initializer_list.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/stdlib.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolverBase.h:
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/tuple.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/limits:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_libstdcplusplus.h:
+/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/pmmintrin.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mode_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigenDense.h:
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/type_traits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/string.h:
+
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_libstdcplusplus.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ext/new_allocator.h:
+
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_include.h:
+
+../ArduinoEigen/ArduinoEigen/ArduinoEigenCommon.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_function.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctionsImpl.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/istream.tcc:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixVector.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/Core:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/ConjHelper.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfAdjointView.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryOp.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/basic_ios.tcc:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
 
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/VectorBlock.h:
+
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cwctype:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_stdio.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Rotation2D.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/DisableStupidWarnings.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MatrixBase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_stdio.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/uniform_int_dist.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/locale_classes.tcc:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_uintptr_t.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/syslimits.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Diagonal.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/Parallelizer.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/mach/machine/_structs.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/basic_string.tcc:
 
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Inverse.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/gthr.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Product.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/NestByValue.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
 
@@ -906,59 +1008,43 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_wctrans_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/SVD:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/riemann_zeta.tcc:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/stdexcept:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_errno_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Redux.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenCommon.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Householder:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_include.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/istream:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/streambuf_iterator.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/CommonCwiseBinaryOps.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/errno.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/error_constants.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/BooleanRedux.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/errno.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Umeyama.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cstdio:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/unordered_map.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/ComplexSchur.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/alloca.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/ios_base.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/libkern/i386/_OSByteOrder.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ReshapedMethods.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/iosfwd:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/libkern/_OSByteOrder.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/LU:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Ref.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/AssignmentFunctors.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseBinaryOp.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_timeval.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/replace_minmax_macros.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Hyperplane.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/alloc_traits.h:
 
@@ -968,7 +1054,7 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_uid_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Replicate.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/MathFunctions.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/functexcept.h:
 
@@ -976,13 +1062,13 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ucontext.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/type_traits.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/signal.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/bessel_function.tcc:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryView.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mode_t.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/appleapiopts.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/tr1/bessel_function.tcc:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cctype:
 
@@ -992,41 +1078,31 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/stdlib.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/debug/debug.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointMatrixVector.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseBinaryOps.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Dot.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cstdlib:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/misc/Kernel.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrix.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/locale_facets.tcc:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/vector.tcc:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CommaInitializer.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/string_view.tcc:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointRank2Update.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/os_defines.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/streambuf:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/BinaryFunctors.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/functional_hash.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ext/alloc_traits.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/initializer_list:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseBinaryOp.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/GeneralMatrixMatrix.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/cxxabi_forced.h:
 
@@ -1038,15 +1114,19 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_timespec.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_function.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/utility:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/types.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/atomic_word.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/debug/assertions.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/exception.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/qos.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Stride.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/_mcontext.h:
 
@@ -1058,9 +1138,7 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseBase.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/signal.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Scaling.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/_types.h:
 
@@ -1070,65 +1148,45 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_pid_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreEvaluators.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Assign.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/pthread/sched.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CoreIterators.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfAdjointView.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Reverse.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/TriangularMatrix.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/arch/Geometry_SIMD.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/localefwd.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/pthread.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/ReturnByValue.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/gthr-default.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/xmmintrin.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ReshapedHelper.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/TypeCasting.h:
+
+../ArduinoEigen/ArduinoEigenDense.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_locale.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/c++allocator.h:
 
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/cpp_type_traits.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/NoAlias.h:
+
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cstdint:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/locale.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/AvailabilityInternal.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ext/new_allocator.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Householder/HouseholderSequence.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MatrixBase.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_ctermid.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uintmax_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_once_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Inverse.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/signal.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/ptr_traits.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/std_abs.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/string_view:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/ctype_base.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_algobase.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/FullPivLU.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_intmax_t.h:
 
@@ -1148,31 +1206,25 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/_types.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/LU/PartialPivLU.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/debug/debug.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_endian.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Block.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/ReshapedMethods.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/system_error:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/IO.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/TriangularSolverMatrix.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_iterator.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/endian.h:
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/initializer_list.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseNullaryOp.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/emmintrin.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/stdint.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryOp.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/string:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/locale_facets.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_rsize_t.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ext/numeric_traits.h:
 
@@ -1184,19 +1236,21 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/pstl/glue_algorithm_defs.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/QR:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_uninitialized.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/products/SelfadjointProduct.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/wchar.h:
 
+../ArduinoEigen/ArduinoEigen/Eigen/Householder:
+
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cerrno:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/GenericPacketMath.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/StlFunctors.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_endian.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/ArithmeticSequence.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int32_t.h:
 
@@ -1208,9 +1262,7 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/exception_ptr.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/Macros.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/Half.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_iterator_base_types.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/runetype.h:
 
@@ -1218,31 +1270,25 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/wctype.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/quad_model/quad_model.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/typeinfo:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_wint_t.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_wctype_t.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/limits.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/AngleAxis.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/LU/Determinant.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_sigset_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/HessenbergDecomposition.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SolverBase.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfCwiseBinaryOp.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ios:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int64_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/AssignEvaluator.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_clock_t.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/move.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/array:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/__wctype.h:
 
@@ -1252,21 +1298,15 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/cwchar:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Geometry:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/MathFunctions.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mbstate_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_time_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/SelfCwiseBinaryOp.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_algo.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_ctype.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/nested_exception.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/time.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_int16_t.h:
 
@@ -1276,9 +1316,9 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_off_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/MatrixCwiseUnaryOps.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_types.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DenseCoeffsBase.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/sstream:
 
@@ -1286,21 +1326,15 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_wchar_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/MapBase.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_pair.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_symbol_aliasing.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/hashtable_policy.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/stdint.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/CwiseUnaryView.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_rune_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/GeneralProduct.h:
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/postypes.h:
 
@@ -1308,9 +1342,11 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_intptr_t.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_relops.h:
+../imu_vicon_test.cpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uint32_t.h:
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/Diagonal.h:
+
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_relops.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/syslimits.h:
 
@@ -1324,6 +1360,8 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/ctype_inline.h:
 
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_va_list.h:
@@ -1332,17 +1370,11 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/pstl/pstl_config.h:
 
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/cpp_type_traits.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/cpu_defines.h:
-
-/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/exception_defines.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/plugins/BlockMethods.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/exception:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/arch/SSE/TypeCasting.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/system_error:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_sigaltstack.h:
 
@@ -1354,37 +1386,31 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_key_t.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/Dot.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/EulerAngles.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include-fixed/limits.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/SVDBase.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/atomic_lockfree_defines.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/algorithm:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalMatrix.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_types/_uint8_t.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Core/DiagonalProduct.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/erase_if.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Geometry/Translation.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/basic_ios.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/_mcontext.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/char_traits.h:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/IndexedViewHelper.h:
+../ArduinoEigen/ArduinoEigen/ArduinoEigenExtension.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/uses_allocator.h:
 
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/stdlib.h:
+
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/type_traits:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/cdefs.h:
-
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/util/ForwardDeclarations.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/x86_64-apple-darwin21/bits/c++config.h:
 
@@ -1392,18 +1418,18 @@ CMakeFiles/imu_vicon_test.dir/imu_vicon_test.cpp.o: ../imu_vicon_test.cpp \
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/ostream:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Core/functors/StlFunctors.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/basic_string.h:
+
+../ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/functional.h:
+
+../ArduinoEigen/ArduinoEigen/Eigen/src/Cholesky/LLT.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/lib/gcc/11/gcc/x86_64-apple-darwin21/11/include/stddef.h:
 
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/iostream:
 
-/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/SVD/UpperBidiagonalization.h:
-
 /usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/concept_check.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/endian.h:
+/usr/local/Cellar/gcc/11.2.0_3/include/c++/11/bits/stl_heap.h:
 
-../imu_vicon_test.cpp:
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/endian.h:

@@ -299,8 +299,7 @@
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenExtension.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/kalman.hpp \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quad_types.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quad_model.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Geometry \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/AutoDiff \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/../../Eigen/src/Core/util/DisableStupidWarnings.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/AutoDiffScalar.h \
@@ -308,6 +307,8 @@
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/AutoDiffJacobian.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/../../Eigen/src/Core/util/ReenableStupidWarnings.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/eigen_utils.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quad_types.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quad_model.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quaternion_diff.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Geometry \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quad_types.h
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quad_types.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/src/kalman/util/quaternion_diff.h

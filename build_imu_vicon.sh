@@ -28,6 +28,8 @@ BOARD_NAME=adafruit:samd:adafruit_feather_m0
 BULID_TARGET=${REL_DIR}/src/imu_vicon_feather
 LIBRARIES=${REL_DIR}/deps
 BUILD_PATH=${REL_DIR}/bin
+BUILD_PATH=${REL_DIR}/bin
+BUILD_CACHE_PATH=${REL_DIR}/bin/cache
 
 # Find board port and name
 BOARD_PORT_INFO=$(arduino-cli board list | grep "${BOARD_NAME}")
@@ -36,11 +38,11 @@ BOARD_PORT="${array[0]}"
 BOARD_TYPE="${array[5]} ${array[6]} ${array[7]}"
 
 
-# compile $BOARD_NAME $BUILD_PATH $LIBRARIES $BULID_TARGET
+# compile $BOARD_NAME $BUILD_CACHE_PATH $BUILD_PATH $LIBRARIES $BULID_TARGET
 compile()
 {
     echo -e "${GREEN}Compiling Arduino Sketch${NOCOLOR} ${BULID_TARGET}."
-    arduino-cli compile --warnings all  --fqbn $1  --build-path $2  --libraries $3  --build-property "compiler.c.elf.flags=-O3"  $4
+    arduino-cli compile --warnings all  --fqbn $1  --build-cache-path $2  --build-path $3  --libraries $4  --build-property "compiler.c.elf.flags=-O3"  $5
 }
 
 # upload $BOARD_PORT $BOARD_NAME $BUILD_PATH $BULID_TARGET
@@ -75,7 +77,7 @@ do
             exit
             ;;
         --compile | -c)
-            compile $BOARD_NAME $BUILD_PATH $LIBRARIES $BULID_TARGET
+            compile $BOARD_NAME $BUILD_CACHE_PATH $BUILD_PATH $LIBRARIES $BULID_TARGET
             ;;
         --upload | -u)
             upload $BOARD_PORT $BOARD_NAME $BUILD_PATH $BULID_TARGET

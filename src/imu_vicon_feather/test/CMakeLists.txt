@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.17)
 project(imu_vicon_feather_test VERSION 0.1 LANGUAGES C CXX)
 include(CMakePrintHelpers)
 
-set(LIB_DIR ${CMAKE_SOURCE_DIR}/../../../deps)
+set(LIB_DIR ${CMAKE_SOURCE_DIR})
 # include_directories(imu_vicon_test PUBLIC
 #   $<BUILD_INTERFACE:${LIB_DIR}>
 # )
