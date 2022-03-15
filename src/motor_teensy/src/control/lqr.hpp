@@ -18,19 +18,19 @@ namespace Control
 
 // State Type
 template <typename T>
-using quad_state_t = Matrix<T, LQR_NUM_STATES, 1>;
+using state_t = Matrix<T, LQR_NUM_STATES, 1>;
 // State Type
 template <typename T>
-using quad_err_state_t = Matrix<T, LQR_NUM_ERR_STATES, 1>;
+using err_state_t = Matrix<T, LQR_NUM_ERR_STATES, 1>;
 // State Type
 template <typename T>
 using input_t = Matrix<T, LQR_NUM_INPUTS, 1>;
 
 // Populate the hover state/input
-const quad_state_t<float> x_hover(0.262, -0.555, 1.30, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-const quad_state_t<float> u_hover(U_HOVER, U_HOVER, U_HOVER, U_HOVER);
+const state_t<float> x_hover(0.262, -0.555, 1.30, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+const input_t<float> u_hover(U_HOVER, U_HOVER, U_HOVER, U_HOVER);
 
-quad_err_state_t<float> state_error(quad_state_t<float> x2, quad_state_t<float> x1)
+err_state_t<float> state_error(state_t<float> x2, state_t<float> x1)
 {
     Vector3<float> pos1 = x1.segment(0, 3);
     Quaternion<float> quat1(x1(3), x1(4), x1(5), x1(6));
@@ -42,7 +42,7 @@ quad_err_state_t<float> state_error(quad_state_t<float> x2, quad_state_t<float> 
     Vector3<float> vel2 = x2.segment(7, 3);
     Vector3<float> omg2 = x2.segment(10, 3);
 
-    quad_err_state_t<float> ret_state;
+    err_state_t<float> ret_state;
     ret_state.segment(0, 3) = pos2 - pos1;
     ret_state.segment(3, 3) = rotation_error(quat2, quat1);
     ret_state.segment(6, 3) = vel2 - vel1;
@@ -51,9 +51,10 @@ quad_err_state_t<float> state_error(quad_state_t<float> x2, quad_state_t<float> 
     return ret_state;
 }
 
-input_t<float> get_control(quad_state_t<float> x)
+input_t<float> get_control(state_t<float> x)
 {
-    Matrix<float, LQR_NUM_ERR_STATES, LQR_NUM_ERR_STATES> K_gains;
+    // This matrix is computed offline
+    Matrix<float, LQR_NUM_ERR_STATES, LQR_NUM_INPUTS> K_gains;
     K_gains << 1.3157338657427822, 1.386613052699102, -1.3157338312380813, -1.3866130872053368,
         1.386828075025603, -1.3160464714865245, -1.3868280419892471, 1.3160464384710817,
         1.5761396117654949, 1.5761395596270469, 1.5761396118606046, 1.5761395597945393,
@@ -68,12 +69,6 @@ input_t<float> get_control(quad_state_t<float> x)
         -3.2383033408219806, -3.2360464984555537, 3.238303304761369, 3.236046534516526;
 
     input_t<float> u = u_hover + K_gains.transpose() * state_error(x, x_hover);
-    return u;
-}
-
-state_t<float> imu_vicon_to_state(imu_vicon data)
-{
-    state_t<float> x(data.pos_x);
     return u;
 }
 

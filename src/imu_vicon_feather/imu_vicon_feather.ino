@@ -1,14 +1,15 @@
 #include <Arduino.h>
 #include <PacketSerial.h>
 #include <crc8.h>
-#include <imu_vicon.hpp>
+
+#include "src/imu_vicon/imu_vicon.hpp"
 
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define LED_PIN 13
 
-void sendTeensyMessage(imu_vicon &data);
+void sendTeensyMessage(imu_vicon_t &data);
 
-imu_vicon data = imu_vicon_init_zero;
+imu_vicon_t data = imu_vicon_init_zero;
 crc8_params params = DEFAULT_CRC8_PARAMS;
 PacketSerial teensyPacketSerial;
 
@@ -57,6 +58,7 @@ void loop()
     // Send info to Teensy
     sendTeensyMessage(data);
 
+    // Display at 1/2 the loop rate
     if (flop)
     {
         displayImuVicon(&data);
@@ -67,10 +69,10 @@ void loop()
 /*
  * Relay the message over from LoRa/IMU to Jetson
  */
-void sendTeensyMessage(imu_vicon &data)
+void sendTeensyMessage(imu_vicon_t &data)
 {
     // Copy IMU_VICON message into buffer of size sizeof(IMU_VICON)+1
-    size_t imu_vicon_size = sizeof(imu_vicon);
+    size_t imu_vicon_size = sizeof(imu_vicon_t);
     uint8_t buffer[imu_vicon_size + 1];
 
     memcpy(buffer, (const void *)&data, imu_vicon_size);

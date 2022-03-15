@@ -6,6 +6,11 @@
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/motor_teensy.ino.cpp",
+    "Include": "ArduinoEigenDense.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/motor_teensy.ino.cpp",
     "Include": "PacketSerial.h",
     "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src"
   },
@@ -13,11 +18,6 @@
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/motor_teensy.ino.cpp",
     "Include": "crc8.h",
     "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/crc8"
-  },
-  {
-    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/motor_teensy.ino.cpp",
-    "Include": "ArduinoEigenDense.h",
-    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen"
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/sketch/motor_teensy.ino.cpp",
