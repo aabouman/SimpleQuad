@@ -1,4 +1,4 @@
-#line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/src/kalman/util/quaternion_diff.h"
+#line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/motor_teensy/src/kalman/util/quaternion_diff.h"
 #ifndef QUAT_MATH_H
 #define QUAT_MATH_H
 

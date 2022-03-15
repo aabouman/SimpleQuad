@@ -31,10 +31,10 @@ int main(int argc, char *argv[])
 
     std::cout << ("Running dynamics and process\n");
 
-    state_t<float> x = state_t<float>::Zero(NUM_STATES);
+    state_t<float> x = state_t<float>::Zero(EKF_NUM_STATES);
     x(seqN(3, 4)).normalize();
-    input_t<float> u = input_t<float>::Zero(NUM_INPUTS);
-    measurement_t<float> y = measurement_t<float>::Zero(NUM_MEASURES);
+    input_t<float> u = input_t<float>::Zero(EKF_NUM_INPUTS);
+    measurement_t<float> y = measurement_t<float>::Zero(EKF_NUM_MEASURES);
 
     // Setting the initial state of the quadrotor
     ekf.set_state(x);

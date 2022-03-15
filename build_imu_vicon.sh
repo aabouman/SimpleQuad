@@ -27,9 +27,8 @@ REL_DIR=`dirname "$0"`
 BOARD_NAME=adafruit:samd:adafruit_feather_m0
 BULID_TARGET=${REL_DIR}/src/imu_vicon_feather
 LIBRARIES=${REL_DIR}/deps
-BUILD_PATH=${REL_DIR}/bin
-BUILD_PATH=${REL_DIR}/bin
-BUILD_CACHE_PATH=${REL_DIR}/bin/cache
+BUILD_PATH=${REL_DIR}/bin/imu_vicon_feather
+BUILD_CACHE_PATH=${BUILD_PATH}/cache
 
 # Find board port and name
 BOARD_PORT_INFO=$(arduino-cli board list | grep "${BOARD_NAME}")
