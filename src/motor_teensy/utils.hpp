@@ -12,6 +12,8 @@
 
 using namespace Eigen;
 
+Vector3f last_pos = Vector3f::Zero();
+
 typedef struct _IMU_VICON
 {
     float acc_x;
@@ -62,4 +64,48 @@ void imu_vicon_to_filt(imu_vicon_t &data,
                                      data.quat_w, data.quat_x, data.quat_y, data.quat_z);
 }
 
+void displayImuVicon(imu_vicon_t *data)
+{
+    if (Serial)
+    {
+        /* Display the individual values */
+        Serial.println("\n-------------Sensor Reading-------------");
+        Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", data->acc_x, data->acc_y, data->acc_z);
+        Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", data->gyr_x, data->gyr_y, data->gyr_z);
+        Serial.printf(" Pos: [%1.3f, %1.3f, %1.3f]\n", data->pos_x, data->pos_y, data->pos_z);
+        Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", data->quat_w, data->quat_x, data->quat_y, data->quat_z);
+        Serial.println("\n----------------------------------------");
+    }
+}
+
+Control::state_t<float> imu_integrator(imu_vicon_t &data, float dt)
+{
+    Control::state_t<float> state;
+    state.setZero();
+
+    state(0) = data.pos_x;
+    state(1) = data.pos_y;
+    state(2) = data.pos_z;
+
+    state(3) = data.quat_w;
+    state(4) = data.quat_x;
+    state(5) = data.quat_y;
+    state(6) = data.quat_z;
+
+    Serial.println("Last position");
+    print_matrix(last_pos);
+    Serial.println("Curr position");
+    Vector3f tmp = state(seqN(0, 3));
+    print_matrix(tmp);
+
+    // Finite diff of position for new velocity estimate
+    state(seqN(7, 3)) = (state(seqN(0, 3)) - last_pos) / dt;
+    last_pos = state(seqN(0, 3));
+
+    state(10) = data.gyr_x;
+    state(11) = data.gyr_y;
+    state(12) = data.gyr_z;
+
+    return state;
+}
 #endif

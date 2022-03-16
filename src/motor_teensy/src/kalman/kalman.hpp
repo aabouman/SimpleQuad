@@ -18,10 +18,8 @@ using namespace Eigen;
 
 namespace Filter
 {
-
     class EKF
     {
-
     private:
         // Initialize vectors for storing the state and error states
         state_t<float> _est_state;
@@ -97,8 +95,6 @@ namespace Filter
 
         void prediction(const input_t<float> &input, float dt)
         {
-            print_matrix(input);
-
             // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
             state_t<float> x1 = this->_est_state;
             process_cov_t<float> P = this->_est_state_cov;
@@ -125,6 +121,15 @@ namespace Filter
             measurement_t<float> y = measure(x1);
             err_measurement_t<float> z = measurement_error(meas, y);
             err_measure_jac_t<float> C = error_measure_jacobian(x1);
+
+            // Serial.println("meas Measurement");
+            // print_matrix(meas);
+            // Serial.println("y Measurement");
+            // print_matrix(y);
+            // Serial.println("z Measure Error");
+            // print_matrix(z);
+            // Serial.println("C Error Measure Jacobian");
+            // print_matrix(C);
 
             ColPivHouseholderQR<measure_cov_t<float>> decomp_S(C * P * C.transpose() + R); // decompose C with a suiting decomposition
             Matrix<float, EKF_NUM_ERR_STATES, EKF_NUM_ERR_MEASURES> L = P * C.transpose() * decomp_S.inverse();

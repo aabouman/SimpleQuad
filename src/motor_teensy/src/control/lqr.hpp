@@ -12,6 +12,8 @@
 #define LQR_NUM_INPUTS 4
 
 #define U_HOVER 1427.3354062457752
+#define MAX_THROTTLE 1148.0
+#define MIN_THROTTLE 1832.0
 
 namespace Control
 {
@@ -27,7 +29,7 @@ template <typename T>
 using input_t = Matrix<T, LQR_NUM_INPUTS, 1>;
 
 // Populate the hover state/input
-const state_t<float> x_hover(0.262, -0.555, 1.30, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+const state_t<float> x_hover(0.150, .150, 0.05, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 const input_t<float> u_hover(U_HOVER, U_HOVER, U_HOVER, U_HOVER);
 
 err_state_t<float> state_error(state_t<float> x2, state_t<float> x1)
@@ -70,6 +72,11 @@ input_t<float> get_control(state_t<float> x)
 
     input_t<float> u = u_hover + K_gains.transpose() * state_error(x, x_hover);
     return u;
+}
+
+input_t<float> clamp_control(input_t<float> u)
+{
+    return u.cwiseMin(MAX_THROTTLE).cwiseMax(MIN_THROTTLE);
 }
 
 }

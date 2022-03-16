@@ -30,10 +30,11 @@ void init_imuViconRelay()
     receiver.bno = Adafruit_BNO055(SENSOR_ID, IMU_ADDRESS, &Wire);
     if (!(receiver.bno.begin()))
     {
-        while (true)
+        if (Serial)
         {
             Serial.print("\nOoops, no BNO055 detected ... Check your wiring or I2C ADDR!\n");
         }
+        while (true) ;
     }
 
     // Setup VICON params
@@ -47,10 +48,11 @@ void init_imuViconRelay()
     LoRa.setPins(RFM95_CS, RFM95_RST, RFM95_INT);
     if (!LoRa.begin(915E6))
     {
-        Serial.println("Starting LoRa failed!");
-        while (1)
+        if (Serial)
         {
-        };
+            Serial.println("Starting LoRa failed!");
+        }
+        while (true);
     }
     // Optimal speed settings
     LoRa.setSpreadingFactor(6);
@@ -117,10 +119,13 @@ void displayCalStatus()
 {
     uint8_t system, gyro, accel, mag = 0;
     receiver.bno.getCalibration(&system, &gyro, &accel, &mag);
-    /* Display the individual values */
-    Serial.println("\n-----------Sensor Calibration-----------");
-    Serial.printf("\tSys: %d\tGyr: %d\tAcc: %d\tMag: %d", system, gyro, accel, mag);
-    Serial.println("\n----------------------------------------");
+    if (Serial)
+    {
+        /* Display the individual values */
+        Serial.println("\n-----------Sensor Calibration-----------");
+        Serial.printf("\tSys: %d\tGyr: %d\tAcc: %d\tMag: %d", system, gyro, accel, mag);
+        Serial.println("\n----------------------------------------");
+    }
 }
 
 void displaySensorReading()
@@ -128,13 +133,15 @@ void displaySensorReading()
     imu::Vector<3> gyr = receiver.bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
     imu::Vector<3> acc = receiver.bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
     imu::Vector<3> mag = receiver.bno.getVector(Adafruit_BNO055::VECTOR_MAGNETOMETER);
-
-    /* Display the individual values */
-    Serial.println("\n-------------Sensor Reading-------------");
-    Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", gyr.x(), gyr.y(), gyr.z());
-    Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", acc.x(), acc.y(), acc.z());
-    Serial.printf(" Mag: [%1.3f, %1.3f, %1.3f]\n", mag.x(), mag.y(), mag.z());
-    Serial.println("\n----------------------------------------");
+    if (Serial)
+    {
+        /* Display the individual values */
+        Serial.println("\n-------------Sensor Reading-------------");
+        Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", gyr.x(), gyr.y(), gyr.z());
+        Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", acc.x(), acc.y(), acc.z());
+        Serial.printf(" Mag: [%1.3f, %1.3f, %1.3f]\n", mag.x(), mag.y(), mag.z());
+        Serial.println("\n----------------------------------------");
+    }
 }
 
 bool calibrateIMU()
@@ -144,30 +151,40 @@ bool calibrateIMU()
 
     adafruit_bno055_offsets_t calibrationData = {15293, 0, 615, 50, 0, 0, 8192, 512, 0, 0, 512};
     receiver.bno.setSensorOffsets(calibrationData);
-    Serial.println("Calibration data loaded into BNO055");
+    if (Serial)
+    {
+        Serial.println("Calibration data loaded into BNO055");
+    }
     delay(1000);
-
-    Serial.println("Checking Sensor Calibration: ");
+    if(Serial)
+    {
+        Serial.println("Checking Sensor Calibration: ");
+    }
     while (!receiver.bno.isFullyCalibrated())
     {
         receiver.bno.getEvent(&event);
         displayCalStatus();
         delay(100);
     }
-    Serial.printf("Calibration status: %d", receiver.bno.isFullyCalibrated());
-
+    if(Serial)
+    {
+        Serial.printf("Calibration status: %d", receiver.bno.isFullyCalibrated());
+    }
     return true;
 }
 
 void displayImuVicon(imu_vicon_t *data)
 {
-    /* Display the individual values */
-    Serial.println("\n-------------Sensor Reading-------------");
-    Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", data->acc_x, data->acc_y, data->acc_z);
-    Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", data->gyr_x, data->gyr_y, data->gyr_z);
-    Serial.printf(" Pos: [%1.3f, %1.3f, %1.3f]\n", data->pos_x, data->pos_y, data->pos_z);
-    Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", data->quat_w, data->quat_x, data->quat_y, data->quat_z);
-    Serial.println("\n----------------------------------------");
+    if (Serial)
+    {
+        /* Display the individual values */
+        Serial.println("\n-------------Sensor Reading-------------");
+        Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", data->acc_x, data->acc_y, data->acc_z);
+        Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", data->gyr_x, data->gyr_y, data->gyr_z);
+        Serial.printf(" Pos: [%1.3f, %1.3f, %1.3f]\n", data->pos_x, data->pos_y, data->pos_z);
+        Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", data->quat_w, data->quat_x, data->quat_y, data->quat_z);
+        Serial.println("\n----------------------------------------");
+    }
 }
 
 void constraintCheck(imu_vicon_t *data)

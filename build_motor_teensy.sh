@@ -26,9 +26,8 @@ REL_DIR=`dirname "$0"`
 BOARD_NAME=teensy:avr:teensy40
 BULID_TARGET=${REL_DIR}/src/motor_teensy
 LIBRARIES=${REL_DIR}/deps
-BUILD_PATH=${REL_DIR}/bin
-BUILD_PATH=${REL_DIR}/bin
-BUILD_CACHE_PATH=${REL_DIR}/bin/cache
+BUILD_PATH=${REL_DIR}/bin/motor_teensy
+BUILD_CACHE_PATH=${BUILD_PATH}/cache
 
 # Find board port and name
 BOARD_PORT_INFO=$(arduino-cli board list | grep "${BOARD_NAME}")

@@ -1,0 +1,97 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/cores/arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/variants/feather_m0"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/imu_vicon_feather.ino.cpp",
+    "Include": "PacketSerial.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/imu_vicon_feather.ino.cpp",
+    "Include": "crc8.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/crc8"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/imu_vicon_feather.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/src/imu_vicon/imu_vicon.cpp",
+    "Include": "SPI.h",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/SPI"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/src/imu_vicon/imu_vicon.cpp",
+    "Include": "Adafruit_ZeroDMA.h",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Adafruit_ZeroDMA"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/src/imu_vicon/imu_vicon.cpp",
+    "Include": "Wire.h",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Wire"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/src/imu_vicon/imu_vicon.cpp",
+    "Include": "LoRa.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/src/imu_vicon/imu_vicon.cpp",
+    "Include": "Adafruit_Sensor.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/src/imu_vicon/imu_vicon.cpp",
+    "Include": "Adafruit_BNO055.h",
+    "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/imu_vicon_feather/sketch/src/imu_vicon/imu_vicon.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/crc8/crc8.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/SPI/SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Adafruit_ZeroDMA/Adafruit_ZeroDMA.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Library/Arduino15/packages/adafruit/hardware/samd/1.7.5/libraries/Wire/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/arduino-LoRa/src/LoRa.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/Adafruit_BNO055/Adafruit_BNO055.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
