@@ -6,11 +6,21 @@
 #define UTILS_HPP
 
 #include <Arduino.h>
+#include <PacketSerial.h>
+#include <crc8.h>
 
 #include "src/kalman/kalman.hpp"
 #include "src/control/lqr.hpp"
 
 using namespace Eigen;
+
+void onPacketReceived(const uint8_t *buffer, size_t bytes_recv);
+imu_vicon_t data = {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+crc8_params decode_params = DEFAULT_CRC8_PARAMS;
+PacketSerial featherPacketSerial;
+bool new_imu_vicon = false;
+int time = micros();
+int last_time = micros();
 
 Vector3f last_pos = Vector3f::Zero();
 
@@ -108,4 +118,73 @@ Control::state_t<float> imu_integrator(imu_vicon_t &data, float dt)
 
     return state;
 }
+
+/*
+ * Relay the message over from LoRa/IMU to Jetson
+ */
+void onPacketReceived(const uint8_t *buffer, size_t bytes_recv)
+{
+    uint8_t crc8_byte_recv = buffer[bytes_recv - 1];
+    uint8_t crc8_byte_comp = crc8(decode_params, (const uint8_t *)buffer, bytes_recv - 1);
+    size_t bytes_expected = sizeof(imu_vicon_t) + 1;
+
+    Serial.printf("bytes_recv: %d\n", bytes_recv);
+    // Serial.printf("bytes expected: %d\n", sizeof(imu_vicon_t) + 1);
+
+    if ((crc8_byte_comp == crc8_byte_recv) && (bytes_recv == bytes_expected))
+    {
+        memcpy(&data, buffer, sizeof(imu_vicon_t));
+        new_imu_vicon = true;
+        last_time = time;
+        time = micros();
+        // DEBUG_PRINT("Heard packet!");
+
+        // /* Display the individual values */
+        // Serial.println("\n-------------Sensor Reading-------------");
+        // Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", data.acc_x, data.acc_y, data.acc_z);
+        // Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", data.gyr_x, data.gyr_y, data.gyr_z);
+        // Serial.printf(" Pos: [%1.3f, %1.3f, %1.3f]\n", data.pos_x, data.pos_y, data.pos_z);
+        // Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", data.quat_w, data.quat_x, data.quat_y, data.quat_z);
+        // Serial.println("\n----------------------------------------");
+    }
+    else
+    {
+        DEBUG_PRINT("Failed to parse packet with CRC8!");
+    }
+}
+
+void initFeatherPacket()
+{
+    Serial3.begin(115200);
+    while (!Serial3)
+    {
+        delay(10);
+    }
+    DEBUG_PRINT("Started Serial3");
+
+    featherPacketSerial.setStream(&Serial3);
+    featherPacketSerial.setPacketHandler(&onPacketReceived);
+}
+
+float getFeatherPacket(Filter:input_t<float> *filt_input,
+                       Filter:measurement_t<float> *filt_meas)
+{
+    featherPacketSerial.update();
+    if (featherPacketSerial.overflow())
+    {
+        digitalWrite(LED_PIN, HIGH);
+    }
+
+    if (new_imu_vicon)
+    {
+        new_imu_vicon = false;
+        imu_vicon_to_filt(data, &filt_input, &filt_meas);
+
+        float dt = (time - last_time) / 1e6;
+        return dt;
+    }
+
+    return -1;
+}
+
 #endif
