@@ -11,6 +11,11 @@
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/motor_teensy.ino.cpp",
+    "Include": "Servo.h",
+    "Includepath": "/Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/libraries/Servo"
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/motor_teensy.ino.cpp",
     "Include": "PacketSerial.h",
     "Includepath": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src"
   },
@@ -21,6 +26,21 @@
   },
   {
     "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/motor_teensy.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/motor_commands.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/libraries/Servo/Servo.cpp",
     "Include": "",
     "Includepath": null
   },

@@ -4,7 +4,6 @@
 
 // Make sure everything is statically alloced
 #define EIGEN_NO_MALLOC
-#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
 #include <ArduinoEigenDense.h>
 #include <ArduinoEigen/unsupported/Eigen/AutoDiff>
@@ -111,14 +110,11 @@ namespace Filter
                                                 const input_t<float> &curr_input,
                                                 float dt)
     {
-        // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
         ProcessFunc proc(curr_input, dt);
         state_t<float> tmp_state = state_t<float>::Zero();
         process_jac_t<float> jac = process_jac_t<float>::Zero();
 
-        // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
         AutoDiffJacobian<ProcessFunc> auto_jac(proc);
-        // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
         auto_jac(curr_state, &tmp_state, &jac);
 
         return jac;

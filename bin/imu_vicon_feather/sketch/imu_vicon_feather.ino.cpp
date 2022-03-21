@@ -6,8 +6,8 @@
 #include "src/imu_vicon/imu_vicon.hpp"
 
 // #define DEBUG
-#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define LED_PIN 13
+#define EIGEN_NO_MALLOC
 
 void sendTeensyMessage(imu_vicon_t &data);
 
@@ -18,11 +18,11 @@ PacketSerial teensyPacketSerial;
 bool led_state = LOW;
 
 // Startup
-#line 20 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 21 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup();
-#line 50 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 53 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void loop();
-#line 20 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 21 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup()
 {
     pinMode(LED_PIN, OUTPUT);
@@ -39,6 +39,8 @@ void setup()
 
     // Initialize IMU VICON Relay and point to it with global
     init_imuViconRelay();
+
+    calibrateIMU();
 
     Serial1.begin(115200);
     while (!Serial1)

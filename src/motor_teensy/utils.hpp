@@ -1,28 +1,26 @@
-/* File containing helper functions to convert between Kalman filter types
- * and LQR controller types.
- */
+#ifndef _UTILS_HPP
+#define _UTILS_HPP
 
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#define DEBUG_PRINT(str)         \
+    {                            \
+        if (Serial)              \
+        {                        \
+            Serial.println(str); \
+        }                        \
+    }
+#define EIGEN_NO_MALLOC
 
 #include <Arduino.h>
+#include <ArduinoEigenDense.h>
+#include <ArduinoEigen/Eigen/Geometry>
 #include <PacketSerial.h>
 #include <crc8.h>
+#include <Servo.h>
 
 #include "src/kalman/kalman.hpp"
-#include "src/control/lqr.hpp"
+#include "src/control/control.hpp"
 
 using namespace Eigen;
-
-void onPacketReceived(const uint8_t *buffer, size_t bytes_recv);
-imu_vicon_t data = {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-crc8_params decode_params = DEFAULT_CRC8_PARAMS;
-PacketSerial featherPacketSerial;
-bool new_imu_vicon = false;
-int time = micros();
-int last_time = micros();
-
-Vector3f last_pos = Vector3f::Zero();
 
 typedef struct _IMU_VICON
 {
@@ -43,6 +41,14 @@ typedef struct _IMU_VICON
 
     uint32_t time;
 } imu_vicon_t;
+
+imu_vicon_t data = {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+Vector3f last_pos = Vector3f::Zero();
+crc8_params decode_params = DEFAULT_CRC8_PARAMS;
+PacketSerial featherPacketSerial;
+bool new_imu_vicon = false;
+int time = micros();
+int last_time = micros();
 
 void filt_to_cont(Filter::state_t<float> &filt_state,
                   Filter::input_t<float> &filt_input,
@@ -119,9 +125,6 @@ Control::state_t<float> imu_integrator(imu_vicon_t &data, float dt)
     return state;
 }
 
-/*
- * Relay the message over from LoRa/IMU to Jetson
- */
 void onPacketReceived(const uint8_t *buffer, size_t bytes_recv)
 {
     uint8_t crc8_byte_recv = buffer[bytes_recv - 1];
@@ -137,15 +140,7 @@ void onPacketReceived(const uint8_t *buffer, size_t bytes_recv)
         new_imu_vicon = true;
         last_time = time;
         time = micros();
-        // DEBUG_PRINT("Heard packet!");
-
-        // /* Display the individual values */
-        // Serial.println("\n-------------Sensor Reading-------------");
-        // Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", data.acc_x, data.acc_y, data.acc_z);
-        // Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", data.gyr_x, data.gyr_y, data.gyr_z);
-        // Serial.printf(" Pos: [%1.3f, %1.3f, %1.3f]\n", data.pos_x, data.pos_y, data.pos_z);
-        // Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", data.quat_w, data.quat_x, data.quat_y, data.quat_z);
-        // Serial.println("\n----------------------------------------");
+        // displayImuVicon(&data);
     }
     else
     {
@@ -166,8 +161,13 @@ void initFeatherPacket()
     featherPacketSerial.setPacketHandler(&onPacketReceived);
 }
 
-float getFeatherPacket(Filter:input_t<float> *filt_input,
-                       Filter:measurement_t<float> *filt_meas)
+bool receivedFeatherPacket()
+{
+    return new_imu_vicon;
+}
+
+float getFeatherPacket(Filter::input_t<float> *filt_input,
+                       Filter::measurement_t<float> *filt_meas)
 {
     featherPacketSerial.update();
     if (featherPacketSerial.overflow())
@@ -175,10 +175,10 @@ float getFeatherPacket(Filter:input_t<float> *filt_input,
         digitalWrite(LED_PIN, HIGH);
     }
 
-    if (new_imu_vicon)
+    if (receivedFeatherPacket())
     {
         new_imu_vicon = false;
-        imu_vicon_to_filt(data, &filt_input, &filt_meas);
+        imu_vicon_to_filt(data, filt_input, filt_meas);
 
         float dt = (time - last_time) / 1e6;
         return dt;

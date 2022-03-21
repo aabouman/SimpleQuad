@@ -52,7 +52,7 @@ void displayCalStatus();
 
 void displaySensorReading();
 
-bool calibrateIMU();
+void calibrateIMU();
 
 void displayImuVicon(imu_vicon_t *data);
 

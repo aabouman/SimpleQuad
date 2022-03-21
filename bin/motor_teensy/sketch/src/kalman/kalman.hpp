@@ -1,19 +1,18 @@
 #line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/motor_teensy/src/kalman/kalman.hpp"
-#ifndef KALMAN_HPP
-#define KALMAN_HPP
+#ifndef _KALMAN_HPP
+#define _KALMAN_HPP
 
 // Make sure everything is statically alloced
 #define EIGEN_NO_MALLOC
-#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
 #include <ArduinoEigenDense.h>
 #include <ArduinoEigen/Eigen/Geometry>
 #include <ArduinoEigen/unsupported/Eigen/AutoDiff>
 
-#include "util/eigen_utils.h"
-#include "util/imu_vicon_types.h"
-#include "util/imu_vicon_model.h"
-#include "util/quaternion_diff.h"
+#include "util/eigen_utils.hpp"
+#include "util/imu_vicon_types.hpp"
+#include "util/imu_vicon_model.hpp"
+#include "util/quaternion_diff.hpp"
 
 using namespace Eigen;
 
@@ -96,18 +95,13 @@ namespace Filter
 
         void prediction(const input_t<float> &input, float dt)
         {
-            // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
             state_t<float> x1 = this->_est_state;
             process_cov_t<float> P = this->_est_state_cov;
             process_cov_t<float> W = this->_Q_cov;
-            // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
 
             state_t<float> x2 = process(x1, input, dt);
-            // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
             err_process_jac_t<float> A = EKF::error_process_jacobian(x1, input, dt);
-            // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
             process_cov_t<float> P2 = A * P * A.transpose() + W;
-            // Serial.printf("File %s, Line %d, Memory %d\n", __FILENAME__, __LINE__, freeMemory());
 
             this->_est_state = x2;
             this->_est_state_cov = P2;
@@ -123,15 +117,6 @@ namespace Filter
             err_measurement_t<float> z = measurement_error(meas, y);
             err_measure_jac_t<float> C = error_measure_jacobian(x1);
 
-            // Serial.println("meas Measurement");
-            // print_matrix(meas);
-            // Serial.println("y Measurement");
-            // print_matrix(y);
-            // Serial.println("z Measure Error");
-            // print_matrix(z);
-            // Serial.println("C Error Measure Jacobian");
-            // print_matrix(C);
-
             ColPivHouseholderQR<measure_cov_t<float>> decomp_S(C * P * C.transpose() + R); // decompose C with a suiting decomposition
             Matrix<float, EKF_NUM_ERR_STATES, EKF_NUM_ERR_MEASURES> L = P * C.transpose() * decomp_S.inverse();
 
@@ -139,7 +124,6 @@ namespace Filter
 
             // Joseph form covariance update
             process_cov_t<float> I = process_cov_t<float>::Identity();
-            // I.setIdentity();
             process_cov_t<float> A = I - L * C;
             P = A * P * A.transpose() + L * R * L.transpose();
 

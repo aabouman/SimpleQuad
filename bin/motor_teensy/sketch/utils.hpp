@@ -1,19 +1,27 @@
 #line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/motor_teensy/utils.hpp"
-/* File containing helper functions to convert between Kalman filter types
- * and LQR controller types.
- */
+#ifndef _UTILS_HPP
+#define _UTILS_HPP
 
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#define DEBUG_PRINT(str)         \
+    {                            \
+        if (Serial)              \
+        {                        \
+            Serial.println(str); \
+        }                        \
+    }
+#define EIGEN_NO_MALLOC
 
 #include <Arduino.h>
+#include <ArduinoEigenDense.h>
+#include <ArduinoEigen/Eigen/Geometry>
+#include <PacketSerial.h>
+#include <crc8.h>
+#include <Servo.h>
 
 #include "src/kalman/kalman.hpp"
-#include "src/control/lqr.hpp"
+#include "src/control/control.hpp"
 
 using namespace Eigen;
-
-Vector3f last_pos = Vector3f::Zero();
 
 typedef struct _IMU_VICON
 {
@@ -34,6 +42,14 @@ typedef struct _IMU_VICON
 
     uint32_t time;
 } imu_vicon_t;
+
+imu_vicon_t data = {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+Vector3f last_pos = Vector3f::Zero();
+crc8_params decode_params = DEFAULT_CRC8_PARAMS;
+PacketSerial featherPacketSerial;
+bool new_imu_vicon = false;
+int time = micros();
+int last_time = micros();
 
 void filt_to_cont(Filter::state_t<float> &filt_state,
                   Filter::input_t<float> &filt_input,
@@ -109,4 +125,67 @@ Control::state_t<float> imu_integrator(imu_vicon_t &data, float dt)
 
     return state;
 }
+
+void onPacketReceived(const uint8_t *buffer, size_t bytes_recv)
+{
+    uint8_t crc8_byte_recv = buffer[bytes_recv - 1];
+    uint8_t crc8_byte_comp = crc8(decode_params, (const uint8_t *)buffer, bytes_recv - 1);
+    size_t bytes_expected = sizeof(imu_vicon_t) + 1;
+
+    Serial.printf("bytes_recv: %d\n", bytes_recv);
+    // Serial.printf("bytes expected: %d\n", sizeof(imu_vicon_t) + 1);
+
+    if ((crc8_byte_comp == crc8_byte_recv) && (bytes_recv == bytes_expected))
+    {
+        memcpy(&data, buffer, sizeof(imu_vicon_t));
+        new_imu_vicon = true;
+        last_time = time;
+        time = micros();
+        // displayImuVicon(&data);
+    }
+    else
+    {
+        DEBUG_PRINT("Failed to parse packet with CRC8!");
+    }
+}
+
+void initFeatherPacket()
+{
+    Serial3.begin(115200);
+    while (!Serial3)
+    {
+        delay(10);
+    }
+    DEBUG_PRINT("Started Serial3");
+
+    featherPacketSerial.setStream(&Serial3);
+    featherPacketSerial.setPacketHandler(&onPacketReceived);
+}
+
+bool receivedFeatherPacket()
+{
+    return new_imu_vicon;
+}
+
+float getFeatherPacket(Filter::input_t<float> *filt_input,
+                       Filter::measurement_t<float> *filt_meas)
+{
+    featherPacketSerial.update();
+    if (featherPacketSerial.overflow())
+    {
+        digitalWrite(LED_PIN, HIGH);
+    }
+
+    if (receivedFeatherPacket())
+    {
+        new_imu_vicon = false;
+        imu_vicon_to_filt(data, filt_input, filt_meas);
+
+        float dt = (time - last_time) / 1e6;
+        return dt;
+    }
+
+    return -1;
+}
+
 #endif

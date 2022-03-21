@@ -5,8 +5,8 @@
 #include "src/imu_vicon/imu_vicon.hpp"
 
 // #define DEBUG
-#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define LED_PIN 13
+#define EIGEN_NO_MALLOC
 
 void sendTeensyMessage(imu_vicon_t &data);
 
@@ -33,6 +33,8 @@ void setup()
 
     // Initialize IMU VICON Relay and point to it with global
     init_imuViconRelay();
+
+    calibrateIMU();
 
     Serial1.begin(115200);
     while (!Serial1)

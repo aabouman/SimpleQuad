@@ -9,6 +9,7 @@
 
 
 
+
 void sendTeensyMessage(imu_vicon_t &data);
 
 imu_vicon_t data = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 };
@@ -22,9 +23,11 @@ void setup()
 {
     pinMode(13, (0x1));
     digitalWrite(13, led_state);
-# 34 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+# 35 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
     // Initialize IMU VICON Relay and point to it with global
     init_imuViconRelay();
+
+    calibrateIMU();
 
     Serial1.begin(115200);
     while (!Serial1)

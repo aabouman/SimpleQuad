@@ -4,6 +4,8 @@
 
 #include <ArduinoEigenDense.h>
 
+#define EIGEN_NO_MALLOC
+
 #define EKF_NUM_STATES 16
 #define EKF_NUM_ERR_STATES 15
 #define EKF_NUM_INPUTS 6

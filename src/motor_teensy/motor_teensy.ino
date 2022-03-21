@@ -1,33 +1,17 @@
-#include <Arduino.h>
-#include <ArduinoEigenDense.h>
-#include <PacketSerial.h>
-#include <crc8.h>
-
-#include "src/kalman/kalman.hpp"
-#include "src/control/lqr.hpp"
-#include "utils.hpp"
-
 #define DEBUG
-#define DEBUG_PRINT(str)         \
-    {                            \
-        if (Serial)              \
-        {                        \
-            Serial.println(str); \
-        }                        \
-    }
-#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define LED_PIN 13
 
-void onPacketReceived(const uint8_t *buffer, size_t bytes_recv);
+#define FRONT_LEFT_PIN (2)
+#define FRONT_RIGHT_PIN (3)
+#define BACK_RIGHT_PIN (4)
+#define BACK_LEFT_PIN (5)
 
-imu_vicon_t data = {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-crc8_params decode_params = DEFAULT_CRC8_PARAMS;
-PacketSerial featherPacketSerial;
-bool new_imu_vicon = false;
+#include <Arduino.h>
+#include "src/kalman/kalman.hpp"
+#include "src/control/control.hpp"
+#include "utils.hpp"
 
 // Setting up the filter
-int time = micros();
-int last_time = micros();
 Filter::EKF ekf = Filter::EKF(0.1, 0.1);
 Filter::state_t<float> filt_state(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 Filter::input_t<float> filt_input(0, 0, 0, 0, 0, 0);
@@ -36,6 +20,9 @@ Filter::measurement_t<float> filt_meas(0, 0, 0, 1, 0, 0, 0);
 // Setting up the controller
 Control::state_t<float> cont_state(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 Control::input_t<float> cont_input(0, 0, 0, 0);
+
+// Setting up the motor command structure
+Control::motors_t motors;
 
 // Startup
 void setup()
@@ -51,96 +38,52 @@ void setup()
     Serial.println("Started Serial");
 #endif
 
-    Serial3.begin(115200);
-    while (!Serial3)
-    {
-        delay(10);
-    }
-    DEBUG_PRINT("Started Serial3");
+    // Start up comunications with feather
+    Serial.println("Initializing LoRa Radio");
+    initFeatherPacket();
 
     // Setting the initial state of the quadrotor
+    Serial.println("Setting EKF");
     ekf.set_state(filt_state);
 
-    // Setup the packet serial
-    featherPacketSerial.setStream(&Serial3);
-    featherPacketSerial.setPacketHandler(&onPacketReceived);
+    // Setup Motor ESC
+    Serial.println("Initializing motors");
+    Control::initialize_motors(&motors, FRONT_LEFT_PIN, FRONT_RIGHT_PIN,
+                               BACK_RIGHT_PIN, BACK_LEFT_PIN);
 }
 
 void loop()
 {
     delay(10);
-    featherPacketSerial.update();
+    float dt = getFeatherPacket(&filt_input, &filt_meas);
+    // float dt = 0.0;
 
-
-
-    if (new_imu_vicon)
+    if (dt > 0.0)
     {
-        DEBUG_PRINT("Loop");
-
-        // Run filter step
-        float dt = (time - last_time) / 1e6;
-        // imu_vicon_to_filt(data, &filt_input, &filt_meas);
+        // // Run mEKF
         // ekf.prediction(filt_input, dt);
         // ekf.update(filt_meas);
 
-        // // Convert filter state to control state
+        // Convert filter state to control state
         // Filter::state_t<float> tmp_state = ekf.get_state();
         // filt_to_cont(tmp_state, filt_input, &cont_state);
 
-        DEBUG_PRINT(dt);
-
-        cont_state = imu_integrator(data, dt);
-        print_matrix(cont_state);
+        // Run basic IMU integrator
+        // cont_state = imu_integrator(data, dt);
+        // print_matrix(cont_state);
 
         // Compute inputs from th econtroller state
-        cont_input = Control::get_control(cont_state);
-        cont_input = Control::clamp_control(cont_input);
-        Serial.printf("u: [%.4f,  %.4f,  %.4f,  %.4f]\n",
-                      cont_input(0), cont_input(1),
-                      cont_input(2), cont_input(3));
-        //Command motors
+        // cont_input = Control::get_control(cont_state);
+        // cont_input = Control::clamp_control(cont_input);
+        // Serial.printf("u: [%.4f,  %.4f,  %.4f,  %.4f]\n",
+        //               cont_input(0), cont_input(1),
+        //               cont_input(2), cont_input(3));
 
-        new_imu_vicon = false;
-    }
+        // Command motors
+        float mid_throttle = (MAX_THROTTLE + MIN_THROTTLE) / 2.0;
+        Control::input_t<float> command(mid_throttle, mid_throttle, mid_throttle, mid_throttle);
+        Control::command_motors(&motors, command);
 
-    //
-    if (featherPacketSerial.overflow())
-    {
-        digitalWrite(LED_PIN, HIGH);
-    }
-}
-
-/*
- * Relay the message over from LoRa/IMU to Jetson
- */
-void onPacketReceived(const uint8_t *buffer, size_t bytes_recv)
-{
-    uint8_t crc8_byte_recv = buffer[bytes_recv - 1];
-    uint8_t crc8_byte_comp = crc8(decode_params, (const uint8_t *)buffer, bytes_recv - 1);
-    size_t bytes_expected = sizeof(imu_vicon_t) + 1;
-
-    Serial.printf("bytes_recv: %d\n", bytes_recv);
-    // Serial.printf("bytes expected: %d\n", sizeof(imu_vicon_t) + 1);
-
-    if ((crc8_byte_comp == crc8_byte_recv) && (bytes_recv == bytes_expected))
-    {
-        memcpy(&data, buffer, sizeof(imu_vicon_t));
-        new_imu_vicon = true;
-        last_time = time;
-        time = micros();
-        // DEBUG_PRINT("Heard packet!");
-
-        // /* Display the individual values */
-        // Serial.println("\n-------------Sensor Reading-------------");
-        // Serial.printf(" Acc: [%1.3f, %1.3f, %1.3f]\n", data.acc_x, data.acc_y, data.acc_z);
-        // Serial.printf(" Gyr: [%1.3f, %1.3f, %1.3f]\n", data.gyr_x, data.gyr_y, data.gyr_z);
-        // Serial.printf(" Pos: [%1.3f, %1.3f, %1.3f]\n", data.pos_x, data.pos_y, data.pos_z);
-        // Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", data.quat_w, data.quat_x, data.quat_y, data.quat_z);
-        // Serial.println("\n----------------------------------------");
-
-    }
-    else
-    {
-        DEBUG_PRINT("Failed to parse packet with CRC8!");
+        Serial.printf("u = [%f, %f, %f, %f]\n", command(0), command(1), command(2), command(3));
     }
 }

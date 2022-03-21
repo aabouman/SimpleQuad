@@ -7,6 +7,12 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 
+#define EIGEN_NO_MALLOC
+#include <ArduinoEigenDense.h>
+#include <ArduinoEigen/Eigen/Geometry>
+
+using namespace Eigen;
+
 struct imu_vicon_relay
 {
     // IMU attributes
@@ -17,6 +23,8 @@ struct imu_vicon_relay
     rexlab::Pose<int16_t> vicon_int16;
     uint8_t buf[POSE_MSG_SIZE];
     bool new_msg;
+    // Default to Identity quaternion
+    Quaternionf offset_quat;
 };
 
 // Global Variables
@@ -37,6 +45,7 @@ void init_imuViconRelay()
         }
         while (true) ;
     }
+    receiver.offset_quat = Quaternionf(1, 0, 0, 0);
 
     // Setup VICON params
     rexlab::Pose<float> vicon_float;
@@ -104,16 +113,22 @@ void updateVicon(imu_vicon_t *data)
 void updateIMU(imu_vicon_t *data)
 {
     receiver.bno.getEvent(&(receiver.imu_event));
-    imu::Vector<3> gyr = receiver.bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
     imu::Vector<3> acc = receiver.bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
+    imu::Vector<3> gyr = receiver.bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
+
+    Vector3f acc_eig(acc.x(), acc.y(), acc.z());
+    Vector3f gyr_eig(gyr.x(), gyr.y(), gyr.z());
+    acc_eig = receiver.offset_quat * acc_eig;
+    gyr_eig = receiver.offset_quat * gyr_eig;
+
     // Populate translational acceleration
-    data->acc_x = acc.x();
-    data->acc_y = acc.y();
-    data->acc_z = acc.z();
+    data->acc_x = acc_eig(0);
+    data->acc_y = acc_eig(1);
+    data->acc_z = acc_eig(2);
     // Populate rotational velocity
-    data->gyr_x = gyr.x();
-    data->gyr_y = gyr.y();
-    data->gyr_z = gyr.z();
+    data->gyr_x = gyr_eig(0);
+    data->gyr_y = gyr_eig(1);
+    data->gyr_z = gyr_eig(2);
 }
 
 void displayCalStatus()
@@ -145,33 +160,33 @@ void displaySensorReading()
     }
 }
 
-bool calibrateIMU()
+void calibrateIMU()
 {
-    receiver.bno.setExtCrystalUse(true);
-    sensors_event_t event;
+    receiver.bno.getEvent(&(receiver.imu_event));
+    imu::Vector<3> acc = receiver.bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
+    // Populate translational acceleration averages
+    float ave_acc_x = acc.x();
+    float ave_acc_y = acc.y();
+    float ave_acc_z = acc.z();
 
-    adafruit_bno055_offsets_t calibrationData = {15293, 0, 615, 50, 0, 0, 8192, 512, 0, 0, 512};
-    receiver.bno.setSensorOffsets(calibrationData);
-    if (Serial)
+    for (int i = 0; i < 1000; i++)
     {
-        Serial.println("Calibration data loaded into BNO055");
+        // Fetch new data
+        receiver.bno.getEvent(&(receiver.imu_event));
+        acc = receiver.bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
+        // Rolling average
+        ave_acc_x = (ave_acc_x + acc.x()) / 2;
+        ave_acc_y = (ave_acc_y + acc.y()) / 2;
+        ave_acc_z = (ave_acc_z + acc.z()) / 2;
     }
-    delay(1000);
-    if(Serial)
-    {
-        Serial.println("Checking Sensor Calibration: ");
-    }
-    while (!receiver.bno.isFullyCalibrated())
-    {
-        receiver.bno.getEvent(&event);
-        displayCalStatus();
-        delay(100);
-    }
-    if(Serial)
-    {
-        Serial.printf("Calibration status: %d", receiver.bno.isFullyCalibrated());
-    }
-    return true;
+
+    Vector3f true_grav(0, 0, -9.81);
+    Vector3f meas_grav(ave_acc_x, ave_acc_y, ave_acc_z);
+
+    receiver.offset_quat = Quaternionf::FromTwoVectors(meas_grav, true_grav);
+    // Serial.printf("offset_quat: [%f,  %f,  %f,  %f]",
+    //               receiver.offset_quat.w(), receiver.offset_quat.x(),
+    //               receiver.offset_quat.y(), receiver.offset_quat.z());
 }
 
 void displayImuVicon(imu_vicon_t *data)
@@ -201,3 +216,4 @@ void constraintCheck(imu_vicon_t *data)
         Serial.printf(" Quat: [%1.3f, %1.3f, %1.3f, %1.3f]\n", data->quat_w, data->quat_x, data->quat_y, data->quat_z);
     }
 }
+

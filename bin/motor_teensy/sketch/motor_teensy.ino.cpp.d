@@ -1,12 +1,50 @@
 /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/motor_teensy.ino.cpp.o: \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/motor_teensy.ino.cpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/pch/Arduino.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/WProgram.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/avr/pgmspace.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/avr/interrupt.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/avr_functions.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/wiring.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/binary.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/core_id.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/core_pins.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/imxrt.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/pins_arduino.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/HardwareSerial.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/Stream.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/Print.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/WString.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/avr/pgmspace.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/Printable.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/avr_emulation.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_serial.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_desc.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_seremu.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_keyboard.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/keylayouts.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_mouse.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_joystick.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_midi.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_rawhid.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_flightsim.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_audio.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/usb_touch.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/WCharacter.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/elapsedMillis.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/Arduino.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/IntervalTimer.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/CrashReport.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/Printable.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/WString.h \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/cores/teensy4/pins_arduino.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/kalman.hpp \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigenDense.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenCommon.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_include.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/has_libstdcplusplus.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/replace_minmax_macros.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/pch/Arduino.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/type_traits.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/initializer_list.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/utils/ArxTypeTraits/ArxTypeTraits/tuple.h \
@@ -196,11 +234,6 @@
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/./RealQZ.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/ArduinoEigenExtension.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src/PacketSerial.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src/Encoding/COBS.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src/Encoding/SLIP.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/crc8/crc8.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/kalman.hpp \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/Eigen/Geometry \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/AutoDiff \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/../../Eigen/src/Core/util/DisableStupidWarnings.h \
@@ -208,12 +241,16 @@
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/./InternalHeaderCheck.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/src/AutoDiff/AutoDiffJacobian.h \
  /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/ArduinoEigen/ArduinoEigen/unsupported/Eigen/../../Eigen/src/Core/util/ReenableStupidWarnings.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/eigen_utils.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/imu_vicon_types.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/imu_vicon_model.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/quaternion_diff.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/imu_vicon_types.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/quaternion_diff.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/lqr.hpp \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/quaternion_diff.h \
- /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/utils.hpp
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/eigen_utils.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/imu_vicon_types.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/imu_vicon_model.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/quaternion_diff.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/imu_vicon_types.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/kalman/util/quaternion_diff.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.hpp \
+ /Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/libraries/Servo/Servo.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/utils.hpp \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src/PacketSerial.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src/Encoding/COBS.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src/Encoding/SLIP.h \
+ /Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/crc8/crc8.h

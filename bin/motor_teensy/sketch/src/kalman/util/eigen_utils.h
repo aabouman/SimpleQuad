@@ -1,8 +1,9 @@
 #line 1 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/motor_teensy/src/kalman/util/eigen_utils.h"
-#ifndef EIGEN_UTILS_H
-#define EIGEN_UTILS_H
+#ifndef _EIGEN_UTILS_HPP
+#define _EIGEN_UTILS_HPP
 
 #include <ArduinoEigenDense.h>
+#define EIGEN_NO_MALLOC
 
 #ifdef __arm__
 // should use uinstd.h to define sbrk but Due causes a conflict
@@ -11,17 +12,6 @@ extern "C" char *sbrk(int incr);
 extern char *__brkval;
 #endif // __arm__
 
-int freeMemory()
-{
-    char top;
-#ifdef __arm__
-    return &top - reinterpret_cast<char *>(sbrk(0));
-#elif defined(CORE_TEENSY) || (ARDUINO > 103 && ARDUINO != 151)
-    return &top - __brkval;
-#else  // __arm__
-    return __brkval ? &top - __brkval : &top - __malloc_heap_start;
-#endif // __arm__
-}
 
 using namespace Eigen;
 
