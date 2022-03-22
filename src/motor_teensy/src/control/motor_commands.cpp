@@ -13,8 +13,6 @@ namespace Control
 
     void command_motors(motors_t *motors, const input_t<float> &command)
     {
-        Serial.println(valid_command(command));
-
         if (valid_command(command))
         {
             motors->front_left_esc.writeMicroseconds((int) command(0));
@@ -39,7 +37,6 @@ namespace Control
         motors->back_right_esc.writeMicroseconds(MAX_THROTTLE);
         motors->back_left_esc.writeMicroseconds(MAX_THROTTLE);
         delay(7000);
-        // Serial.println("throttle down 1");
         motors->front_left_esc.writeMicroseconds(MIN_THROTTLE);
         motors->front_right_esc.writeMicroseconds(MIN_THROTTLE);
         motors->back_right_esc.writeMicroseconds(MIN_THROTTLE);

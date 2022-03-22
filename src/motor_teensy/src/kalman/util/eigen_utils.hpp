@@ -17,6 +17,22 @@ using namespace Eigen;
 /*
  * Helper function to "pretty" print the matrix X
  */
+// template <int num_rows, int num_cols>
+// void print_matrix(const Matrix<float, num_rows, num_cols> &X)
+// {
+//     int i, j;
+
+//     for (i = 0; i < num_rows; i++)
+//     {
+//         Serial.print("| ");
+//         for (j = 0; j < num_cols - 1; j++)
+//         {
+//             Serial.printf("%+.3g, ", X(i, j));
+//         }
+//         Serial.printf("%+.3g |\n", X(i, j));
+//     }
+// }
+
 template <int num_rows, int num_cols>
 void print_matrix(const Matrix<float, num_rows, num_cols> &X)
 {
@@ -24,12 +40,12 @@ void print_matrix(const Matrix<float, num_rows, num_cols> &X)
 
     for (i = 0; i < num_rows; i++)
     {
-        Serial.print("| ");
+        printf("| ");
         for (j = 0; j < num_cols - 1; j++)
         {
-            Serial.printf("%+.3g, ", X(i, j));
+            printf("%+1.3f, ", X(i, j));
         }
-        Serial.printf("%+.3g |\n", X(i, j));
+        printf("%+1.3f |\n", X(i, j));
     }
 }
 

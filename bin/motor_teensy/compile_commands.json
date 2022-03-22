@@ -77,11 +77,11 @@
    "-I/Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/libraries/Servo",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/crc8",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.cpp",
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/motor_commands.cpp",
    "-o",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.cpp.o"
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/motor_commands.cpp.o"
   ],
-  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.cpp"
+  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/motor_commands.cpp"
  },
  {
   "directory": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad",
@@ -119,11 +119,11 @@
    "-I/Users/AlexanderBouman/Library/Arduino15/packages/teensy/hardware/avr/1.56.1/libraries/Servo",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/PacketSerial/src",
    "-I/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/deps/crc8",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/motor_commands.cpp",
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.cpp",
    "-o",
-   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/motor_commands.cpp.o"
+   "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.cpp.o"
   ],
-  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/motor_commands.cpp"
+  "file": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/bin/motor_teensy/sketch/src/control/control.cpp"
  },
  {
   "directory": "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad",

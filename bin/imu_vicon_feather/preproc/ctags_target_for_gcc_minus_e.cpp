@@ -9,7 +9,6 @@
 
 
 
-
 void sendTeensyMessage(imu_vicon_t &data);
 
 imu_vicon_t data = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 };
@@ -23,7 +22,7 @@ void setup()
 {
     pinMode(13, (0x1));
     digitalWrite(13, led_state);
-# 35 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+# 34 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
     // Initialize IMU VICON Relay and point to it with global
     init_imuViconRelay();
 
@@ -34,23 +33,21 @@ void setup()
     {
         delay(10);
     }
-    if (Serial)
-    {
-        Serial.println("Serial1 started");
-    }
+
+
+
 
     teensyPacketSerial.setStream(&Serial1);
 }
 
 void loop()
 {
-    // Limit to 100 Hz
-    delay(10);
     teensyPacketSerial.update();
 
     // Update imu entry
     updateIMU(&data);
 
+    digitalWrite(13, (0x0));
     // If LoRa has received update vicon entry and send onto the Teensy
     if (hasLoRaReceived())
     {
@@ -80,6 +77,5 @@ void sendTeensyMessage(imu_vicon_t &data)
     // Write IMU_VICON value along with crc8 value
     teensyPacketSerial.send(buffer, imu_vicon_size + 1);
 
-    digitalWrite(13, led_state);
-    led_state = !led_state;
+    digitalWrite(13, (0x1));
 }

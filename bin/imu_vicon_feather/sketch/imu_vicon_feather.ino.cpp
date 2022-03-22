@@ -18,11 +18,11 @@ PacketSerial teensyPacketSerial;
 bool led_state = LOW;
 
 // Startup
-#line 21 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 20 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup();
-#line 53 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 51 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void loop();
-#line 21 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
+#line 20 "/Users/AlexanderBouman/Desktop/GradSchool/RExLab/SimpleQuad/src/imu_vicon_feather/imu_vicon_feather.ino"
 void setup()
 {
     pinMode(LED_PIN, OUTPUT);
@@ -47,23 +47,21 @@ void setup()
     {
         delay(10);
     }
-    if (Serial)
-    {
-        Serial.println("Serial1 started");
-    }
+#ifdef DEBUG
+    Serial.println("Serial1 started");
+#endif
 
     teensyPacketSerial.setStream(&Serial1);
 }
 
 void loop()
 {
-    // Limit to 100 Hz
-    delay(10);
     teensyPacketSerial.update();
 
     // Update imu entry
     updateIMU(&data);
 
+    digitalWrite(LED_PIN, LOW);
     // If LoRa has received update vicon entry and send onto the Teensy
     if (hasLoRaReceived())
     {
@@ -93,7 +91,6 @@ void sendTeensyMessage(imu_vicon_t &data)
     // Write IMU_VICON value along with crc8 value
     teensyPacketSerial.send(buffer, imu_vicon_size + 1);
 
-    digitalWrite(LED_PIN, led_state);
-    led_state = !led_state;
+    digitalWrite(LED_PIN, HIGH);
 }
 

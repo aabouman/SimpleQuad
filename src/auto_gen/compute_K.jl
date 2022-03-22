@@ -17,8 +17,6 @@ const r0 = [0.262, -0.555, 1.30]
 const q0 = Rotations.params(UnitQuaternion(1., 0, 0, 0))
 const v0 = [0.0; 0.0; 0.0]
 const ω0 = [0.0; 0.0; 0.0]
-const HOVER_STATE = [r0; q0; v0; ω0]
-const HOVER_INPUT = trim_controls()
 
 # %%
 function trim_controls()
@@ -31,6 +29,8 @@ function trim_controls()
 
     return [pwm for _ in 1:4]
 end
+const HOVER_STATE = [r0; q0; v0; ω0]
+const HOVER_INPUT = trim_controls()
 
 """
 * `x` - Quadrotor state
@@ -125,7 +125,7 @@ function generate_LQR_hover_gains(
     Rd = fill(0.1, 4);
     save_to_file::Bool = true,
 )
-    dt = 0.02 # time step (s)
+    dt = 0.01 # time step (s)
 
     # Setting x₀ hover state
     xhover = copy(HOVER_STATE)
@@ -159,4 +159,6 @@ function generate_LQR_hover_gains(
 end
 
 # %%
-generate_LQR_hover_gains()
+K, _ = generate_LQR_hover_gains()
+
+K * []

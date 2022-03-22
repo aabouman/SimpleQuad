@@ -102,17 +102,10 @@ Control::state_t<float> imu_integrator(imu_vicon_t &data, float dt)
     state(0) = data.pos_x;
     state(1) = data.pos_y;
     state(2) = data.pos_z;
-
     state(3) = data.quat_w;
     state(4) = data.quat_x;
     state(5) = data.quat_y;
     state(6) = data.quat_z;
-
-    Serial.println("Last position");
-    print_matrix(last_pos);
-    Serial.println("Curr position");
-    Vector3f tmp = state(seqN(0, 3));
-    print_matrix(tmp);
 
     // Finite diff of position for new velocity estimate
     state(seqN(7, 3)) = (state(seqN(0, 3)) - last_pos) / dt;
@@ -131,16 +124,12 @@ void onPacketReceived(const uint8_t *buffer, size_t bytes_recv)
     uint8_t crc8_byte_comp = crc8(decode_params, (const uint8_t *)buffer, bytes_recv - 1);
     size_t bytes_expected = sizeof(imu_vicon_t) + 1;
 
-    Serial.printf("bytes_recv: %d\n", bytes_recv);
-    // Serial.printf("bytes expected: %d\n", sizeof(imu_vicon_t) + 1);
-
     if ((crc8_byte_comp == crc8_byte_recv) && (bytes_recv == bytes_expected))
     {
         memcpy(&data, buffer, sizeof(imu_vicon_t));
         new_imu_vicon = true;
         last_time = time;
         time = micros();
-        // displayImuVicon(&data);
     }
     else
     {
@@ -179,7 +168,6 @@ float getFeatherPacket(Filter::input_t<float> *filt_input,
     {
         new_imu_vicon = false;
         imu_vicon_to_filt(data, filt_input, filt_meas);
-
         float dt = (time - last_time) / 1e6;
         return dt;
     }

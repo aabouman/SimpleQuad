@@ -118,8 +118,8 @@ void updateIMU(imu_vicon_t *data)
 
     Vector3f acc_eig(acc.x(), acc.y(), acc.z());
     Vector3f gyr_eig(gyr.x(), gyr.y(), gyr.z());
-    acc_eig = receiver.offset_quat * acc_eig;
-    gyr_eig = receiver.offset_quat * gyr_eig;
+    // acc_eig = receiver.offset_quat * acc_eig;
+    // gyr_eig = receiver.offset_quat * gyr_eig;
 
     // Populate translational acceleration
     data->acc_x = acc_eig(0);
@@ -180,13 +180,10 @@ void calibrateIMU()
         ave_acc_z = (ave_acc_z + acc.z()) / 2;
     }
 
-    Vector3f true_grav(0, 0, -9.81);
+    Vector3f true_grav(0, 0, 9.81);
     Vector3f meas_grav(ave_acc_x, ave_acc_y, ave_acc_z);
 
     receiver.offset_quat = Quaternionf::FromTwoVectors(meas_grav, true_grav);
-    // Serial.printf("offset_quat: [%f,  %f,  %f,  %f]",
-    //               receiver.offset_quat.w(), receiver.offset_quat.x(),
-    //               receiver.offset_quat.y(), receiver.offset_quat.z());
 }
 
 void displayImuVicon(imu_vicon_t *data)
