@@ -39,7 +39,7 @@ namespace Control
     using input_t = Matrix<T, LQR_NUM_INPUTS, 1>;
 
     // Populate the hover state/input
-    const state_t<float> x_hover(0.150, .150, 0.05, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const state_t<float> x_hover(-0.02, 0.17, 1.70, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     const input_t<float> u_hover(U_HOVER, U_HOVER, U_HOVER, U_HOVER);
 
     err_state_t<float> state_error(state_t<float> x2, state_t<float> x1);

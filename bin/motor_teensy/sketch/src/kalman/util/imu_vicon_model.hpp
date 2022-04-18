@@ -42,7 +42,7 @@ namespace Filter
         Quaternion<T> omegaQuat(0.0, omega(0) - beta(0), omega(1) - beta(1), omega(2) - beta(2));
         Quaternion<T> kin = quat * omegaQuat;
         Vector4<T> kin_vec(kin.w(), kin.x(), kin.y(), kin.z());
-        ret.segment(3, 4) = 1 / 2 * kin_vec;
+        ret.segment(3, 4) = (1 / 2.0) * kin_vec;
 
         // Derivative of linear velocity
         Vector3<T> gravity(0, 0, 9.81);
@@ -226,8 +226,11 @@ namespace Filter
     err_state_state_jac_t<float> err_state_state_jacobian(Quaternion<float> quat)
     {
         Matrix<float, EKF_NUM_STATES, EKF_NUM_ERR_STATES> J;
-        J.setIdentity();
+        J.setZero();
+        J.block(0, 0, 3, 3).setIdentity();
         J.block(3, 3, 4, 3) = differential_quat(quat);
+        J.block(7, 6, 9, 9).setIdentity();
+
         return J.transpose();
     }
 
@@ -235,6 +238,7 @@ namespace Filter
     err_measure_measure_jac_t<float> err_measure_measure_jacobian(Quaternion<float> quat)
     {
         Matrix<float, EKF_NUM_MEASURES, EKF_NUM_ERR_MEASURES> G;
+        G.setZero();
         G.setIdentity();
         G.block(3, 3, 4, 3) = differential_quat(quat);
         return G.transpose();

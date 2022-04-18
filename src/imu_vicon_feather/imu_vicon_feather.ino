@@ -41,23 +41,21 @@ void setup()
     {
         delay(10);
     }
-    if (Serial)
-    {
-        Serial.println("Serial1 started");
-    }
+#ifdef DEBUG
+    Serial.println("Serial1 started");
+#endif
 
     teensyPacketSerial.setStream(&Serial1);
 }
 
 void loop()
 {
-    // Limit to 100 Hz
-    delay(10);
     teensyPacketSerial.update();
 
     // Update imu entry
     updateIMU(&data);
 
+    digitalWrite(LED_PIN, LOW);
     // If LoRa has received update vicon entry and send onto the Teensy
     if (hasLoRaReceived())
     {
@@ -87,6 +85,5 @@ void sendTeensyMessage(imu_vicon_t &data)
     // Write IMU_VICON value along with crc8 value
     teensyPacketSerial.send(buffer, imu_vicon_size + 1);
 
-    digitalWrite(LED_PIN, led_state);
-    led_state = !led_state;
+    digitalWrite(LED_PIN, HIGH);
 }
