@@ -51,6 +51,7 @@ upload()
     then
         echo -e "${RED}Feather not found, skipping upload.${NOCOLOR}"
     else
+        echo "arduino-cli upload --port $1 --fqbn $2 --input-dir $3  $4"
         arduino-cli upload --port $1 --fqbn $2 --input-dir $3  $4
     fi
 }
