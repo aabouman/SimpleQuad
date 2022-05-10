@@ -66,9 +66,7 @@ NatNetClient* g_pClient = NULL;
 // Globals
 static const char* SERVER_ADDR = "192.168.1.5";
 static const char* LOCAL_ADDR = "192.168.1.63";
-std::vector< sNatNetDiscoveredServer > g_discoveredServers;
 sNatNetClientConnectParams g_connectParams;
-char g_discoveredMulticastGroupAddr[kNatNetIpv4AddrStrLenMax] = NATNET_DEFAULT_MULTICAST_ADDRESS;
 int g_analogSamplesPerMocapFrame = 0;
 sServerDescription g_serverDescription;
 
@@ -323,35 +321,6 @@ int main( int argc, char* argv[] )
 }
 
 
-void NATNET_CALLCONV ServerDiscoveredCallback( const sNatNetDiscoveredServer* pDiscoveredServer, void* pUserContext )
-{
-    (void) pUserContext;
-
-    char serverHotkey = '.';
-    if ( g_discoveredServers.size() < 9 )
-    {
-        serverHotkey = static_cast<char>('1' + g_discoveredServers.size());
-    }
-
-    printf( "[%c] %s %d.%d at %s ",
-        serverHotkey,
-        pDiscoveredServer->serverDescription.szHostApp,
-        pDiscoveredServer->serverDescription.HostAppVersion[0],
-        pDiscoveredServer->serverDescription.HostAppVersion[1],
-        pDiscoveredServer->serverAddress );
-
-    if ( pDiscoveredServer->serverDescription.bConnectionInfoValid )
-    {
-        printf( "(%s)\n", pDiscoveredServer->serverDescription.ConnectionMulticast ? "multicast" : "unicast" );
-    }
-    else
-    {
-        printf( "(WARNING: Legacy server, could not autodetect settings. Auto-connect may not work reliably.)\n" );
-    }
-
-    g_discoveredServers.push_back( *pDiscoveredServer );
-}
-
 // Establish a NatNet Client connection
 int ConnectClient()
 {
@@ -419,7 +388,6 @@ int ConnectClient()
 void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData)
 {
     NatNetClient* pClient = (NatNetClient*) pUserData;
-    return;
 
     // Software latency here is defined as the span of time between:
     //   a) The reception of a complete group of 2D frames from the camera system (CameraDataReceivedTimestamp)
