@@ -1,6 +1,8 @@
 #pragma once
 
 #include "string"
+#include "functional"
+#include "vector"
 
 #include <NatNetTypes.h>
 #include <NatNetCAPI.h>
@@ -11,6 +13,7 @@ namespace rexlab {
 
 class Mocap {
    public:
+    using CallbackFunction = std::function<void(const sRigidBodyData&)>;
 
     Mocap();
     ~Mocap();
@@ -21,6 +24,8 @@ class Mocap {
     void ResetClient();
     NatNetClient* GetClient() { return _pClient; };
     const sServerDescription& GetServerDescription() const;
+    void AddCallback(const CallbackFunction& callback);
+    void RunCallbacks(const sRigidBodyData&);
     int Run();
 
    private:
@@ -29,6 +34,7 @@ class Mocap {
     NatNetClient* _pClient;  
     sNatNetClientConnectParams _connectParams;
     sServerDescription _serverDescription;
+    std::vector<CallbackFunction> _callbacks;
     int _analogSamplesPerMocapFrame = 0;
 
 };

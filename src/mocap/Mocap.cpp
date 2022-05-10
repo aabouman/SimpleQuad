@@ -39,6 +39,16 @@ const sServerDescription& Mocap::GetServerDescription() const {
     return _serverDescription;
 }
 
+void Mocap::AddCallback(const CallbackFunction &callback) {
+  _callbacks.emplace_back(callback);
+}
+
+void Mocap::RunCallbacks(const sRigidBodyData& rigidbody) {
+    for (auto& callback : _callbacks) {
+        callback(rigidbody);
+    }
+}
+
 int Mocap::ConnectClient() {
     _connectParams.serverAddress = _server_address.c_str(); 
     _connectParams.localAddress = _local_address.c_str();
@@ -289,9 +299,7 @@ void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData)
 
         printf( "System latency : %.2lf milliseconds\n", systemLatencyMillisec );
         printf( "Total client latency : %.2lf milliseconds (transit time +%.2lf ms)\n", clientLatencyMillisec, transitLatencyMillisec );
-    }
-    else
-    {
+    } else {
         printf( "Transit latency : %.2lf milliseconds\n", transitLatencyMillisec );
     }
 
@@ -307,22 +315,8 @@ void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData)
     
     // Rigid Bodies
     printf("Rigid Bodies [Count=%d]\n", data->nRigidBodies);
-    for(i=0; i < data->nRigidBodies; i++)
-    {
-        // params
-        // 0x01 : bool, rigid body was successfully tracked in this frame
-        bool bTrackingValid = data->RigidBodies[i].params & 0x01;
-
-        printf("Rigid Body [ID=%d  Error=%3.2f  Valid=%d]\n", data->RigidBodies[i].ID, data->RigidBodies[i].MeanError, bTrackingValid);
-        printf("\tx\ty\tz\tqx\tqy\tqz\tqw\n");
-        printf("\t%3.2f\t%3.2f\t%3.2f\t%3.2f\t%3.2f\t%3.2f\t%3.2f\n",
-            data->RigidBodies[i].x,
-            data->RigidBodies[i].y,
-            data->RigidBodies[i].z,
-            data->RigidBodies[i].qx,
-            data->RigidBodies[i].qy,
-            data->RigidBodies[i].qz,
-            data->RigidBodies[i].qw);
+    for(i=0; i < data->nRigidBodies; i++) {
+        mocap->RunCallbacks(data->RigidBodies[i]);
     }
 
 }
