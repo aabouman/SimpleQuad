@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18.0)
-list(APPEND CMAKE_MESSAGE_CONTEXT rex)
+list(APPEND CMAKE_MESSAGE_CONTEXT mocap)
 project(MOCAP VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)
@@ -40,6 +40,27 @@ target_include_directories(NatNetSDK INTERFACE
   "${NATNET_DIR}/include"
 )
 
+# libserialport
+find_package(PkgConfig)
+pkg_check_modules(LIBSP libserialport)
+add_library(libserialport INTERFACE)
+target_link_libraries(libserialport
+  INTERFACE
+  ${LIBSP_LINK_LIBRARIES}
+)
+target_include_directories(libserialport
+  INTERFACE
+  ${LIBSP_INCLUDE_DIRS}
+)
+
+# fmtlib
+include(FetchContent)
+FetchContent_Declare(fmt
+  GIT_REPOSITORY https://github.com/fmtlib/fmt
+  GIT_TAG d141cdbeb0fb422a3fb7173b285fd38e0d1772dc # version 8.0.1
+)
+FetchContent_MakeAvailable(fmt)
+
 #############################################
 # Compilation 
 #############################################
@@ -50,6 +71,8 @@ add_executable(mocap
 target_link_libraries(mocap
   PRIVATE
   NatNetSDK
+  fmt::fmt
+  libserialport
 )
 
 add_executable(sample

@@ -35,41 +35,29 @@ Usage [optional]:
 #include <stdio.h>
 #include <string.h>
 
-#ifdef _WIN32
-#   include <conio.h>
-#else
-#   include <unistd.h>
-#   include <termios.h>
-#endif
-
 #include <vector>
 
 #include <NatNetTypes.h>
 #include <NatNetCAPI.h>
 #include <NatNetClient.h>
 
-#ifndef _WIN32
-// char getch();
-#endif
-// void _WriteHeader(FILE* fp, sDataDescriptions* pBodyDefs);
-// void _WriteFrame(FILE* fp, sFrameOfMocapData* data);
-// void _WriteFooter(FILE* fp);
+#include "libserialport.h"
+#include "fmt/core.h"
+
 void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData);    // receives data from the server
 void NATNET_CALLCONV MessageHandler(Verbosity msgType, const char* msg);      // receives NatNet error messages
 void resetClient();
 int ConnectClient();
 
-static const ConnectionType kDefaultConnectionType = ConnectionType_Multicast;
-
-NatNetClient* g_pClient = NULL;
-
 // Globals
+
+static const ConnectionType kDefaultConnectionType = ConnectionType_Multicast;
 static const char* SERVER_ADDR = "192.168.1.5";
 static const char* LOCAL_ADDR = "192.168.1.63";
+NatNetClient* g_pClient = NULL;
 sNatNetClientConnectParams g_connectParams;
 int g_analogSamplesPerMocapFrame = 0;
 sServerDescription g_serverDescription;
-
 
 int main( int argc, char* argv[] )
 {
