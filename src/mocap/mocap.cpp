@@ -31,6 +31,7 @@ sServerDescription g_serverDescription;
 
 int main( int argc, char* argv[] )
 {
+    
     // print version info
     unsigned char ver[4];
     NatNet_GetVersion( ver );

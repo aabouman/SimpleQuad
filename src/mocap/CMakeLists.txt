@@ -67,6 +67,8 @@ FetchContent_MakeAvailable(fmt)
 
 add_executable(mocap
   mocap.cpp
+  Mocap.hpp
+  Mocap.cpp
 )
 target_link_libraries(mocap
   PRIVATE

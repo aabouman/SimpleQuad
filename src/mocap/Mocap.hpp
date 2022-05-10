@@ -11,11 +11,14 @@ namespace rexlab {
 class Mocap {
    public:
 
+    Mocap();
+    ~Mocap();
     void SetServerAddress(const std::string& addr);
     void SetLocalAddress(const std::string& addr);
     int ConnectClient();
     void SendTestRequest();
-    void Run();
+    void ResetClient();
+    int Run();
 
    private:
     std::string _local_address;
