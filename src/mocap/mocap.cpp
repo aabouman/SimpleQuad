@@ -31,42 +31,58 @@ sServerDescription g_serverDescription;
 
 int main( int argc, char* argv[] )
 {
-    
-    // print version info
-    unsigned char ver[4];
-    NatNet_GetVersion( ver );
-    printf( "NatNet Sample Client (NatNet ver. %d.%d.%d.%d)\n", ver[0], ver[1], ver[2], ver[3] );
+    rexlab::Mocap mocap = {};
 
-    // Install logging callback
-    NatNet_SetLogCallback( MessageHandler );
+    // // print version info
+    // unsigned char ver[4];
+    // NatNet_GetVersion( ver );
+    // printf( "NatNet Sample Client (NatNet ver. %d.%d.%d.%d)\n", ver[0], ver[1], ver[2], ver[3] );
+
+    // // Install logging callback
+    // NatNet_SetLogCallback( MessageHandler );
 
     // create NatNet client
-    g_pClient = new NatNetClient();
+    // g_pClient = new NatNetClient();
+    g_pClient = mocap.GetClient(); 
+
 
     // set the frame callback handler
     g_pClient->SetFrameReceivedCallback( DataHandler, g_pClient );	// this function will receive data from the server
 
     // Connect to Server
+    mocap.SetLocalAddress(LOCAL_ADDR);
+    mocap.SetServerAddress(SERVER_ADDR);
     if ( argc == 1 ) {
         g_connectParams.serverAddress = SERVER_ADDR; 
         g_connectParams.localAddress = LOCAL_ADDR; 
     } else {
         g_connectParams.connectionType = kDefaultConnectionType;
 
-        if ( argc >= 2 )
-        {
+        if ( argc >= 2 ) {
+            mocap.SetLocalAddress(argv[2]);
             g_connectParams.localAddress = argv[2];
         }
 
-        if ( argc >= 3 )
-        {
-            g_connectParams.serverAddress = argv[1];
+        if ( argc >= 3 ) {
+            mocap.SetServerAddress(argv[3]);
+            g_connectParams.serverAddress = argv[3];
         }
     }
 
-    int iResult;
-
     // Connect to Motive
+    int iResult;
+    iResult = mocap.ConnectClient();
+    if (iResult != ErrorCode_OK)
+    {
+        printf("Error initializing client. See log for details. Exiting.\n");
+        return 1;
+    }
+    else
+    {
+        printf("Client initialized and ready.\n");
+    }
+
+
     iResult = ConnectClient();
     if (iResult != ErrorCode_OK)
     {
@@ -80,92 +96,90 @@ int main( int argc, char* argv[] )
 
 
     // Send/receive test request
-    void* response;
-    int nBytes;
-    printf("[SampleClient] Sending Test Request\n");
-    iResult = g_pClient->SendMessageAndWait("TestRequest", &response, &nBytes);
-    if (iResult == ErrorCode_OK)
-    {
-        printf("[SampleClient] Received: %s\n", (char*)response);
-    }
+    mocap.SendTestRequest();
+
+    printf("\nClient is connected to server and listening for data...\n");
+    mocap.Run();
 
     // Ready to receive marker stream!
-    printf("\nClient is connected to server and listening for data...\n");
-    bool bExit = false;
-    while ( const int c = getchar() )
-    {
-        switch(c)
-        {
-            case 'q':
-                bExit = true;		
-                break;	
-            case 'r':
-                resetClient();
-                break;	
-            case 'p':
-                sServerDescription ServerDescription;
-                memset(&ServerDescription, 0, sizeof(ServerDescription));
-                g_pClient->GetServerDescription(&ServerDescription);
-                if(!ServerDescription.HostPresent)
-                {
-                    printf("Unable to connect to server. Host not present. Exiting.");
-                    return 1;
-                }
-                break;
-            case 's':
-                {
-                printf("\n\n[SampleClient] Requesting Data Descriptions...");
-                sDataDescriptions* pDataDefs = NULL;
-                iResult = g_pClient->GetDataDescriptionList(&pDataDefs);
-                if (iResult != ErrorCode_OK || pDataDefs == NULL)
-                {
-                    printf("[SampleClient] Unable to retrieve Data Descriptions.");
-                }
-                else
-                {
-                    printf("[SampleClient] Received %d Data Descriptions:\n", pDataDefs->nDataDescriptions);
-                }
-                }
-                break;
-            case 'm':	                        // change to multicast
-                g_connectParams.connectionType = ConnectionType_Multicast;
-                iResult = ConnectClient();
-                if(iResult == ErrorCode_OK)
-                    printf("Client connection type changed to Multicast.\n\n");
-                else
-                    printf("Error changing client connection type to Multicast.\n\n");
-                break;
-            case 'u':	                        // change to unicast
-                g_connectParams.connectionType = ConnectionType_Unicast;
-                iResult = ConnectClient();
-                if(iResult == ErrorCode_OK)
-                    printf("Client connection type changed to Unicast.\n\n");
-                else
-                    printf("Error changing client connection type to Unicast.\n\n");
-                break;
-            case 'c' :                          // connect
-                iResult = ConnectClient();
-                break;
-            case 'd' :                          // disconnect
-                // note: applies to unicast connections only - indicates to Motive to stop sending packets to that client endpoint
-                iResult = g_pClient->SendMessageAndWait("Disconnect", &response, &nBytes);
-                if (iResult == ErrorCode_OK)
-                    printf("[SampleClient] Disconnected");
-                break;
-            default:
-                break;
-        }
-        if(bExit)
-            break;
-    }
+    // void* response;
+    // int nBytes;
+    // printf("\nClient is connected to server and listening for data...\n");
+    // bool bExit = false;
+    // while ( const int c = getchar() )
+    // {
+    //     switch(c)
+    //     {
+    //         case 'q':
+    //             bExit = true;		
+    //             break;	
+    //         case 'r':
+    //             resetClient();
+    //             break;	
+    //         case 'p':
+    //             sServerDescription ServerDescription;
+    //             memset(&ServerDescription, 0, sizeof(ServerDescription));
+    //             g_pClient->GetServerDescription(&ServerDescription);
+    //             if(!ServerDescription.HostPresent)
+    //             {
+    //                 printf("Unable to connect to server. Host not present. Exiting.");
+    //                 return 1;
+    //             }
+    //             break;
+    //         case 's':
+    //             {
+    //             printf("\n\n[SampleClient] Requesting Data Descriptions...");
+    //             sDataDescriptions* pDataDefs = NULL;
+    //             iResult = g_pClient->GetDataDescriptionList(&pDataDefs);
+    //             if (iResult != ErrorCode_OK || pDataDefs == NULL)
+    //             {
+    //                 printf("[SampleClient] Unable to retrieve Data Descriptions.");
+    //             }
+    //             else
+    //             {
+    //                 printf("[SampleClient] Received %d Data Descriptions:\n", pDataDefs->nDataDescriptions);
+    //             }
+    //             }
+    //             break;
+    //         case 'm':	                        // change to multicast
+    //             g_connectParams.connectionType = ConnectionType_Multicast;
+    //             iResult = ConnectClient();
+    //             if(iResult == ErrorCode_OK)
+    //                 printf("Client connection type changed to Multicast.\n\n");
+    //             else
+    //                 printf("Error changing client connection type to Multicast.\n\n");
+    //             break;
+    //         case 'u':	                        // change to unicast
+    //             g_connectParams.connectionType = ConnectionType_Unicast;
+    //             iResult = ConnectClient();
+    //             if(iResult == ErrorCode_OK)
+    //                 printf("Client connection type changed to Unicast.\n\n");
+    //             else
+    //                 printf("Error changing client connection type to Unicast.\n\n");
+    //             break;
+    //         case 'c' :                          // connect
+    //             iResult = ConnectClient();
+    //             break;
+    //         case 'd' :                          // disconnect
+    //             // note: applies to unicast connections only - indicates to Motive to stop sending packets to that client endpoint
+    //             iResult = g_pClient->SendMessageAndWait("Disconnect", &response, &nBytes);
+    //             if (iResult == ErrorCode_OK)
+    //                 printf("[SampleClient] Disconnected");
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     if(bExit)
+    //         break;
+    // }
 
     // Done - clean up.
-    if (g_pClient)
-    {
-        g_pClient->Disconnect();
-        delete g_pClient;
-        g_pClient = NULL;
-    }
+    // if (g_pClient)
+    // {
+    //     g_pClient->Disconnect();
+    //     delete g_pClient;
+    //     g_pClient = NULL;
+    // }
 
     return ErrorCode_OK;
 }
@@ -238,6 +252,7 @@ int ConnectClient()
 void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData)
 {
     NatNetClient* pClient = (NatNetClient*) pUserData;
+    return;
 
     // Software latency here is defined as the span of time between:
     //   a) The reception of a complete group of 2D frames from the camera system (CameraDataReceivedTimestamp)

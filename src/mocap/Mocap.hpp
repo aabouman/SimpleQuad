@@ -5,6 +5,7 @@
 #include <NatNetTypes.h>
 #include <NatNetCAPI.h>
 #include <NatNetClient.h>
+#include <pthread.h>
 
 namespace rexlab {
 
@@ -18,6 +19,8 @@ class Mocap {
     int ConnectClient();
     void SendTestRequest();
     void ResetClient();
+    NatNetClient* GetClient() { return _pClient; };
+    const sServerDescription& GetServerDescription() const;
     int Run();
 
    private:
