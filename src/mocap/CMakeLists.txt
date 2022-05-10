@@ -69,6 +69,12 @@ add_executable(mocap
   mocap.cpp
   Mocap.hpp
   Mocap.cpp
+
+  callbacks.hpp
+  callbacks.cpp
+
+  utils.hpp
+  utils.cpp
 )
 target_link_libraries(mocap
   PRIVATE
