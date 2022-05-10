@@ -5,6 +5,7 @@
 #include <string>
 
 #include "libserialport.h"
+#include "pose.hpp"
 
 namespace rexlab {
 
@@ -19,16 +20,14 @@ public:
 
   template <class Duration> void SetTimeout(Duration time) { timeout_ = time; }
 
-  void operator()(const sRigidBodyData &data) {
-    // TODO: convert rigid body data to bytes
-    (void)data;
-  }
+  void operator()(const sRigidBodyData &data);
 
 private:
   std::string port_name_;
   int baud_rate_;
   struct sp_port *port_;
   bool is_open_ = false;
+  char buf_[sizeof(PoseMsg)];
   std::chrono::milliseconds timeout_ = std::chrono::milliseconds(100);
 };
 
