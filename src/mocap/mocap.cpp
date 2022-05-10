@@ -613,57 +613,6 @@ void NATNET_CALLCONV MessageHandler( Verbosity msgType, const char* msg )
     printf( ": %s\n", msg );
 }
 
-
-/* File writing routines */
-void _WriteHeader(FILE* fp, sDataDescriptions* pBodyDefs)
-{
-    int i=0;
-
-    if ( pBodyDefs->arrDataDescriptions[0].type != Descriptor_MarkerSet ) {
-        return;
-    }
-
-    sMarkerSetDescription* pMS = pBodyDefs->arrDataDescriptions[0].Data.MarkerSetDescription;
-
-    fprintf(fp, "<MarkerSet>\n\n");
-    fprintf(fp, "<Name>\n%s\n</Name>\n\n", pMS->szName);
-
-    fprintf(fp, "<Markers>\n");
-    for(i=0; i < pMS->nMarkers; i++)
-    {
-        fprintf(fp, "%s\n", pMS->szMarkerNames[i]);
-    }
-    fprintf(fp, "</Markers>\n\n");
-
-    fprintf(fp, "<Data>\n");
-    fprintf(fp, "Frame#\t");
-    for(i=0; i < pMS->nMarkers; i++)
-    {
-        fprintf(fp, "M%dX\tM%dY\tM%dZ\t", i, i, i);
-    }
-    fprintf(fp,"\n");
-
-}
-
-
-void _WriteFrame(FILE* fp, sFrameOfMocapData* data)
-{
-    fprintf(fp, "%d", data->iFrame);
-    for(int i =0; i < data->MocapData->nMarkers; i++)
-    {
-        fprintf(fp, "\t%.5f\t%.5f\t%.5f", data->MocapData->Markers[i][0], data->MocapData->Markers[i][1], data->MocapData->Markers[i][2]);
-    }
-    fprintf(fp, "\n");
-}
-
-
-void _WriteFooter(FILE* fp)
-{
-    fprintf(fp, "</Data>\n\n");
-    fprintf(fp, "</MarkerSet>\n");
-}
-
-
 void resetClient()
 {
     int iSuccess;
