@@ -51,10 +51,9 @@ Usage [optional]:
 #ifndef _WIN32
 // char getch();
 #endif
-void _WriteHeader(FILE* fp, sDataDescriptions* pBodyDefs);
-void _WriteFrame(FILE* fp, sFrameOfMocapData* data);
-void _WriteFooter(FILE* fp);
-void NATNET_CALLCONV ServerDiscoveredCallback( const sNatNetDiscoveredServer* pDiscoveredServer, void* pUserContext );
+// void _WriteHeader(FILE* fp, sDataDescriptions* pBodyDefs);
+// void _WriteFrame(FILE* fp, sFrameOfMocapData* data);
+// void _WriteFooter(FILE* fp);
 void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData);    // receives data from the server
 void NATNET_CALLCONV MessageHandler(Verbosity msgType, const char* msg);      // receives NatNet error messages
 void resetClient();
@@ -63,7 +62,6 @@ int ConnectClient();
 static const ConnectionType kDefaultConnectionType = ConnectionType_Multicast;
 
 NatNetClient* g_pClient = NULL;
-FILE* g_outputFile;
 
 // Globals
 static const char* SERVER_ADDR = "192.168.1.5";
@@ -243,26 +241,6 @@ int main( int argc, char* argv[] )
         }      
     }
 
-    
-    // Create data file for writing received stream into
-    const char* szFile = "Client-output.pts";
-    if (argc > 3)
-        szFile = argv[3];
-
-    g_outputFile = fopen(szFile, "w");
-    if(!g_outputFile)
-    {
-        printf("Error opening output file %s.  Exiting.\n", szFile);
-        exit(1);
-    }
-
-    if ( pDataDefs )
-    {
-        _WriteHeader( g_outputFile, pDataDefs );
-        NatNet_FreeDescriptions( pDataDefs );
-        pDataDefs = NULL;
-    }
-
     // Ready to receive marker stream!
     printf("\nClient is connected to server and listening for data...\n");
     bool bExit = false;
@@ -339,13 +317,6 @@ int main( int argc, char* argv[] )
         g_pClient->Disconnect();
         delete g_pClient;
         g_pClient = NULL;
-    }
-
-    if (g_outputFile)
-    {
-        _WriteFooter(g_outputFile);
-        fclose(g_outputFile);
-        g_outputFile = NULL;
     }
 
     return ErrorCode_OK;
@@ -463,11 +434,6 @@ void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData)
     // Transit latency is defined as the span of time between Motive transmitting the frame of data, and its reception by the client (now).
     // The SecondsSinceHostTimestamp method relies on NatNetClient's internal clock synchronization with the server using Cristian's algorithm.
     const double transitLatencyMillisec = pClient->SecondsSinceHostTimestamp( data->TransmitTimestamp ) * 1000.0;
-
-    if (g_outputFile)
-    {
-        _WriteFrame( g_outputFile, data );
-    }
 
     int i=0;
 
