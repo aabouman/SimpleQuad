@@ -2,4 +2,7 @@
 
 *.DS_Store
 /--library
-# /bin
+/bin
+/build
+.cache
+*.pts
