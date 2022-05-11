@@ -57,7 +57,8 @@ targets = [
     "lora_rx",
     "lora_tx_latency",
     "lora_tx_serial",
-    "lora_rx_serial"
+    "lora_rx_serial",
+    "feather_parrot",
 ]
 parser = argparse.ArgumentParser()
 parser.add_argument("target",

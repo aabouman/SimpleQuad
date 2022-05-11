@@ -19,8 +19,8 @@ int pos = 0;  // position in buffer
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
-  Serial.begin(57600);
-  Serial1.begin(57600);
+  Serial.begin(256000);
+  Serial1.begin(256000);
 }
 
 void loop() {
