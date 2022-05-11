@@ -16,7 +16,7 @@
 #include "callbacks.hpp"
 #include "core/pose.hpp"
 #include "fmt/core.h"
-#include "utils.hpp"
+#include "core/utils.hpp"
 
 using namespace std::chrono_literals;
 

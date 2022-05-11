@@ -1,7 +1,7 @@
 #include "callbacks.hpp"
 #include "NatNetTypes.h"
 #include "fmt/core.h"
-#include "utils.hpp"
+#include "core/utils.hpp"
 #include <string>
 
 #include <gtest/gtest.h>

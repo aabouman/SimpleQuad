@@ -2,7 +2,7 @@
 #include <string.h>
 
 #include "fmt/core.h"
-#include "utils.hpp"
+#include "core/utils.hpp"
 
 namespace rexlab {
 

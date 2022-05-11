@@ -5,6 +5,13 @@ add_library(quadcore
     utils.hpp
     utils.cpp
 )
+target_link_libraries(quadcore
+    PUBLIC
+    libserialport
+
+    PRIVATE
+    fmt::fmt
+)
 target_include_directories(quadcore
     INTERFACE
     "${CMAKE_CURRENT_LIST_DIR}/.."

@@ -3,7 +3,7 @@ import os
 import string
 
 def arduino_cli(scriptfile: str, fqbn: str, action="compile", verbose=False, port="tty/ACM0"):
-    if action == "compile":
+    if action == "compile" or action == "all":
         cmd = "arduino-cli compile --warnings all --fqbn {} --libraries {} --library {} --build-path {} --build-cache-path {} {}".format(
             fqbn,
             arduino_libs_dir,
@@ -12,21 +12,30 @@ def arduino_cli(scriptfile: str, fqbn: str, action="compile", verbose=False, por
             cache_dir,
             scriptfile
         )
-    elif action == "upload":
+        if verbose:
+            print(cmd, "\n")
+        os.system(cmd)
+    if action == "upload" or action == "all":
         cmd = "arduino-cli upload --fqbn {} --port {} --input-dir {} {}".format(
             fqbn,
             port,
             bin_dir,
             scriptfile
         )
-    if verbose:
-        print(cmd, "\n")
-    os.system(cmd)
+        if verbose:
+            print(cmd, "\n")
+        os.system(cmd)
 
 
 def build_lora_tx(action, **kwargs):
     dir = os.path.join(rootdir, "src", "Arduino", "lora_relay")
     scriptfile = os.path.join(dir, "lora_relay.ino")
+    boardname = "adafruit:samd:adafruit_feather_m0"
+    arduino_cli(scriptfile, boardname, action, **kwargs)
+
+def build_lora_tx_latency(action, **kwargs):
+    dir = os.path.join(rootdir, "src", "Arduino", "lora_tx_latency")
+    scriptfile = os.path.join(dir, "lora_tx_latency.ino")
     boardname = "adafruit:samd:adafruit_feather_m0"
     arduino_cli(scriptfile, boardname, action, **kwargs)
 
@@ -41,6 +50,7 @@ targets = [
     # "mocap",
     "lora_tx",
     "lora_rx",
+    "lora_tx_latency"
 ]
 parser = argparse.ArgumentParser()
 parser.add_argument("target",
@@ -51,7 +61,7 @@ parser.add_argument("target",
 parser.add_argument("action",
                     help="Action to perform",
                     type=str,
-                    choices=["compile", "upload"]
+                    choices=["compile", "upload", "all"]
                     )
 parser.add_argument("-v", "--verbose", action="store_true")
 parser.add_argument("-p", "--port",
@@ -72,4 +82,6 @@ if args.target == "lora_tx":
     build_lora_tx(args.action, verbose=args.verbose, port=args.port)
 elif args.target == "lora_rx":
     build_lora_rx(args.action, verbose=args.verbose, port=args.port)
+elif args.target == "lora_tx_latency":
+    build_lora_tx_latency(args.action, verbose=args.verbose, port=args.port)
     
