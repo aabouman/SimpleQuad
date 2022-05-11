@@ -1,8 +1,5 @@
 #include "utils.hpp"
 
-#include <iostream>
-// #include <fmt/core.h>
-// #include <fmt/chrono.h>
 
 namespace rexlab {
 

@@ -32,27 +32,11 @@ def build_feather(script, action, **kwargs):
     boardname = "adafruit:samd:adafruit_feather_m0"
     arduino_cli(scriptfile, boardname, action, **kwargs)
 
-def build_lora_tx(action, **kwargs):
-    dir = os.path.join(rootdir, "src", "Arduino", "lora_relay")
-    scriptfile = os.path.join(dir, "lora_relay.ino")
-    boardname = "adafruit:samd:adafruit_feather_m0"
-    arduino_cli(scriptfile, boardname, action, **kwargs)
-
-def build_lora_tx_latency(action, **kwargs):
-    dir = os.path.join(rootdir, "src", "Arduino", "lora_tx_latency")
-    scriptfile = os.path.join(dir, "lora_tx_latency.ino")
-    boardname = "adafruit:samd:adafruit_feather_m0"
-    arduino_cli(scriptfile, boardname, action, **kwargs)
-
-def build_lora_rx(action, **kwargs):
-    dir = os.path.join(rootdir, "src", "Arduino", "lora_rx")
-    scriptfile = os.path.join(dir, "lora_rx.ino")
-    boardname = "adafruit:samd:adafruit_feather_m0"
-    arduino_cli(scriptfile, boardname, action, **kwargs)
-
 # Parse arguments
 targets = [
     # "mocap",
+    "default",
+    "lora_relay",
     "lora_tx",
     "lora_rx",
     "lora_tx_latency",
@@ -62,13 +46,17 @@ targets = [
 ]
 parser = argparse.ArgumentParser()
 parser.add_argument("target",
+                    nargs="?",
                     help="The target to build.",
                     type=str,
+                    default="default",
                     choices=targets
                     )
 parser.add_argument("action",
+                    nargs="?",
                     help="Action to perform",
                     type=str,
+                    default="all",
                     choices=["compile", "upload", "all"]
                     )
 parser.add_argument("-v", "--verbose", action="store_true")
@@ -86,10 +74,9 @@ bin_dir = os.path.join(rootdir, "bin", args.target)
 cache_dir = os.path.join(bin_dir, "cache")
 
 # Call the right build function
-if args.target == "lora_tx":
-    build_lora_tx(args.action, verbose=args.verbose, port=args.port)
-elif args.target == "lora_rx":
-    build_lora_rx(args.action, verbose=args.verbose, port=args.port)
+if args.target == "default":
+    build_feather("lora_tx", args.action, verbose=args.verbose, port="/dev/ttyACM0")
+    build_feather("lora_rx", args.action, verbose=args.verbose, port="/dev/ttyACM1")
 else:
     build_feather(args.target, args.action, verbose=args.verbose, port=args.port)
     

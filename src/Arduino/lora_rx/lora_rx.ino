@@ -1,52 +1,50 @@
-#include <string>
-
-#include <SPI.h>
 #include <LoRa.h>
 
 #include "pose.hpp"
-#include "arduino_receiver.hpp"
-
-// using Pose = rexlab::Pose<int16_t>;
-using Pose = rexlab::PoseMsg;
 
 #define RFM95_CS 8
 #define RFM95_RST 4
 #define RFM95_INT 3
 #define RF95_FREQ 915.0
 #define LED_PIN 13
-constexpr int MSG_SIZE = sizeof(Pose);
 
-uint8_t buf[MSG_SIZE];
+using Pose = rexlab::PoseMsg;
+constexpr int MSG_SIZE = sizeof(Pose) + 1;
+constexpr uint8_t MsgID = Pose::MsgID();
+
+char buf[100];
 
 void onReceive(int packetSize) {
-    if (packetSize) {
-        LoRa.readBytes(buf, MSG_SIZE);
-        // Serial.println("LoRa packet received!");
-        Serial.write(buf, MSG_SIZE);
-    }
+  if (packetSize) {
+    LoRa.readBytes(buf, MSG_SIZE);
+    // Serial.println("LoRa packet received!");
+    Serial.write(buf, MSG_SIZE);
+  }
 }
 
 void setup() {
-    Serial.begin(57600);
-    while (!Serial) { delay(10); }
-    // Serial.println("LoRa Receiver");
-    LoRa.setPins(RFM95_CS, RFM95_RST, RFM95_INT);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(256000);
+  Serial1.begin(256000);
 
-    if (!LoRa.begin(915E6)) {
-        Serial.println("Starting LoRa failed!");
-        while (1);
-    }
-    LoRa.setSpreadingFactor(6);
-    LoRa.setSignalBandwidth(500E3);
-
-    LoRa.onReceive(onReceive);
-    LoRa.receive(MSG_SIZE);
+  LoRa.setPins(RFM95_CS, RFM95_RST, RFM95_INT);
+  if (!LoRa.begin(915E6)) {
+    while (1)
+      ;
+  }
+  LoRa.setSpreadingFactor(6);
+  LoRa.setSignalBandwidth(500E3);
+  LoRa.onReceive(onReceive);
+  LoRa.receive(MSG_SIZE);
 }
 
 void loop() {
-    digitalWrite(LED_PIN, HIGH);
-    delay(1000);
-    // Serial.println("Hello from LoRa!");
-    digitalWrite(LED_PIN, LOW);
-    delay(1000);
+  // bool did_receive = receiver.Receive(buf, MSG_SIZE);
+  int bytes_available = Serial1.available();
+  bool did_receive = bytes_available >= MSG_SIZE;
+  if (did_receive) {
+    Serial1.readBytes(buf, bytes_available);
+    Serial.write(buf, MSG_SIZE);
+    // Serial.write(buf, bytes_read);
+  }
 }
