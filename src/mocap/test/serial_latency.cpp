@@ -1,3 +1,21 @@
+/**
+ * @file serial_latency.cpp
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @brief Measures the latency of the serial communication with the Feather
+ * @version 0.1
+ * @date 2022-05-11
+ * 
+ * Setup:
+ * Connect the Feather to /tty/ACM0 via USB
+ * Upload the "lora_tx_latency.ino" script on the Feather
+ * - python3 build.py lora_tx_latency all
+ * Run this script to save the latency timings 
+ * Run the Julia analysis file to report the average latency
+ * - julia src/mocap/test/latency.jl serial_latency
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <fmt/core.h>
 #include <libserialport.h>
 #include <unistd.h>
@@ -55,7 +73,7 @@ int main() {
 
     datasent.emplace_back(std::make_pair(tsend.count(), x_sent));
     datarecv.emplace_back(std::make_pair(trecv.count(), msg.x));
-    usleep(10 * 1000);
+    // usleep(10 * 1000);
   }
   
   // Write data to file
