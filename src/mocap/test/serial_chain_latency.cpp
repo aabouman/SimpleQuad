@@ -11,12 +11,12 @@
 #include "utils/serial.hpp"
 
 struct MyMsg {
-  static constexpr uint8_t MsgID() { return 111; }
+  static constexpr uint8_t MsgID() { return 120; }
   float x;
 };
 constexpr int MSG_SIZE = sizeof(MyMsg);
 
-int main() {
+int main() { 
   // Open Serial ports
   std::string tx_name = "/dev/ttyACM0";
   int baudrate = 57600;
@@ -30,6 +30,7 @@ int main() {
   // Send and receive floats
   const int nsamples = 100;
   char buf[MSG_SIZE+1];
+  char recv[100];
   MyMsg msg;
   msg.x = 0.0;
   std::vector<std::pair<double, float>> datasent;
@@ -38,6 +39,43 @@ int main() {
   datarecv.reserve(nsamples);
   auto tstart = std::chrono::high_resolution_clock::now();
   using fmillisecond = std::chrono::duration<float, std::milli>;
+
+
+  // Sending info
+  fmt::print("\nSending...\n");
+  // memcpy(buf+1, &msg, MSG_SIZE);
+  buf[0] = MyMsg::MsgID();
+  for (int i = 0; i < MSG_SIZE; ++i) {
+    buf[i+1] = i + 'a';
+  }
+  enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
+  fmt::print("  Sent {} bytes\n", (int)bytes_sent);
+  fmt::print("  Message: [");
+  for (int i = 0; i < (int)bytes_sent; ++i) {
+    fmt::print("{}", buf[i]);
+  }
+  fmt::print("]\n");
+
+  int bytes_available_tx = 0;
+  bytes_available_tx = sp_blocking_read(tx, recv, 100, 10);
+  fmt::print("  Message from Tx: ");
+  for (int i = 0; i < bytes_available_tx; ++i) {
+    fmt::print("{}", recv[i]);
+  }
+  fmt::print("\n");
+
+  // Receiving
+  fmt::print("\nReceiving...\n");
+  int bytes_received = sp_blocking_read(rx, recv, 100, 10);
+  fmt::print("{} bytes received\n", bytes_received);
+  fmt::print("  Message from Rx: [");
+  for (int i = 0; i < bytes_received; ++i) {
+    fmt::print("{}", recv[i]);
+  }
+  fmt::print("]\n");
+
+    
+  return 0;
 
   for (int i = 0; i < nsamples; ++i) {
     float x_sent = i * 0.001;
