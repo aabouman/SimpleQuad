@@ -6,9 +6,9 @@ board_manager:
 daemon:
   port: "50051"
 directories:
-  data: /home/brian/snap/arduino-cli/19/.arduino15
-  downloads: /home/brian/snap/arduino-cli/19/.arduino15/staging
-  user: /home/brian/snap/arduino-cli/19/Arduino
+  data: /home/brian/.arduino15
+  downloads: /home/brian/.arduino15/staging
+  user: /home/brian/Arduino
 library:
   enable_unsafe_install: false
 logging:
