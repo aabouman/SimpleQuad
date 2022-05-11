@@ -40,7 +40,6 @@ int main() {
   auto tstart = std::chrono::high_resolution_clock::now();
   using fmillisecond = std::chrono::duration<float, std::milli>;
 
-
   // Sending info
   fmt::print("\nSending...\n");
   // memcpy(buf+1, &msg, MSG_SIZE);
@@ -48,34 +47,39 @@ int main() {
   for (int i = 0; i < MSG_SIZE; ++i) {
     buf[i+1] = i + 'a';
   }
+  auto t_send = std::chrono::high_resolution_clock::now();
   enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
+
+  // int bytes_available_tx = 0;
+  // bytes_available_tx = sp_blocking_read(tx, recv, 100, 10);
+  // fmt::print("  Message from Tx: ");
+  // for (int i = 0; i < bytes_available_tx; ++i) {
+  //   fmt::print("{}", recv[i]);
+  // }
+  // fmt::print("\n");
+
+  // Receiving
+  fmt::print("\nReceiving...\n");
+  int bytes_received = sp_blocking_read(rx, recv, 100, 10);
+  auto t_recv = std::chrono::high_resolution_clock::now();
+  auto latency = std::chrono::duration_cast<fmillisecond>(t_recv - t_send);
+
   fmt::print("  Sent {} bytes\n", (int)bytes_sent);
   fmt::print("  Message: [");
   for (int i = 0; i < (int)bytes_sent; ++i) {
     fmt::print("{}", buf[i]);
   }
   fmt::print("]\n");
-
-  int bytes_available_tx = 0;
-  bytes_available_tx = sp_blocking_read(tx, recv, 100, 10);
-  fmt::print("  Message from Tx: ");
-  for (int i = 0; i < bytes_available_tx; ++i) {
-    fmt::print("{}", recv[i]);
-  }
-  fmt::print("\n");
-
-  // Receiving
-  fmt::print("\nReceiving...\n");
-  int bytes_received = sp_blocking_read(rx, recv, 100, 10);
   fmt::print("{} bytes received\n", bytes_received);
   fmt::print("  Message from Rx: [");
   for (int i = 0; i < bytes_received; ++i) {
     fmt::print("{}", recv[i]);
   }
   fmt::print("]\n");
+  fmt::print("Latency {}\n", latency);
 
     
-  return 0;
+  // return 0;
 
   for (int i = 0; i < nsamples; ++i) {
     float x_sent = i * 0.001;

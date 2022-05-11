@@ -24,6 +24,7 @@ void loop() {
   bool did_receive = bytes_available > 0;
   if (did_receive) {
     Serial1.readBytes(buf, bytes_available);
-    Serial.write(buf, bytes_available);
+    Serial.write(buf, MSG_SIZE);
+    // Serial.write(buf, bytes_available);
   }
 }
