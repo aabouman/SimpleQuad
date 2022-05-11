@@ -10,8 +10,11 @@ void PoseToBytes(char* buf, const PoseMsg& pose) {
 }
 
 bool PoseFromBytes(PoseMsg& pose, const char* buf) {
-    memcpy(&pose, buf+1, sizeof(PoseMsg));
-    return buf[0] == PoseMsg::MsgID();
+    bool is_msg_id_correct = buf[0] == PoseMsg::MsgID();
+    if (is_msg_id_correct) {
+        memcpy(&pose, buf+1, sizeof(PoseMsg));
+    }
+    return is_msg_id_correct;
 }
 
 }  // namespace rexlab
