@@ -39,12 +39,10 @@ void setup() {
 }
 
 void loop() {
-  // bool did_receive = receiver.Receive(buf, MSG_SIZE);
-  int bytes_available = Serial1.available();
-  bool did_receive = bytes_available >= MSG_SIZE;
-  if (did_receive) {
-    Serial1.readBytes(buf, bytes_available);
-    Serial.write(buf, MSG_SIZE);
-    // Serial.write(buf, bytes_read);
-  }
+  // int bytes_available = Serial1.available();
+  // bool did_receive = bytes_available >= MSG_SIZE;
+  // if (did_receive) {
+  //   Serial1.readBytes(buf, bytes_available);
+  //   Serial.write(buf, MSG_SIZE);
+  // }
 }

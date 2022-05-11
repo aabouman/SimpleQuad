@@ -30,7 +30,7 @@ int main() {
   fmt::print("Connected to Receiver\n");
 
   // Send and receive floats
-  const int nsamples = 100;
+  const int nsamples = 40;
   char buf[MSG_SIZE+1];
   char recv[100];
   Pose msg;
@@ -59,7 +59,7 @@ int main() {
 
   // Receiving
   fmt::print("Receiving...\n");
-  int bytes_received = sp_blocking_read(rx, recv, 100, 10);
+  int bytes_received = sp_blocking_read(rx, recv, 100, 100);
   auto t_recv = std::chrono::high_resolution_clock::now();
   auto latency = std::chrono::duration_cast<fmillisecond>(t_recv - t_send);
 
@@ -81,6 +81,8 @@ int main() {
   fmt::print("  Got x = {}\n", x_recv);
   fmt::print("Latency {}\n\n", latency);
 
+  // return 0;
+
   for (int i = 0; i < nsamples; ++i) {
     float x_sent = i * 0.001;
     msg_recv.x = -1.0;
@@ -91,10 +93,10 @@ int main() {
     buf[0] = Pose::MsgID();
     auto tsend = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
-    enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
+    enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 2);
 
     // Receive
-    int bytes_received = sp_blocking_read(rx, recv, MSG_SIZE+1, 100);
+    int bytes_received = sp_blocking_read(rx, recv, MSG_SIZE+1, 20);
     auto trecv = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
 
@@ -115,7 +117,7 @@ int main() {
 
     datasent.emplace_back(std::make_pair(tsend.count(), x_sent));
     datarecv.emplace_back(std::make_pair(trecv.count(), msg.x));
-    usleep(10 * 1000);
+    usleep(1 * 1000);
   }
   
   // Write data to file
