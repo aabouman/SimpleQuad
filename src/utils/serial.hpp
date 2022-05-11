@@ -29,6 +29,19 @@ bool LibSerialCheck(enum sp_return result);
 
 void HandleLibSerialError(enum sp_return result);
 
-
+class RatePrinter {
+ public:
+  void Init();
+  void SetFrequency(float frequency);
+  bool IsEnabled();
+  void Enable();
+  void Disable();
+  void Print();
+ private:
+  std::chrono::system_clock::time_point time_start_;
+  std::chrono::duration<double, std::ratio<1>> period_ = std::chrono::seconds(1);
+  bool is_enabled_;
+  int count_ = 0;
+};
 
 }  // namespace rexlab

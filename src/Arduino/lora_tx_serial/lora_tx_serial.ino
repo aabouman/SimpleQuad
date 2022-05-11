@@ -4,14 +4,16 @@
 #define RFM95_INT 3
 #define RF95_FREQ 915.0
 #define LED_PIN 13
-#define MSG_SIZE 5
-const int MsgID = 120;  // 'xx
 
 
 // #include "arduino_receiver.hpp"
 
 // rexlab::SerialReceiver<Serial_> receiver(Serial, MsgID);
 #include "serial_utils.hpp"
+#include "pose.hpp"
+using Pose = rexlab::PoseMsg;
+constexpr int MSG_SIZE = sizeof(Pose) + 1;
+constexpr uint8_t MsgID = Pose::MsgID();
 
 char buf[200];
 char msg[MSG_SIZE];

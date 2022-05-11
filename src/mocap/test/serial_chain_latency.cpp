@@ -7,6 +7,7 @@
 #include <fmt/core.h>
 #include <fmt/chrono.h>
 
+#include "common/pose.hpp"
 #include "common/utils.hpp"
 #include "utils/serial.hpp"
 
@@ -14,7 +15,8 @@ struct MyMsg {
   static constexpr uint8_t MsgID() { return 120; }
   float x;
 };
-constexpr int MSG_SIZE = sizeof(MyMsg);
+using Pose = rexlab::PoseMsg;
+constexpr int MSG_SIZE = sizeof(Pose);
 
 int main() { 
   // Open Serial ports
@@ -31,8 +33,8 @@ int main() {
   const int nsamples = 100;
   char buf[MSG_SIZE+1];
   char recv[100];
-  MyMsg msg;
-  MyMsg msg_recv;
+  Pose msg;
+  Pose msg_recv;
   msg.x = 0.0;
   msg_recv.x = -1.0;
   std::vector<std::pair<double, float>> datasent;
@@ -45,11 +47,10 @@ int main() {
   // Sending info
   fmt::print("\nSending...\n");
   // memcpy(buf+1, &msg, MSG_SIZE);
-  buf[0] = MyMsg::MsgID();
+  buf[0] = Pose::MsgID();
   for (int i = 0; i < MSG_SIZE; ++i) {
     buf[i+1] = i + 'a';
   }
-  // memcpy(buf+1, &msg, MSG_SIZE);
   memcpy(&msg, buf+1, MSG_SIZE);
   float x = msg.x;
   fmt::print("  Sent x = {}\n", x);
@@ -80,7 +81,6 @@ int main() {
   fmt::print("  Got x = {}\n", x_recv);
   fmt::print("Latency {}\n\n", latency);
 
-
   for (int i = 0; i < nsamples; ++i) {
     float x_sent = i * 0.001;
     msg_recv.x = -1.0;
@@ -88,7 +88,7 @@ int main() {
 
     // Send data
     memcpy(buf+1, &msg, MSG_SIZE);
-    buf[0] = MyMsg::MsgID();
+    buf[0] = Pose::MsgID();
     auto tsend = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
     enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
@@ -107,7 +107,7 @@ int main() {
     fmt::print("  Latency {} ms\n", trecv - tsend);
     int id_index = 0;
     for (; id_index < MSG_SIZE + 1; ++id_index) {
-      if (recv[id_index] == MyMsg::MsgID()) {
+      if (recv[id_index] == Pose::MsgID()) {
         break;
       }
     }
