@@ -1,4 +1,5 @@
 #include <chrono>
+#include <cstdint>
 #include <vector>
 #include <unistd.h>
 
@@ -10,6 +11,7 @@
 #include "utils/serial.hpp"
 
 struct MyMsg {
+  static constexpr uint8_t MsgID() { return 111; }
   float x;
 };
 constexpr int MSG_SIZE = sizeof(MyMsg);
@@ -27,7 +29,7 @@ int main() {
 
   // Send and receive floats
   const int nsamples = 100;
-  char buf[MSG_SIZE];
+  char buf[MSG_SIZE+1];
   MyMsg msg;
   msg.x = 0.0;
   std::vector<std::pair<double, float>> datasent;
@@ -42,13 +44,14 @@ int main() {
     msg.x = x_sent; 
 
     // Send data
-    memcpy(buf, &msg, MSG_SIZE);
+    memcpy(buf+1, &msg, MSG_SIZE);
+    buf[0] = MyMsg::MsgID();
     auto tsend = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
-    enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE, 100);
+    enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
 
     // Receive
-    int bytes_received = sp_blocking_read(rx, buf, MSG_SIZE, 100);
+    int bytes_received = sp_blocking_read(rx, buf, MSG_SIZE+1, 100);
     auto trecv = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
 
@@ -56,8 +59,8 @@ int main() {
     rexlab::HandleLibSerialError(bytes_sent);
     fmt::print("Sample {}\n", i);
     fmt::print("  Sent {} bytes, x = {}\n", (int)bytes_sent, msg.x);
-    memcpy(&msg, buf, MSG_SIZE);
-    fmt::print("  Received {} bytes, x = {}\n", bytes_received, msg.x);
+    memcpy(&msg, buf+1, MSG_SIZE);
+    fmt::print("  Received {} bytes, x = {}, ID = {}\n", bytes_received, msg.x, (int)buf[0]);
     fmt::print("  Latency {} ms\n", trecv - tsend);
 
     datasent.emplace_back(std::make_pair(tsend.count(), x_sent));

@@ -7,7 +7,7 @@ def arduino_cli(scriptfile: str, fqbn: str, action="compile", verbose=False, por
         cmd = "arduino-cli compile --warnings all --fqbn {} --libraries {} --library {} --build-path {} --build-cache-path {} {}".format(
             fqbn,
             arduino_libs_dir,
-            core_lib_dir,
+            common_lib_dir,
             bin_dir,
             cache_dir,
             scriptfile
@@ -80,7 +80,7 @@ args = parser.parse_args()
 # Set directories
 rootdir = os.path.dirname(os.path.realpath(__file__))
 arduino_libs_dir = os.path.join(rootdir, "src", "Arduino", "libraries")
-core_lib_dir = os.path.join(rootdir, "src", "core")
+common_lib_dir = os.path.join(rootdir, "src", "common")
 bin_dir = os.path.join(rootdir, "bin", args.target)
 cache_dir = os.path.join(bin_dir, "cache")
 
