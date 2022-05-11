@@ -3,6 +3,7 @@
 
 #include "fmt/core.h"
 #include "core/utils.hpp"
+#include "core/serial.hpp"
 
 namespace rexlab {
 

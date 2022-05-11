@@ -1,10 +1,13 @@
-#include "callbacks.hpp"
-#include "NatNetTypes.h"
-#include "fmt/core.h"
-#include "core/utils.hpp"
 #include <string>
 
 #include <gtest/gtest.h>
+#include <NatNetTypes.h>
+#include <fmt/core.h>
+
+#include "callbacks.hpp"
+#include "core/utils.hpp"
+#include "core/serial.hpp"
+
 
 TEST(LORATEST, Connection) {
     const char* port = "/dev/ttyACM0";

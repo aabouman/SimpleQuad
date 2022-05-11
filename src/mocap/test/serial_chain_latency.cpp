@@ -1,27 +1,10 @@
-/**
- * @file serial_latency.cpp
- * @author Brian Jackson (bjack205@gmail.com)
- * @brief Measures the latency of the serial communication with the Feather
- * @version 0.1
- * @date 2022-05-11
- * 
- * Setup:
- * Connect the Feather to /tty/ACM0 via USB
- * Upload the "lora_tx_latency.ino" script on the Feather
- * - python3 build.py lora_tx_latency all
- * Run this script to save the latency timings 
- * Run the Julia analysis file to report the average latency
- * - julia src/mocap/test/latency.jl serial_latency
- * 
- * @copyright Copyright (c) 2022
- * 
- */
-#include <fmt/core.h>
-#include <libserialport.h>
-#include <unistd.h>
-
 #include <chrono>
 #include <vector>
+#include <unistd.h>
+
+#include <libserialport.h>
+#include <fmt/core.h>
+#include <fmt/chrono.h>
 
 #include "core/utils.hpp"
 #include "core/serial.hpp"
@@ -32,11 +15,14 @@ struct MyMsg {
 constexpr int MSG_SIZE = sizeof(MyMsg);
 
 int main() {
-  // Open Serial port
-  std::string rx_name = "/dev/ttyACM0";
+  // Open Serial ports
+  std::string tx_name = "/dev/ttyACM0";
   int baudrate = 57600;
-  struct sp_port* tx = rexlab::InitializeSerialPort(rx_name, baudrate);
+  struct sp_port* tx = rexlab::InitializeSerialPort(tx_name, baudrate);
+  fmt::print("Connected to Transmitter\n");
 
+  std::string rx_name = "/dev/ttyACM1";
+  struct sp_port* rx = rexlab::InitializeSerialPort(rx_name, baudrate);
   fmt::print("Connected to Receiver\n");
 
   // Send and receive floats
@@ -62,24 +48,26 @@ int main() {
     enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE, 100);
 
     // Receive
-    int bytes_received = sp_blocking_read(tx, buf, MSG_SIZE, 100);
+    int bytes_received = sp_blocking_read(rx, buf, MSG_SIZE, 100);
     auto trecv = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
 
     // Record info 
     rexlab::HandleLibSerialError(bytes_sent);
-    fmt::print("Sent {} bytes, x = {}\n", (int)bytes_sent, msg.x);
+    fmt::print("Sample {}\n", i);
+    fmt::print("  Sent {} bytes, x = {}\n", (int)bytes_sent, msg.x);
     memcpy(&msg, buf, MSG_SIZE);
-    fmt::print("Received {} bytes, x = {}\n", bytes_received, msg.x);
+    fmt::print("  Received {} bytes, x = {}\n", bytes_received, msg.x);
+    fmt::print("  Latency {} ms\n", trecv - tsend);
 
     datasent.emplace_back(std::make_pair(tsend.count(), x_sent));
     datarecv.emplace_back(std::make_pair(trecv.count(), msg.x));
-    // usleep(10 * 1000);
+    usleep(10 * 1000);
   }
   
   // Write data to file
-  FILE* outfile = fopen("src/mocap/test/serial_latency_test_out.txt", "w");
-  FILE* infile = fopen("src/mocap/test/serial_latency_test_in.txt", "w");
+  FILE* outfile = fopen("src/mocap/test/serial_chain_latency_test_out.txt", "w");
+  FILE* infile = fopen("src/mocap/test/serial_chain_latency_test_in.txt", "w");
   for (auto& pair : datasent) {
     fmt::print(outfile, "{:0.4f}, {:0.5f}\n", pair.first, pair.second); 
   }

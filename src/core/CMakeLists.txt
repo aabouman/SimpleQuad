@@ -4,6 +4,9 @@ add_library(quadcore
 
     utils.hpp
     utils.cpp
+
+    serial.hpp
+    serial.cpp
 )
 target_link_libraries(quadcore
     PUBLIC

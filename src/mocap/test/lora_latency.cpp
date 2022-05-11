@@ -17,6 +17,7 @@
 #include "core/pose.hpp"
 #include "fmt/core.h"
 #include "core/utils.hpp"
+#include "core/serial.hpp"
 
 using namespace std::chrono_literals;
 

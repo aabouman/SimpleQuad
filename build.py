@@ -26,6 +26,11 @@ def arduino_cli(scriptfile: str, fqbn: str, action="compile", verbose=False, por
             print(cmd, "\n")
         os.system(cmd)
 
+def build_feather(script, action, **kwargs):
+    dir = os.path.join(rootdir, "src", "Arduino", script)
+    scriptfile = os.path.join(dir, script + ".ino")
+    boardname = "adafruit:samd:adafruit_feather_m0"
+    arduino_cli(scriptfile, boardname, action, **kwargs)
 
 def build_lora_tx(action, **kwargs):
     dir = os.path.join(rootdir, "src", "Arduino", "lora_relay")
@@ -50,7 +55,9 @@ targets = [
     # "mocap",
     "lora_tx",
     "lora_rx",
-    "lora_tx_latency"
+    "lora_tx_latency",
+    "lora_tx_serial",
+    "lora_rx_serial"
 ]
 parser = argparse.ArgumentParser()
 parser.add_argument("target",
@@ -82,6 +89,6 @@ if args.target == "lora_tx":
     build_lora_tx(args.action, verbose=args.verbose, port=args.port)
 elif args.target == "lora_rx":
     build_lora_rx(args.action, verbose=args.verbose, port=args.port)
-elif args.target == "lora_tx_latency":
-    build_lora_tx_latency(args.action, verbose=args.verbose, port=args.port)
+else:
+    build_feather(args.target, args.action, verbose=args.verbose, port=args.port)
     
