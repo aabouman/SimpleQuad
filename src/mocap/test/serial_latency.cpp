@@ -1,18 +1,73 @@
-#include <libserialport.h>
 #include <fmt/core.h>
+#include <libserialport.h>
+#include <unistd.h>
+
+#include <chrono>
+#include <vector>
 
 #include "core/utils.hpp"
 
+struct MyMsg {
+  float x;
+};
+constexpr int MSG_SIZE = sizeof(MyMsg);
+
 int main() {
-  struct sp_port* tx;
+  // Open Serial port
   std::string rx_name = "/dev/ttyACM0";
   int baudrate = 57600;
-  rexlab::LibSerialCheck(sp_get_port_by_name(rx_name.c_str(), &tx));
-  rexlab::LibSerialCheck(sp_open(tx, SP_MODE_READ));
-  rexlab::LibSerialCheck(sp_set_baudrate(tx, baudrate));
-  rexlab::LibSerialCheck(sp_set_bits(tx, 8));
-  rexlab::LibSerialCheck(sp_set_parity(tx, SP_PARITY_NONE));
-  rexlab::LibSerialCheck(sp_set_stopbits(tx, 1));
-  rexlab::LibSerialCheck(sp_set_flowcontrol(tx, SP_FLOWCONTROL_NONE));
+  struct sp_port* tx = rexlab::InitializeSerialPort(rx_name, baudrate);
+
   fmt::print("Connected to Receiver\n");
+
+  // Send and receive floats
+  const int nsamples = 100;
+  char buf[MSG_SIZE];
+  MyMsg msg;
+  msg.x = 0.0;
+  std::vector<std::pair<double, float>> datasent;
+  std::vector<std::pair<double, float>> datarecv;
+  datasent.reserve(nsamples);
+  datarecv.reserve(nsamples);
+  auto tstart = std::chrono::high_resolution_clock::now();
+  using fmillisecond = std::chrono::duration<float, std::milli>;
+
+  for (int i = 0; i < nsamples; ++i) {
+    float x_sent = i * 0.001;
+    msg.x = x_sent; 
+
+    // Send data
+    memcpy(buf, &msg, MSG_SIZE);
+    auto tsend = std::chrono::duration_cast<fmillisecond>(
+        std::chrono::high_resolution_clock::now() - tstart);
+    enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE, 100);
+
+    // Receive
+    int bytes_received = sp_blocking_read(tx, buf, MSG_SIZE, 100);
+    auto trecv = std::chrono::duration_cast<fmillisecond>(
+        std::chrono::high_resolution_clock::now() - tstart);
+
+    // Record info 
+    rexlab::HandleLibSerialError(bytes_sent);
+    fmt::print("Sent {} bytes, x = {}\n", (int)bytes_sent, msg.x);
+    memcpy(&msg, buf, MSG_SIZE);
+    fmt::print("Received {} bytes, x = {}\n", bytes_received, msg.x);
+
+    datasent.emplace_back(std::make_pair(tsend.count(), x_sent));
+    datarecv.emplace_back(std::make_pair(trecv.count(), msg.x));
+    usleep(10 * 1000);
+  }
+  
+  // Write data to file
+  FILE* outfile = fopen("src/mocap/test/serial_latency_test_out.txt", "w");
+  FILE* infile = fopen("src/mocap/test/serial_latency_test_in.txt", "w");
+  for (auto& pair : datasent) {
+    fmt::print(outfile, "{:0.4f}, {:0.5f}\n", pair.first, pair.second); 
+  }
+  for (auto& pair : datarecv) {
+    fmt::print(infile, "{:0.4f}, {:0.5f}\n", pair.first, pair.second); 
+  }
+  fclose(outfile);
+  fclose(infile);
+  return 0;
 }

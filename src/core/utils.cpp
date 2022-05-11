@@ -79,6 +79,21 @@ std::string TcpAddress::ToString() {
   return addr_ + port_string;
 }
 
+struct sp_port* InitializeSerialPort(std::string& portpath, int baudrate) {
+  struct sp_port* port;
+
+  rexlab::HandleLibSerialError(sp_get_port_by_name(portpath.c_str(), &port));
+  fmt::print("Port name: {}\n", sp_get_port_name(port));
+  fmt::print("Port description: {}\n", sp_get_port_description(port));
+  rexlab::HandleLibSerialError(sp_open(port, SP_MODE_READ_WRITE));
+  rexlab::HandleLibSerialError(sp_set_baudrate(port, baudrate));
+  rexlab::HandleLibSerialError(sp_set_bits(port, 8));
+  rexlab::HandleLibSerialError(sp_set_parity(port, SP_PARITY_NONE));
+  rexlab::HandleLibSerialError(sp_set_stopbits(port, 1));
+  rexlab::HandleLibSerialError(sp_set_flowcontrol(port, SP_FLOWCONTROL_NONE));
+  return port;
+}
+
 std::vector<std::string> GetPortList() {
   std::vector<std::string> ports;
 
@@ -122,6 +137,17 @@ bool LibSerialCheck(enum sp_return result) {
   case SP_OK:
   default:
     return true;
+  }
+}
+
+void HandleLibSerialError(enum sp_return result) {
+  try {
+    LibSerialCheck(result);
+  } catch (LibSerialPortError& e) {
+    fmt::print("Error Calling libserialport\n");
+    char* err_msg = sp_last_error_message();
+    fmt::print("Got error: {}\n", err_msg);
+    sp_free_error_message(err_msg);
   }
 }
 
