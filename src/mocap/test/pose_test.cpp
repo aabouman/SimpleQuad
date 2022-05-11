@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <inttypes.h>
 
-#include "core/pose.hpp"
+#include "common/pose.hpp"
 #include "fmt/core.h"
 
 

@@ -1,8 +1,8 @@
 #include "utils.hpp"
 
-#include <fmt/core.h>
-#include <fmt/chrono.h>
-#include <libserialport.h>
+#include <iostream>
+// #include <fmt/core.h>
+// #include <fmt/chrono.h>
 
 namespace rexlab {
 
@@ -45,7 +45,8 @@ void RatePrinter::Print() {
     std::chrono::duration<double, std::ratio<1>> t_elapsed = std::chrono::high_resolution_clock::now() - time_start_;
     if (t_elapsed > period_) {
       double average_rate = count_ / t_elapsed.count();
-      fmt::print("Average rate: {} Hz\n", average_rate);
+
+      std::cout << "Average rate: " << average_rate << " Hz" << std::endl;
       count_ = 0;
       time_start_ = std::chrono::high_resolution_clock::now();
     }
@@ -79,26 +80,4 @@ std::string TcpAddress::ToString() {
   return addr_ + port_string;
 }
 
-
-// int VerifyRead(char* buf, int len, uint8_t msg_id) {
-//   int start_index;
-//   uint8_t byte;
-//   for (start_index = 0; start_index < len; ++start_index) {
-//     byte = buf[start_index];
-//     if (byte == msg_id) {
-//       break;
-//     }
-//   }
-//   if (start_index > 0) {
-//     fmt::print("Not at begining of message, Trying to fix.\n");
-//     int received_length = len - start_index;
-
-//     // Shift the data over to the start of the buffer
-//     for (int i = 0; i < received_length; ++i) {
-//       buf[i] = buf[i + start_index];
-//     }
-//   }
-//   return start_index;
-// }
-  
 }  // namespace rexlab

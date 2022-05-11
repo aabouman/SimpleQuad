@@ -76,7 +76,8 @@ include(CTest)
 #############################################
 
 # quadcore
-add_subdirectory("../core" "core")
+add_subdirectory("../common" "common")
+add_subdirectory("../utils" "utils")
 
 add_library(mocap_lib
   Mocap.hpp
@@ -93,7 +94,8 @@ target_link_libraries(mocap_lib
   NatNetSDK
   fmt::fmt
   libserialport
-  quadcore
+  quadcommon
+  quadutils
 )
 target_include_directories(mocap_lib
   INTERFACE

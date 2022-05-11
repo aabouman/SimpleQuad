@@ -14,10 +14,10 @@
 
 #include "NatNetTypes.h"
 #include "callbacks.hpp"
-#include "core/pose.hpp"
+#include "common/pose.hpp"
 #include "fmt/core.h"
-#include "core/utils.hpp"
-#include "core/serial.hpp"
+#include "common/utils.hpp"
+#include "utils/serial.hpp"
 
 using namespace std::chrono_literals;
 

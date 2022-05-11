@@ -5,8 +5,8 @@
 #include <fmt/core.h>
 
 #include "callbacks.hpp"
-#include "core/utils.hpp"
-#include "core/serial.hpp"
+#include "common/utils.hpp"
+#include "utils/serial.hpp"
 
 
 TEST(LORATEST, Connection) {

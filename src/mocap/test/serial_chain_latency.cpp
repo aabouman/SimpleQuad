@@ -6,8 +6,8 @@
 #include <fmt/core.h>
 #include <fmt/chrono.h>
 
-#include "core/utils.hpp"
-#include "core/serial.hpp"
+#include "common/utils.hpp"
+#include "utils/serial.hpp"
 
 struct MyMsg {
   float x;

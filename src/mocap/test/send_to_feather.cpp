@@ -1,8 +1,8 @@
 #include "callbacks.hpp"
 #include "NatNetTypes.h"
 #include "fmt/core.h"
-#include "core/utils.hpp"
-#include "core/serial.hpp"
+#include "common/utils.hpp"
+#include "utils/serial.hpp"
 #include <string>
 
 #include <gtest/gtest.h>
