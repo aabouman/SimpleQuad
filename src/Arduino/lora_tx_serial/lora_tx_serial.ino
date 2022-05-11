@@ -1,3 +1,4 @@
+#include <cstring>
 #define RFM95_CS 8
 #define RFM95_RST 4
 #define RFM95_INT 3
@@ -28,9 +29,16 @@ void loop() {
   int bytes_received = 0;
 
   // Fast code
-  if (bytes_available) {
+  if (bytes_available >= MSG_SIZE) { 
     bytes_received = Serial.readBytes(buf, bytes_available);
-    Serial1.write(buf, MSG_SIZE);
+    int start_index = 0;
+    for (int i = 0; i < MSG_SIZE; ++i) {
+      if (buf[i] == MsgID) {
+        break;
+      }
+    }
+    memcpy(msg, buf+start_index, MSG_SIZE);
+    Serial1.write(msg, MSG_SIZE);
     // Serial1.write(buf, bytes_received);
   }
   return;

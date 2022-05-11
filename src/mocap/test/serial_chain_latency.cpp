@@ -32,7 +32,9 @@ int main() {
   char buf[MSG_SIZE+1];
   char recv[100];
   MyMsg msg;
+  MyMsg msg_recv;
   msg.x = 0.0;
+  msg_recv.x = -1.0;
   std::vector<std::pair<double, float>> datasent;
   std::vector<std::pair<double, float>> datarecv;
   datasent.reserve(nsamples);
@@ -47,42 +49,41 @@ int main() {
   for (int i = 0; i < MSG_SIZE; ++i) {
     buf[i+1] = i + 'a';
   }
+  // memcpy(buf+1, &msg, MSG_SIZE);
+  memcpy(&msg, buf+1, MSG_SIZE);
+  float x = msg.x;
+  fmt::print("  Sent x = {}\n", x);
   auto t_send = std::chrono::high_resolution_clock::now();
   enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
 
-  // int bytes_available_tx = 0;
-  // bytes_available_tx = sp_blocking_read(tx, recv, 100, 10);
-  // fmt::print("  Message from Tx: ");
-  // for (int i = 0; i < bytes_available_tx; ++i) {
-  //   fmt::print("{}", recv[i]);
-  // }
-  // fmt::print("\n");
-
   // Receiving
-  fmt::print("\nReceiving...\n");
+  fmt::print("Receiving...\n");
   int bytes_received = sp_blocking_read(rx, recv, 100, 10);
   auto t_recv = std::chrono::high_resolution_clock::now();
   auto latency = std::chrono::duration_cast<fmillisecond>(t_recv - t_send);
 
+  fmt::print("Summary:\n");
   fmt::print("  Sent {} bytes\n", (int)bytes_sent);
-  fmt::print("  Message: [");
+  fmt::print("  Message: [ ");
   for (int i = 0; i < (int)bytes_sent; ++i) {
-    fmt::print("{}", buf[i]);
+    fmt::print("{} ", (int)buf[i]);
   }
   fmt::print("]\n");
-  fmt::print("{} bytes received\n", bytes_received);
-  fmt::print("  Message from Rx: [");
+  fmt::print("  {} bytes received\n", bytes_received);
+  fmt::print("  Message from Rx: [ ");
   for (int i = 0; i < bytes_received; ++i) {
-    fmt::print("{}", recv[i]);
+    fmt::print("{} ", (int)recv[i]);
   }
   fmt::print("]\n");
-  fmt::print("Latency {}\n", latency);
+  memcpy(&msg_recv, recv+1, MSG_SIZE);
+  float x_recv = msg_recv.x;
+  fmt::print("  Got x = {}\n", x_recv);
+  fmt::print("Latency {}\n\n", latency);
 
-    
-  // return 0;
 
   for (int i = 0; i < nsamples; ++i) {
     float x_sent = i * 0.001;
+    msg_recv.x = -1.0;
     msg.x = x_sent; 
 
     // Send data
@@ -93,7 +94,7 @@ int main() {
     enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
 
     // Receive
-    int bytes_received = sp_blocking_read(rx, buf, MSG_SIZE+1, 100);
+    int bytes_received = sp_blocking_read(rx, recv, MSG_SIZE+1, 100);
     auto trecv = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
 
@@ -101,9 +102,16 @@ int main() {
     rexlab::HandleLibSerialError(bytes_sent);
     fmt::print("Sample {}\n", i);
     fmt::print("  Sent {} bytes, x = {}\n", (int)bytes_sent, msg.x);
-    memcpy(&msg, buf+1, MSG_SIZE);
-    fmt::print("  Received {} bytes, x = {}, ID = {}\n", bytes_received, msg.x, (int)buf[0]);
+    memcpy(&msg_recv, recv+1, MSG_SIZE);
+    fmt::print("  Received {} bytes, x = {}, ID = {}\n", bytes_received, msg_recv.x, (int)recv[0]);
     fmt::print("  Latency {} ms\n", trecv - tsend);
+    int id_index = 0;
+    for (; id_index < MSG_SIZE + 1; ++id_index) {
+      if (recv[id_index] == MyMsg::MsgID()) {
+        break;
+      }
+    }
+    fmt::print("  ID index: {}\n", id_index);
 
     datasent.emplace_back(std::make_pair(tsend.count(), x_sent));
     datarecv.emplace_back(std::make_pair(trecv.count(), msg.x));
