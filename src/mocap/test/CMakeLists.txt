@@ -10,6 +10,7 @@ function(mocaptest testname)
 endfunction()
 
 mocaptest(send_to_feather)
+mocaptest(lora_latency)
 
 mocaptest(serial_test)
 gtest_discover_tests(serial_test) 

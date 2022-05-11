@@ -57,7 +57,9 @@ bool SerialCallback::Open() {
 
 void SerialCallback::Close() {
   if (IsOpen()) {
+    fmt::print("Closing port...\n");
     sp_close(port_);
+    fmt::print("Port closed!\n");
     sp_free_port(port_);
     is_open_ = false;
   }
@@ -76,24 +78,25 @@ bool SerialCallback::WriteBytes(const char* data, size_t size) {
   // fmt::print("Writing to serial...\n");
   if (IsOpen()) {
     // Check for input from the serial port and print to stdout
-    // if (sp_input_waiting(port_) > 0) {
-    //   int input_bytes = sp_input_waiting(port_);
-    //   fmt::print("Got message of length {} from Feather: ", input_bytes);
-    //   char* tempbuf = (char*) malloc(input_bytes);
-    //   sp_blocking_read(port_, tempbuf, std::min(1000, input_bytes), 100);
+    if (check_for_input_ && (sp_input_waiting(port_) > 0)) {
+      int input_bytes = sp_input_waiting(port_);
+      fmt::print("Got message of length {} from Feather: ", input_bytes);
+      char* tempbuf = (char*) malloc(input_bytes);
+      sp_blocking_read(port_, tempbuf, std::min(1000, input_bytes), 100);
 
-    //   // Convert char array to valid string
-    //   std::string message = "";
-    //   for (int i = 0; i < input_bytes; ++i) {
-    //     message += tempbuf[i];
-    //   }
-    //   fmt::print("{}", message);
-    // }
+      // Convert char array to valid string
+      std::string message = "";
+      for (int i = 0; i < input_bytes; ++i) {
+        message += tempbuf[i];
+      }
+      fmt::print("{}", message);
+    }
 
     // Write the pose data to the serial port
-    fmt::print("Writing data\n");
-    sp_blocking_write(port_, data, size, timeout_.count());
-    fmt::print("Finished writing data\n");
+    // fmt::print("Writing data\n");
+    int bytes = sp_blocking_write(port_, data, size, timeout_.count());
+    (void) bytes;
+    // fmt::print("Finished writing data. Wrote {} bytes\n", bytes);
     // sp_drain(port_);  // make sure the transmission is complete before continuing
     // fmt::print("Finished drain\n");
     return true;

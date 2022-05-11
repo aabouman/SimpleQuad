@@ -16,6 +16,6 @@ struct PoseMsg {
 };
 
 void PoseToBytes(char* buf, const PoseMsg& pose);
-void PoseFromBytes(PoseMsg& pose, const char* buf);
+bool PoseFromBytes(PoseMsg& pose, const char* buf);
 
 }  // namespace rexlab

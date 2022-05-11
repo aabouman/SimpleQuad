@@ -17,6 +17,7 @@ public:
   void Close();
   bool WriteBytes(const char *data, size_t size);
   void SetTimeout(int time_ms);
+  void CheckForInput(bool flag) { check_for_input_ = flag; }
 
   template <class Duration> void SetTimeout(Duration time) { timeout_ = time; }
 
@@ -27,6 +28,7 @@ private:
   int baud_rate_;
   struct sp_port *port_;
   bool is_open_ = false;
+  bool check_for_input_ = false;
   char buf_[sizeof(PoseMsg)];
   std::chrono::milliseconds timeout_ = std::chrono::milliseconds(100);
 };

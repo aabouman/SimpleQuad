@@ -30,12 +30,17 @@ def build_lora_tx(action, **kwargs):
     boardname = "adafruit:samd:adafruit_feather_m0"
     arduino_cli(scriptfile, boardname, action, **kwargs)
 
+def build_lora_rx(action, **kwargs):
+    dir = os.path.join(rootdir, "src", "Arduino", "lora_rx")
+    scriptfile = os.path.join(dir, "lora_rx.ino")
+    boardname = "adafruit:samd:adafruit_feather_m0"
+    arduino_cli(scriptfile, boardname, action, **kwargs)
 
 # Parse arguments
 targets = [
     # "mocap",
     "lora_tx",
-    # "lora_rx",
+    "lora_rx",
 ]
 parser = argparse.ArgumentParser()
 parser.add_argument("target",
@@ -65,3 +70,6 @@ cache_dir = os.path.join(bin_dir, "cache")
 # Call the right build function
 if args.target == "lora_tx":
     build_lora_tx(args.action, verbose=args.verbose, port=args.port)
+elif args.target == "lora_rx":
+    build_lora_rx(args.action, verbose=args.verbose, port=args.port)
+    
