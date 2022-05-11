@@ -5,7 +5,7 @@
 #include <string>
 
 #include "libserialport.h"
-#include "pose.hpp"
+#include "core/pose.hpp"
 
 namespace rexlab {
 

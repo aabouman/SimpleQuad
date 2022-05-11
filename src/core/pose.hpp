@@ -1,6 +1,11 @@
 #pragma once
 
+#include <inttypes.h>
+
+namespace rexlab {
+
 struct PoseMsg {
+    static constexpr uint8_t MsgID() { return 11; }
     float x;
     float y;
     float z;
@@ -12,3 +17,5 @@ struct PoseMsg {
 
 void PoseToBytes(char* buf, const PoseMsg& pose);
 void PoseFromBytes(PoseMsg& pose, const char* buf);
+
+}  // namespace rexlab
