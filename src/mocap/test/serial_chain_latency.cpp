@@ -10,6 +10,7 @@
 #include "common/pose.hpp"
 #include "common/utils.hpp"
 #include "utils/serial.hpp"
+#include "mocap/callbacks.hpp"
 
 struct MyMsg {
   static constexpr uint8_t MsgID() { return 120; }
@@ -22,15 +23,17 @@ int main() {
   // Open Serial ports
   std::string tx_name = "/dev/ttyACM0";
   int baudrate = 57600;
-  struct sp_port* tx = rexlab::InitializeSerialPort(tx_name, baudrate);
+  rexlab::SerialCallback tx(tx_name, baudrate);
+  tx.Open();
   fmt::print("Connected to Transmitter\n");
+
 
   std::string rx_name = "/dev/ttyACM1";
   struct sp_port* rx = rexlab::InitializeSerialPort(rx_name, baudrate);
   fmt::print("Connected to Receiver\n");
 
   // Send and receive floats
-  const int nsamples = 40;
+  const int nsamples = 400;
   char buf[MSG_SIZE+1];
   char recv[100];
   Pose msg;
@@ -46,7 +49,6 @@ int main() {
 
   // Sending info
   fmt::print("\nSending...\n");
-  // memcpy(buf+1, &msg, MSG_SIZE);
   buf[0] = Pose::MsgID();
   for (int i = 0; i < MSG_SIZE; ++i) {
     buf[i+1] = i + 'a';
@@ -54,8 +56,9 @@ int main() {
   memcpy(&msg, buf+1, MSG_SIZE);
   float x = msg.x;
   fmt::print("  Sent x = {}\n", x);
+  tx.SetTimeout(100);
   auto t_send = std::chrono::high_resolution_clock::now();
-  enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 100);
+  int bytes_sent = tx.WriteBytes(buf, MSG_SIZE+1);
 
   // Receiving
   fmt::print("Receiving...\n");
@@ -82,7 +85,7 @@ int main() {
   fmt::print("Latency {}\n\n", latency);
 
   // return 0;
-
+  tx.SetTimeout(2);
   for (int i = 0; i < nsamples; ++i) {
     float x_sent = i * 0.001;
     msg_recv.x = -1.0;
@@ -93,15 +96,18 @@ int main() {
     buf[0] = Pose::MsgID();
     auto tsend = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
-    enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 2);
+    // enum sp_return bytes_sent = sp_blocking_write(tx, buf, MSG_SIZE+1, 2);
+    int bytes_sent = tx.WriteBytes(buf, MSG_SIZE+1);
 
     // Receive
     int bytes_received = sp_blocking_read(rx, recv, MSG_SIZE+1, 20);
     auto trecv = std::chrono::duration_cast<fmillisecond>(
         std::chrono::high_resolution_clock::now() - tstart);
 
+    (void) bytes_sent;
+    (void) bytes_received;
+
     // Record info 
-    rexlab::HandleLibSerialError(bytes_sent);
     fmt::print("Sample {}\n", i);
     fmt::print("  Sent {} bytes, x = {}\n", (int)bytes_sent, msg.x);
     memcpy(&msg_recv, recv+1, MSG_SIZE);
@@ -117,7 +123,7 @@ int main() {
 
     datasent.emplace_back(std::make_pair(tsend.count(), x_sent));
     datarecv.emplace_back(std::make_pair(trecv.count(), msg.x));
-    usleep(1 * 1000);
+    // usleep(1 * 1000);
   }
   
   // Write data to file
@@ -131,5 +137,6 @@ int main() {
   }
   fclose(outfile);
   fclose(infile);
+  sp_free_port(rx);
   return 0;
 }

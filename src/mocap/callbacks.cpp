@@ -15,6 +15,10 @@ void RigidBodyToBytes(char* buf, const sRigidBodyData& data) {
 SerialCallback::SerialCallback(const std::string &port_name, int baud_rate)
     : port_name_(port_name),
       baud_rate_(baud_rate) {}
+  
+SerialCallback::~SerialCallback() {
+  this->Close();
+}
 
 bool SerialCallback::Open() {
 
@@ -75,7 +79,7 @@ void SerialCallback::operator()(const sRigidBodyData &data) {
     WriteBytes(buf_, sizeof(PoseMsg));
 }
 
-bool SerialCallback::WriteBytes(const char* data, size_t size) {
+int SerialCallback::WriteBytes(const char* data, size_t size) {
   // fmt::print("Writing to serial...\n");
   if (IsOpen()) {
     // Check for input from the serial port and print to stdout
@@ -96,15 +100,14 @@ bool SerialCallback::WriteBytes(const char* data, size_t size) {
     // Write the pose data to the serial port
     // fmt::print("Writing data\n");
     int bytes = sp_blocking_write(port_, data, size, timeout_.count());
-    (void) bytes;
     // fmt::print("Finished writing data. Wrote {} bytes\n", bytes);
     // sp_drain(port_);  // make sure the transmission is complete before continuing
     // fmt::print("Finished drain\n");
-    return true;
+    return bytes;
   } else {
     fmt::print("WARNING: Trying to write to a closed port!\n");
   }
-  return false;
+  return 0;
 }
 
 // void ZMQCallback::WriteBytes(const char* data, size_t size) {

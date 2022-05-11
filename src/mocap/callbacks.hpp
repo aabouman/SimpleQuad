@@ -12,10 +12,11 @@ namespace rexlab {
 class SerialCallback {
 public:
   SerialCallback(const std::string &port_name, int baudrate);
+  ~SerialCallback();
   bool Open();
   bool IsOpen() { return is_open_; }
   void Close();
-  bool WriteBytes(const char *data, size_t size);
+  int WriteBytes(const char *data, size_t size);
   void SetTimeout(int time_ms);
   void CheckForInput(bool flag) { check_for_input_ = flag; }
 
