@@ -9,7 +9,7 @@
 #include <NatNetClient.h>
 #include <pthread.h>
 
-namespace rexlab {
+namespace rexquad {
 
 class Mocap {
    public:
@@ -39,4 +39,4 @@ class Mocap {
 
 };
 
-}  // namespace rexlab
+}  // namespace rexquad

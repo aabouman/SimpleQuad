@@ -5,7 +5,7 @@
 #include "fmt/core.h"
 
 
-namespace rexlab {
+namespace rexquad {
 
 TEST(PoseTests, Serialization) {
     fmt::print("Size of PoseMsg: {}\n", sizeof(PoseMsg));

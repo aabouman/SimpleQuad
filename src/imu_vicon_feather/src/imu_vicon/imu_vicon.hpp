@@ -12,7 +12,7 @@
 #define RFM95_RST 4
 #define RFM95_INT 3
 
-constexpr int POSE_MSG_SIZE = sizeof(rexlab::Pose<int16_t>);
+constexpr int POSE_MSG_SIZE = sizeof(rexquad::Pose<int16_t>);
 
 typedef struct _IMU_VICON
 {

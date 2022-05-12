@@ -6,7 +6,7 @@
 #include <cmath>
 #include <type_traits>
 
-namespace rexlab
+namespace rexquad
 {
 
   namespace
@@ -206,4 +206,4 @@ namespace rexlab
   // template<>
   // Pose<double>(const Pose<int16_t>& pint);
 
-} // namespace rexlab
+} // namespace rexquad

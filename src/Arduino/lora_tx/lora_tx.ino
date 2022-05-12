@@ -8,7 +8,7 @@
 #define RF95_FREQ 915.0
 #define LED_PIN 13
 
-using Pose = rexlab::PoseMsg;
+using Pose = rexquad::PoseMsg;
 constexpr int MSG_SIZE = sizeof(Pose) + 1;
 constexpr uint8_t MsgID = Pose::MsgID();
 

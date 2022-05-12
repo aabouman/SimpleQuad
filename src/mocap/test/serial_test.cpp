@@ -12,10 +12,10 @@
 TEST(LORATEST, Connection) {
     const char* port = "/dev/ttyACM0";
     int baudrate = 57600;
-    rexlab::SerialCallback lora(port, baudrate);
+    rexquad::SerialCallback lora(port, baudrate);
 
     sRigidBodyData rbdata; 
-    std::vector<std::string> ports = rexlab::GetPortList();
+    std::vector<std::string> ports = rexquad::GetPortList();
     for (auto& port : ports) {
         fmt::print("{}\n", port);
     }

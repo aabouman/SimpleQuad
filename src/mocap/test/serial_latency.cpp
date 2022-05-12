@@ -35,7 +35,7 @@ int main() {
   // Open Serial port
   std::string rx_name = "/dev/ttyACM0";
   int baudrate = 57600;
-  struct sp_port* tx = rexlab::InitializeSerialPort(rx_name, baudrate);
+  struct sp_port* tx = rexquad::InitializeSerialPort(rx_name, baudrate);
 
   fmt::print("Connected to Receiver\n");
 
@@ -67,7 +67,7 @@ int main() {
         std::chrono::high_resolution_clock::now() - tstart);
 
     // Record info 
-    rexlab::HandleLibSerialError(bytes_sent);
+    rexquad::HandleLibSerialError(bytes_sent);
     fmt::print("Sent {} bytes, x = {}\n", (int)bytes_sent, msg.x);
     memcpy(&msg, buf, MSG_SIZE);
     fmt::print("Received {} bytes, x = {}\n", bytes_received, msg.x);

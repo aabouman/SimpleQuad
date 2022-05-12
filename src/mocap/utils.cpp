@@ -4,7 +4,7 @@
 #include <fmt/chrono.h>
 #include <libserialport.h>
 
-namespace rexlab {
+namespace rexquad {
 
  
-}  // namespace rexlab
+}  // namespace rexquad

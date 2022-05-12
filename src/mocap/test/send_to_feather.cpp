@@ -12,11 +12,11 @@ int main() {
 
     const char* port = "/dev/ttyACM0";
     int baudrate = 57600;
-    rexlab::SerialCallback lora(port, baudrate);
+    rexquad::SerialCallback lora(port, baudrate);
     lora.SetTimeout(200);
 
     sRigidBodyData rbdata; 
-    std::vector<std::string> ports = rexlab::GetPortList();
+    std::vector<std::string> ports = rexquad::GetPortList();
     for (auto& port : ports) {
         fmt::print("{}\n", port);
     }

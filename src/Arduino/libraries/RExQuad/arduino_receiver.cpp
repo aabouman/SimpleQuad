@@ -1,5 +1,5 @@
 #include "arduino_receiver.hpp"
 
-namespace rexlab {
+namespace rexquad {
 
-}  // namespace rexlab
+}  // namespace rexquad

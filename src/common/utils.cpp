@@ -1,7 +1,7 @@
 #include "utils.hpp"
 
 
-namespace rexlab {
+namespace rexquad {
 
  
 std::string MakeTcpAddress(const std::string& addr) {
@@ -30,4 +30,4 @@ std::string TcpAddress::ToString() {
   return addr_ + port_string;
 }
 
-}  // namespace rexlab
+}  // namespace rexquad

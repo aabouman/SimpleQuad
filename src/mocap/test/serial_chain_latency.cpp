@@ -16,20 +16,20 @@ struct MyMsg {
   static constexpr uint8_t MsgID() { return 120; }
   float x;
 };
-using Pose = rexlab::PoseMsg;
+using Pose = rexquad::PoseMsg;
 constexpr int MSG_SIZE = sizeof(Pose);
 
 int main() { 
   // Open Serial ports
   std::string tx_name = "/dev/ttyACM0";
   int baudrate = 57600;
-  rexlab::SerialCallback tx(tx_name, baudrate);
+  rexquad::SerialCallback tx(tx_name, baudrate);
   tx.Open();
   fmt::print("Connected to Transmitter\n");
 
 
   std::string rx_name = "/dev/ttyACM1";
-  struct sp_port* rx = rexlab::InitializeSerialPort(rx_name, baudrate);
+  struct sp_port* rx = rexquad::InitializeSerialPort(rx_name, baudrate);
   fmt::print("Connected to Receiver\n");
 
   // Send and receive floats

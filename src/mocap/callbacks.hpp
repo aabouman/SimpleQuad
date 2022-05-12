@@ -7,7 +7,7 @@
 #include "libserialport.h"
 #include "common/pose.hpp"
 
-namespace rexlab {
+namespace rexquad {
 
 class SerialCallback {
 public:
@@ -66,4 +66,4 @@ private:
     bool is_file_ = false;
 };
 
-}  // namespace rexlab
+}  // namespace rexquad

@@ -4,7 +4,7 @@
 
 #include <Arduino.h>
 
-namespace rexlab {
+namespace rexquad {
 
 /**
  * @brief Make sure the message starts with the byte `msg_id`.
@@ -82,4 +82,4 @@ class PrintAtRate {
  */
 void print_rate();
 
-}  // namespace rexlab
+}  // namespace rexquad

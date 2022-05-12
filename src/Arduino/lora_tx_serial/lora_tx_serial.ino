@@ -8,10 +8,10 @@
 
 // #include "arduino_receiver.hpp"
 
-// rexlab::SerialReceiver<Serial_> receiver(Serial, MsgID);
+// rexquad::SerialReceiver<Serial_> receiver(Serial, MsgID);
 #include "serial_utils.hpp"
 #include "pose.hpp"
-using Pose = rexlab::PoseMsg;
+using Pose = rexquad::PoseMsg;
 constexpr int MSG_SIZE = sizeof(Pose) + 1;
 constexpr uint8_t MsgID = Pose::MsgID();
 

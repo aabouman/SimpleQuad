@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace rexlab {
+namespace rexquad {
 
 
 std::string MakeTcpAddress(const std::string& addr);

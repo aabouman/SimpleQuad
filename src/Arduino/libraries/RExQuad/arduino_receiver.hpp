@@ -4,7 +4,7 @@
 
 #include "serial_utils.hpp"
 
-namespace rexlab {
+namespace rexquad {
 
 /**
  * @brief A class for receiving a fixed-size message over serial for Arduinos
@@ -39,7 +39,7 @@ namespace rexlab {
  * char* buf = reinterpret_cast<char*>(&msg);
  * 
  * // Initialize the class as a global variable with the serial port and the message ID
- * rexlab::SerialReceiver receiver(ReceivePort, kMsgID);
+ * rexquad::SerialReceiver receiver(ReceivePort, kMsgID);
  * 
  * // Call the Init function in the setup
  * void setup() {
@@ -109,4 +109,4 @@ class SerialReceiver {
 };
 
 
-}  // namespace rexlab
+}  // namespace rexquad

@@ -2,7 +2,7 @@
 
 #include <fmt/core.h>
 
-namespace rexlab {
+namespace rexquad {
 
 std::vector<std::string> GetPortList() {
   std::vector<std::string> ports;
@@ -24,15 +24,15 @@ std::vector<std::string> GetPortList() {
 struct sp_port* InitializeSerialPort(std::string& portpath, int baudrate) {
   struct sp_port* port;
 
-  rexlab::HandleLibSerialError(sp_get_port_by_name(portpath.c_str(), &port));
+  rexquad::HandleLibSerialError(sp_get_port_by_name(portpath.c_str(), &port));
   fmt::print("Port name: {}\n", sp_get_port_name(port));
   fmt::print("Port description: {}\n", sp_get_port_description(port));
-  rexlab::HandleLibSerialError(sp_open(port, SP_MODE_READ_WRITE));
-  rexlab::HandleLibSerialError(sp_set_baudrate(port, baudrate));
-  rexlab::HandleLibSerialError(sp_set_bits(port, 8));
-  rexlab::HandleLibSerialError(sp_set_parity(port, SP_PARITY_NONE));
-  rexlab::HandleLibSerialError(sp_set_stopbits(port, 1));
-  rexlab::HandleLibSerialError(sp_set_flowcontrol(port, SP_FLOWCONTROL_NONE));
+  rexquad::HandleLibSerialError(sp_open(port, SP_MODE_READ_WRITE));
+  rexquad::HandleLibSerialError(sp_set_baudrate(port, baudrate));
+  rexquad::HandleLibSerialError(sp_set_bits(port, 8));
+  rexquad::HandleLibSerialError(sp_set_parity(port, SP_PARITY_NONE));
+  rexquad::HandleLibSerialError(sp_set_stopbits(port, 1));
+  rexquad::HandleLibSerialError(sp_set_flowcontrol(port, SP_FLOWCONTROL_NONE));
   return port;
 }
 

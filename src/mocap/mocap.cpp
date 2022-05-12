@@ -22,14 +22,14 @@ static const char* LOCAL_ADDR = "192.168.1.63";
 
 int main( int argc, char* argv[] )
 {
-    rexlab::Mocap mocap = {};
+    rexquad::Mocap mocap = {};
 
     // Add callbacks
-    rexlab::PrintCallback printcallback = {};
+    rexquad::PrintCallback printcallback = {};
 
     const char* port = "ttyACM0";
     int baudrate = 57600;
-    rexlab::SerialCallback lora(port, baudrate);
+    rexquad::SerialCallback lora(port, baudrate);
 
     mocap.AddCallback(std::ref(printcallback));
     mocap.AddCallback(std::ref(lora));

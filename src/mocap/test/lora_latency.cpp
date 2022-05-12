@@ -21,10 +21,10 @@
 
 using namespace std::chrono_literals;
 
-constexpr int MSG_SIZE = sizeof(rexlab::PoseMsg);
+constexpr int MSG_SIZE = sizeof(rexquad::PoseMsg);
 
 int main() {
-  std::vector<std::string> ports = rexlab::GetPortList();
+  std::vector<std::string> ports = rexquad::GetPortList();
   fmt::print("Available Ports:\n");
   for (auto &port : ports) {
     fmt::print("  {}\n", port);
@@ -33,17 +33,17 @@ int main() {
   struct sp_port *rx;
   std::string rx_name = "/dev/ttyACM1";
   int baudrate = 57600;
-  rexlab::LibSerialCheck(sp_get_port_by_name(rx_name.c_str(), &rx));
-  rexlab::LibSerialCheck(sp_open(rx, SP_MODE_READ));
-  rexlab::LibSerialCheck(sp_set_baudrate(rx, baudrate));
-  rexlab::LibSerialCheck(sp_set_bits(rx, 8));
-  rexlab::LibSerialCheck(sp_set_parity(rx, SP_PARITY_NONE));
-  rexlab::LibSerialCheck(sp_set_stopbits(rx, 1));
-  rexlab::LibSerialCheck(sp_set_flowcontrol(rx, SP_FLOWCONTROL_NONE));
+  rexquad::LibSerialCheck(sp_get_port_by_name(rx_name.c_str(), &rx));
+  rexquad::LibSerialCheck(sp_open(rx, SP_MODE_READ));
+  rexquad::LibSerialCheck(sp_set_baudrate(rx, baudrate));
+  rexquad::LibSerialCheck(sp_set_bits(rx, 8));
+  rexquad::LibSerialCheck(sp_set_parity(rx, SP_PARITY_NONE));
+  rexquad::LibSerialCheck(sp_set_stopbits(rx, 1));
+  rexquad::LibSerialCheck(sp_set_flowcontrol(rx, SP_FLOWCONTROL_NONE));
   fmt::print("Connected to Receiver\n");
 
   const char *port = "/dev/ttyACM0";
-  rexlab::SerialCallback lora(port, baudrate);
+  rexquad::SerialCallback lora(port, baudrate);
   lora.SetTimeout(200);
 
   sRigidBodyData rbdata;
@@ -56,7 +56,7 @@ int main() {
   std::chrono::milliseconds runtime = 3s;
   char buf[MSG_SIZE];
   memset(buf, 0, MSG_SIZE);
-  rexlab::PoseMsg pose;
+  rexquad::PoseMsg pose;
   std::vector<std::pair<double, float>> datain;
   std::vector<std::pair<double, float>> dataout;
   dataout.reserve(runtime.count() * 500);
@@ -74,7 +74,7 @@ int main() {
     int input_bytes = sp_input_waiting(rx);
     if (input_bytes > 0) {
       sp_blocking_read(rx, buf, input_bytes, 0);
-      bool successful_parse = rexlab::PoseFromBytes(pose, buf);
+      bool successful_parse = rexquad::PoseFromBytes(pose, buf);
       if (successful_parse) {
         datain.emplace_back(std::make_pair(t_elapsed.count(), pose.x));
       } else {

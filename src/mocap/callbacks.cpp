@@ -5,7 +5,7 @@
 #include "common/utils.hpp"
 #include "utils/serial.hpp"
 
-namespace rexlab {
+namespace rexquad {
 
 void RigidBodyToBytes(char* buf, const sRigidBodyData& data) {
     PoseMsg pose = {data.x, data.y, data.z, data.qw, data.qx, data.qy, data.qz};
@@ -117,4 +117,4 @@ int SerialCallback::WriteBytes(const char* data, size_t size) {
 
 
 
-}  // namespace rexlab_
+}  // namespace rexquad_

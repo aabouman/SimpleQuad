@@ -6,7 +6,7 @@
 
 #include "pose.hpp"
 
-using Pose = rexlab::PoseMsg;
+using Pose = rexquad::PoseMsg;
 constexpr int MSG_SIZE = sizeof(Pose) + 1;
 constexpr uint8_t MsgID = Pose::MsgID();
 

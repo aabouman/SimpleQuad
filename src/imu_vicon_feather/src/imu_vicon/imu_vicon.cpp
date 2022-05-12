@@ -18,8 +18,8 @@ struct imu_vicon_relay
     sensors_event_t imu_event;
     Adafruit_BNO055 bno;
     // VICON attributes
-    rexlab::Pose<float> vicon_float;
-    rexlab::Pose<int16_t> vicon_int16;
+    rexquad::Pose<float> vicon_float;
+    rexquad::Pose<int16_t> vicon_int16;
     uint8_t buf[POSE_MSG_SIZE];
     bool new_msg;
     // Default to Identity quaternion
@@ -47,8 +47,8 @@ void init_imuViconRelay()
     receiver.offset_quat = Quaternionf(1, 0, 0, 0);
 
     // Setup VICON params
-    rexlab::Pose<float> vicon_float;
-    rexlab::Pose<int16_t> vicon_int16;
+    rexquad::Pose<float> vicon_float;
+    rexquad::Pose<int16_t> vicon_int16;
     // Initialize global variable
     receiver.vicon_float = vicon_float;
     receiver.vicon_int16 = vicon_int16;
@@ -79,7 +79,7 @@ static void onLoRaReceive(int packetSize)
     if (packetSize)
     {
         LoRa.readBytes(receiver.buf, POSE_MSG_SIZE);
-        receiver.vicon_int16 = *((rexlab::Pose<int16_t> *)receiver.buf);
+        receiver.vicon_int16 = *((rexquad::Pose<int16_t> *)receiver.buf);
 
         receiver.new_msg = true;
     }
@@ -90,7 +90,7 @@ bool hasLoRaReceived()
     return receiver.new_msg;
 }
 
-void ConvertPoseToVicon(const rexlab::Pose<float> &pose, imu_vicon_t *data)
+void ConvertPoseToVicon(const rexquad::Pose<float> &pose, imu_vicon_t *data)
 {
     data->pos_x = pose.position_x;
     data->pos_y = pose.position_y;

@@ -8,7 +8,7 @@
 
 #include <libserialport.h>
 
-namespace rexlab {
+namespace rexquad {
 
 std::vector<std::string> GetPortList();
 
@@ -44,4 +44,4 @@ class RatePrinter {
   int count_ = 0;
 };
 
-}  // namespace rexlab
+}  // namespace rexquad

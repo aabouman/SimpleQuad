@@ -2,7 +2,7 @@
 #include <NatNetClient.h>
 #include <NatNetTypes.h>
 
-namespace rexlab {
+namespace rexquad {
 
 void NATNET_CALLCONV MessageHandler(Verbosity msgType, const char* msg);      // receives NatNet error messages
 void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData);    // receives data from the server
@@ -337,4 +337,4 @@ void NATNET_CALLCONV DataHandler(sFrameOfMocapData* data, void* pUserData)
 
 }
 
-}  // namespace rexlab
+}  // namespace rexquad

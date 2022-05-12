@@ -1,6 +1,6 @@
 #include "serial_utils.hpp"
 
-namespace rexlab {
+namespace rexquad {
 
 int VerifyRead(char* buf, int len, uint8_t msg_id) {
   // Search for start of the message
@@ -53,4 +53,4 @@ void print_rate() {
     count = 0;
   }
 }
-} // namespace rexlab
+} // namespace rexquad

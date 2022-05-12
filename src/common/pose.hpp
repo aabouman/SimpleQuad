@@ -2,7 +2,7 @@
 
 #include <inttypes.h>
 
-namespace rexlab {
+namespace rexquad {
 
 struct PoseMsg {
     static constexpr uint8_t MsgID() { return 11; }
@@ -18,4 +18,4 @@ struct PoseMsg {
 void PoseToBytes(char* buf, const PoseMsg& pose);
 bool PoseFromBytes(PoseMsg& pose, const char* buf);
 
-}  // namespace rexlab
+}  // namespace rexquad

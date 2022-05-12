@@ -6,7 +6,7 @@
  *
  * Board: LoRa Feather M0 by Adafruit
  *
- * The data is assumed to be rexlab::Pose<int16_t> message, a 24 byte message containing
+ * The data is assumed to be rexquad::Pose<int16_t> message, a 24 byte message containing
  * position and orientation information. The microcontroller will send periodic messages
  * back over serial verifying the LoRa is actually sending data.
  *
@@ -31,8 +31,8 @@
 #include "arduino_receiver.hpp"
 #include "serial_utils.hpp"
 
-// using Pose = rexlab::Pose<int16_t>;
-using Pose = rexlab::PoseMsg;
+// using Pose = rexquad::Pose<int16_t>;
+using Pose = rexquad::PoseMsg;
 
 #define RFM95_CS 8
 #define RFM95_RST 4
@@ -54,9 +54,9 @@ int ison = false;
 int tblink_start = 0;
 
 // Initialize objects
-rexlab::PrintAtRate stale_printer(1.0);
-rexlab::PrintAtRate sending_printer(1.0 / 0.5);  // print a status every 10 seconds
-rexlab::SerialReceiver<Serial_> receiver(Serial, Pose::MsgID());
+rexquad::PrintAtRate stale_printer(1.0);
+rexquad::PrintAtRate sending_printer(1.0 / 0.5);  // print a status every 10 seconds
+rexquad::SerialReceiver<Serial_> receiver(Serial, Pose::MsgID());
 
 
 void setup() {

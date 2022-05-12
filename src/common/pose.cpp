@@ -2,7 +2,7 @@
 
 #include "string.h"
 
-namespace rexlab {
+namespace rexquad {
 
 void PoseToBytes(char* buf, const PoseMsg& pose) {
     memcpy(buf+1, &pose, sizeof(PoseMsg));
@@ -17,4 +17,4 @@ bool PoseFromBytes(PoseMsg& pose, const char* buf) {
     return is_msg_id_correct;
 }
 
-}  // namespace rexlab
+}  // namespace rexquad

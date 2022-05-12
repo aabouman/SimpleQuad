@@ -7,7 +7,7 @@
 
 #include <libserialport.h>
 
-namespace rexlab {
+namespace rexquad {
 
 
-}  // namespace rexlab
+}  // namespace rexquad
