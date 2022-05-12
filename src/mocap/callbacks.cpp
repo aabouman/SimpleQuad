@@ -76,7 +76,7 @@ void SerialCallback::SetTimeout(int time_ms) {
 
 void SerialCallback::operator()(const sRigidBodyData &data) {
     RigidBodyToBytes(buf_, data);
-    WriteBytes(buf_, sizeof(PoseMsg));
+    WriteBytes(buf_, sizeof(PoseMsg) + 1);
 }
 
 int SerialCallback::WriteBytes(const char* data, size_t size) {
